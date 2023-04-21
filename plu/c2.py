@@ -21,7 +21,7 @@ except ImportError:
     system("pip install -q openai")
     import openai
 
-from . import ultroid_cmd, check_filename, udB, LOGS, fast_download, run_async
+from . import ultroid_cmd, check_filename, udB, LOGS, fast_download, run_async, HNDLR
 
 
 @run_async
@@ -44,13 +44,13 @@ def get_gpt_answer(gen_image, question, api_key):
 
 
 @ultroid_cmd(
-    pattern="a ?(.*)",
+    pattern="a ?(.*)|$",
 )
 async def openai_chat_gpt(e):
     api_key = udB.get_key("OPENAI_API")
     gen_image = False
     if not api_key:
-        return await e.eor("`OPENAI_API` key missing..")
+        return  await e.eor(f"`{HNDLR}setdb OPENAI_API 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`")
 
     args = e.pattern_match.group(1)
     reply = await e.get_reply_message()
