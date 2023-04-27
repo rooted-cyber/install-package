@@ -47,7 +47,7 @@ def get_gpt_answer(gen_image, question, api_key):
     return x["choices"][0].text.strip()
 
 
-@ultroid_cmd(pattern="p ?(.*)|$")
+@ultroid_cmd(pattern="p( (.*)|$)")
 async def openai_chat_gpt(e):
     api_key = udB.get_key("OPENAI_API")
     gen_image = False
