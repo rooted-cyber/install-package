@@ -44,7 +44,7 @@ def get_gpt_answer(gen_image, question, api_key):
 
 
 @ultroid_cmd(
-    pattern="a( (.*)|$)",
+    pattern="a( (.*)|$)",manager=True
 )
 async def openai_chat_gpt(e):
     api_key = udB.get_key("OPENAI_API")
