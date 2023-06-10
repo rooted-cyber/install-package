@@ -16,7 +16,7 @@ from re import findall
 from . import async_searcher, LOGS, ultroid_cmd
 
 
-@ultroid_cmd(pattern="gd( (.*)|$)",manager=True)
+@ultroid_cmd(pattern="cl( (.*)|$)",manager=True)
 async def extract_gdtot_links(e):
     args = e.pattern_match.group(2)
     reply = await e.get_reply_message()
