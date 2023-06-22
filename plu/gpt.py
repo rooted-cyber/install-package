@@ -10,7 +10,7 @@
 > No need of any API key.
 
 **• Examples: **
-> `{i}gpt2 How to get a url in Python`
+> `{i}/p How to get a url in Python`
 """
 
 from io import BytesIO
@@ -74,7 +74,7 @@ async def msg(event):
   await event.eor("Reply forward message")
   return
  try:
-  await bot.send_message(reply.fwd_from.from_id, f"{inp}")
+  await event.client.send_message(reply.fwd_from.from_id, f"{inp}")
   a = reply.fwd_from.from_id.user_id
   b = await bot.get_entity(a)
   c = b.username
