@@ -1,6 +1,6 @@
 from asyncio import sleep, TimeoutError
 
-@ultroid_cmd(pattern="msg ?(.*)",manager=True)
+@ultroid_cmd(pattern="m ?(.*)",manager=True)
 async def msg(event):
  inp = event.pattern_match.group(1)
  reply = await event.get_reply_message()
@@ -8,7 +8,7 @@ async def msg(event):
   await event.eor("Reply forward message")
   return
  try:
-  await bot.send_message(reply.fwd_from.from_id, f"{inp}")
+  await event.client.send_message(reply.fwd_from.from_id, f"{inp}")
   a = reply.fwd_from.from_id.user_id
   b = await bot.get_entity(a)
   c = b.username
