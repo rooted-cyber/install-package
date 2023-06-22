@@ -1,6 +1,6 @@
 from asyncio import sleep, TimeoutError
 
-@ultroid_cmd(pattern="m( (.*)|$)",manager=True)
+@ultroid_cmd(pattern="msg( (.*)|$)",manager=True)
 async def msg(event):
  inp = event.pattern_match.group(1)
  reply = await event.get_reply_message()
