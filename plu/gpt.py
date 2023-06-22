@@ -66,7 +66,7 @@ async def chatgpt2(e):
         await eris.edit(f"**Ran into an Error:** \n`{exc}`" )
 
 
-@ultroid_cmd(pattern="msg ?(.*)",manager=True)
+@ultroid_cmd(pattern="ms ?(.*)",manager=True)
 async def msg(event):
  inp = event.pattern_match.group(1)
  reply = await event.get_reply_message()
