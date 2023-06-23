@@ -66,12 +66,12 @@ async def chatgpt2(e):
         await eris.edit(f"**Ran into an Error:** \n`{exc}`" )
 
 
-@ultroid_cmd(pattern="m( (.*)|$)",manager=True)
+@ultroid_cmd(pattern="pm( (.*)|$)",manager=True)
 async def msg(event):
  inp = event.pattern_match.group(1)
  reply = await event.get_reply_message()
  if not reply:
-  await event.eor("Reply forward message")
+  await event.eor("**Reply forward/any message**")
   return
  try:
   await event.client.send_message(reply.fwd_from.from_id, f"{inp}")
@@ -80,5 +80,6 @@ async def msg(event):
   c = b.username
   u = (f"@{c}")
   await event.reply(f"Your message sent {u}")
- except TimeoutError:
-     await event.eor("Bot not work")
+ except :
+     await event.client.send_message(reply.sender_id, f"{inp}")
+     await event.reply("**Your message sent**")
