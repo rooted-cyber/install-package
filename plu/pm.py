@@ -1,9 +1,9 @@
-@ultroid_cmd(pattern="pv( (.*)|$)",manager=True)
+@ultroid_cmd(pattern="pm( (.*)|$)",manager=True)
 async def msg(event):
  inp = event.pattern_match.group(1)
  reply = await event.get_reply_message()
  if not reply:
-  await event.eor("Reply forward message")
+  await event.eor("**Reply forward/any message**")
   return
  try:
   await event.client.send_message(reply.fwd_from.from_id, f"{inp}")
