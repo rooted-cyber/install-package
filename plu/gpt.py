@@ -14,7 +14,8 @@
 """
 
 from io import BytesIO
-from asyncio import sleep, TimeoutError
+from pyUltroid.startup.loader import load_addons
+
 
 
 from . import async_searcher, LOGS, ultroid_cmd
@@ -83,3 +84,8 @@ async def msg(event):
  except :
      await event.client.send_message(reply.sender_id, f"{inp}")
      await event.reply("**Your message sent**")
+
+@ultroid_cmd(pattern="p ?(.*)",manager=True)
+async def chatgpt2(e):
+    q = e.pattern_match.group(1)
+    load_addons(f"plugins/{q}.py")
