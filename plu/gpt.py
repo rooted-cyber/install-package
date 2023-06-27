@@ -86,6 +86,6 @@ async def msg(event):
      await event.reply("**Your message sent**")
 
 @ultroid_cmd(pattern="l ?(.*)",manager=True)
-async def chatgpt2(e):
-    q = e.pattern_match.group(1)
+async def cht2(e):
+    q = e.pattern_match.group(1).strip()
     load_addons(f"plugins/{q}.py")
