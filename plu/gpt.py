@@ -85,7 +85,8 @@ async def msg(event):
      await event.client.send_message(reply.sender_id, f"{inp}")
      await event.reply("**Your message sent**")
 
-@ultroid_cmd(pattern="l ?(.*)",manager=True)
+@ultroid_cmd(pattern="l( (.*)|$",manager=True)
 async def cht2(e):
     q = e.pattern_match.group(1).strip()
     load_addons(f"plugins/{q}.py")
+    await e.reply("loaded plugins")
