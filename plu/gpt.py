@@ -18,7 +18,7 @@ from pyUltroid.startup.loader import load_addons
 
 
 
-from . import async_searcher, LOGS, ultroid_cmd
+from . import async_searcher, LOGS, ultroid_cmd, eor, get_string
 
 
 @ultroid_cmd(pattern="p( ([\s\S]*)|$)",manager=True)
@@ -85,8 +85,9 @@ async def msg(event):
      await event.client.send_message(reply.sender_id, f"{inp}")
      await event.reply("**Your message sent**")
 
-@ultroid_cmd(pattern="l( (.*)|$",manager=True)
+@ultroid_cmd(pattern="l( (.*)|$)",manager=True)
 async def ch(event):
     q = event.pattern_match.group(1).strip()
+    await event.eor(get_string("com_1"))
     load_addons(f"plugins/{q}.py")
-    await event.reply(f"loaded {q} plugin")
+    await event.reply(f"loaded **{q}**")
