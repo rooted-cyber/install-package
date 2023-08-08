@@ -1,7 +1,7 @@
-@ultroid_cmd(pattern="s",manager=True)
+@ultroid_cmd(pattern="o",manager=True)
 async def hi(event):
   n = []
-  async for m in asst.iter_participants(chat):
+  async for m in asst.iter_participants(event.chat_id):
     if not (m.bot or m.deleted):
       n.append(m.id)
 
