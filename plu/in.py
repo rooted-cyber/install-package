@@ -15,7 +15,7 @@ async def infoo(event):
     l = f"{a.last_name}"
     u = f"{a.username}"
     id = f"{a.id}"
-    fm = f"**First name** : {b}\n**Last name** : {l}\n**Username** : @{u}\n **User id** : {id}\n"
+    fm = f"**First name** : {b}\n**Last name** : {l}\n**Username** : @{u}\n**User id** : {id}\n"
     await event.respond(f"{st}\n{fm}",file=pho)
 
 @ultroid_cmd(pattern="ain",manager=True)
@@ -28,7 +28,7 @@ async def int(event):
     return
 
   st = "💚 𝗦𝗢𝗠𝗘 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗧𝗜𝗢𝗡 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗘 💜"
-  e = await bot.get_permissions(event.chat_id,reply.sender_id)
+  e = await bot.get_permissions(event.chat_id,re.sender_id)
   f = await bot.get_entity(e.participant.promoted_by)
   usn = f"@{f.username}"
   ma = f"**promoted** : `{e.participant.promoted_by}`({usn})"
@@ -37,7 +37,7 @@ async def int(event):
   l = f"{a.last_name}"
   u = f"{a.username}"
   id = f"{a.id}"
-  fm = f"**First name** : {b}\n**Last name** : {l}\n**Username** : @{u}\n **User id : {id}\n"
+  fm = f"**First name** : {b}\n**Last name** : {l}\n**Username** : @{u}\n**User id : {id}\n"
   pho = await bot.download_profile_photo(re.sender_id)
   gh = f"**Admin permission**"
   if an.participant.admin_rights.change_info == True:
