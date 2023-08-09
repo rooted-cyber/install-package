@@ -28,6 +28,10 @@ async def int(event):
     return
 
   st = "💚 𝗦𝗢𝗠𝗘 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗧𝗜𝗢𝗡 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗘 💜"
+  e = await bot.get_permissions(event.chat_id,reply.sender_id)
+  f = await bot.get_entity(e.participant.promoted_by)
+  usn = f"@{f.username}"
+  m = f"**promoted** : `{e.participant.promoted_by}`({usn})"
   a = await bot.get_entity(re.sender_id)
   b = f"{a.first_name}"
   l = f"{a.last_name}"
@@ -80,4 +84,4 @@ async def int(event):
   sa = await bot.get_permissions(event.chat_id,re.sender_id)
   sb = sa.is_admin
   if sb == True:
-    await event.client.send_message(event.chat_id,f"{st}\n\n{fm}\n{gh}\n{ch}\n{pm}\n{em}\n{dm}\n{bu}\n{iu}\n{pms}\n{ad}\n{mc}\n{ot}",file=pho)
+    await event.client.send_message(event.chat_id,f"{st}\n\n{fm}\n{gh}\n{m}\n{ch}\n{pm}\n{em}\n{dm}\n{bu}\n{iu}\n{pms}\n{ad}\n{mc}\n{ot}",file=pho)
