@@ -1,4 +1,4 @@
-from . import get_string, eor
+from . import get_string, eor, ultroid_cmd
 
 @ultroid_cmd(pattern="in",manager=True)
 async def infoo(event):
