@@ -3,6 +3,7 @@ from . import get_string, eor, ultroid_cmd
 @ultroid_cmd(pattern="in",manager=True)
 async def infoo(event):
   re = await event.get_reply_message()
+  bot = event.client
   an = await bot.get_permissions(event.chat_id,re.sender_id)
   if not re:
     await event.edit("Reply any user")
@@ -22,6 +23,7 @@ async def infoo(event):
 async def int(event):
   await event.eor(get_string("com_1"))
   re = await event.get_reply_message()
+  bot = event.client
   an = await bot.get_permissions(event.chat_id,re.sender_id)
   if not re:
     await event.edit("Reply any user")
