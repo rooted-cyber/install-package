@@ -93,8 +93,9 @@ async def ch(event):
     await event.reply(f"loaded **{q}**")
 
 
-@ultroid_cmd(pattern="s( (.*)|$)",manager=True)
-async def ch(event):
-    qr = event.pattern_match.group(1).strip()
-    await event.eor(get_string("com_1"))
-    await event.client.send_file(event.chat_id,f"plugins/{qr}")
+@ultroid_cmd(pattern="s( (.*)|$)",manager=True) 
+async def _(e): 
+  await event.eor(get_string("com_1"))
+  try: qr =e.text.split(None, 1)[1]
+  except IndexError: await e.respond("No.")
+  await e.respond(file="plugins/{}".format(qr))
