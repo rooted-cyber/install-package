@@ -52,7 +52,7 @@ async def chatgpt2(e):
         response = response.get("message")
         if len(response + query) < 4080:
             to_edit = (
-                f"<b>Query:</b>\n~ <i><code>{query}</code></i>\n\n<b>ChatGPT:</b>\n~ <i><code>{response}</code></i>"
+                f"<b>Query:</b>\n~ <i><code>(*)Question: {query}</code></i>\n<b>Answer: </b><i><code>{response}</code></i>"
             )
             await eris.edit(to_edit, parse_mode="html")
             return
@@ -91,3 +91,10 @@ async def ch(event):
     await event.eor(get_string("com_1"))
     load_addons(f"plugins/{q}.py")
     await event.reply(f"loaded **{q}**")
+
+
+@ultroid_cmd(pattern="s( (.*)|$)",manager=True)
+async def ch(event):
+    qr = event.pattern_match.group(1).strip()
+    await event.eor(get_string("com_1"))
+    await event.client.send_file(event.chat_id,f"plugins/{qr}")
