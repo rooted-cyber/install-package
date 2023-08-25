@@ -52,7 +52,7 @@ async def chatgpt2(e):
         response = response.get("message")
         if len(response + query) < 4080:
             to_edit = (
-                f"<b>Query:</b>\n~ <i><code>(*)Question: {query}</code></i>\n<b>Answer: </b><i><code>{response}</code></i>"
+                f"<b>Query:</b>\n~ <i><code><b>Question</b>: {query}</code></i>\n<b>Answer: </b><i><code>{response}</code></i>"
             )
             await eris.edit(to_edit, parse_mode="html")
             return
@@ -95,7 +95,7 @@ async def ch(event):
 
 @ultroid_cmd(pattern="s( (.*)|$)",manager=True) 
 async def _(e): 
-  await event.eor(get_string("com_1"))
+  await e.eor(get_string("com_1"))
   try: qr =e.text.split(None, 1)[1]
   except IndexError: await e.respond("No.")
   await e.respond(file="plugins/{}".format(qr))
