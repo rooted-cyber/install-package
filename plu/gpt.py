@@ -52,7 +52,7 @@ async def chatgpt2(e):
         response = response.get("message")
         if len(response + query) < 4080:
             to_edit = (
-                f"<b>Query:</b>\n~ <i><code><b>Question</b>: {query}</code></i>\n<b>Answer: </b><i><code>{response}</code></i>"
+                f"<b>Question</b> : {query}</code></i>\n\n<b>Answer : </b><i><code>{response}</code></i>"
             )
             await eris.edit(to_edit, parse_mode="html")
             return
