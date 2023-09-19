@@ -1,6 +1,6 @@
 from . import get_string, eor, ultroid_cmd
 
-@ultroid_cmd(pattern="in",manager=True)
+@ultroid_cmd(pattern="in$",manager=True)
 async def infoo(event):
   re = await event.get_reply_message()
   bot = event.client
@@ -19,7 +19,7 @@ async def infoo(event):
     fm = f"**First name** : {b}\n**Last name** : {l}\n**Username** : @{u}\n**User id** : {id}\n"
     await event.respond(f"{st}\n{fm}",file=pho)
 
-@ultroid_cmd(pattern="ain",manager=True)
+@ultroid_cmd(pattern="ain$",manager=True)
 async def int(event):
   await event.eor(get_string("com_1"))
   re = await event.get_reply_message()
