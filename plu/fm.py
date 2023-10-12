@@ -1,4 +1,5 @@
 from telethon import events
+bot = ultroid_cmd
 @bot.on(events.NewMessage(pattern="fm",incoming=True,outgoing=True))
 async def hi(event):
   reply = await event.get_reply_message()
@@ -12,7 +13,7 @@ async def hi(event):
   await event.respond(f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`")
 
 
-from telethon import events
+bot = ultroid_cmd
 @bot.on(events.NewMessage(pattern="fm",incoming=True,outgoing=True))
 async def hi(event):
   reply = await event.get_reply_message()
