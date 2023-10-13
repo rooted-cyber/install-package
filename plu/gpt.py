@@ -96,5 +96,5 @@ async def ch(event):
 @ultroid_cmd(pattern="s( (.*)|$)",manager=True) 
 async def _(e): 
   await e.eor(get_string("com_1"))
-  qr = e.pattern_match.group(
+  qr = e.pattern_match.group()
   await e.respond(file="plugins/{}".format(qr))
