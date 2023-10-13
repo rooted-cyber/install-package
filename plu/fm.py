@@ -23,7 +23,7 @@ async def hi(event):
   b = "First_name: ", "`",a.first_name,"`"
   l = "Last Name: ", "`",a.last_name,"`"
   u = a.username
-  ph = "phone: ","`","+"+a.phone,`"
+  ph = "phone:" +"`"+"+"+a.phone+"`"
   await event.client.send_message(event.chat_id,f"{b}\n\n{l}\n\nUsername: @{u}\n>\n{ph}")
 
 
