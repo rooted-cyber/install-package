@@ -1,6 +1,5 @@
 from telethon import events
-bot = ultroid_cmd
-@bot.on(events.NewMessage(pattern="fm",incoming=True,outgoing=True))
+@ultroid_cmd(events.NewMessage(pattern="fm",incoming=True,outgoing=True))
 async def hi(event):
   reply = await event.get_reply_message()
   if not reply:
@@ -13,8 +12,7 @@ async def hi(event):
   await event.respond(f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`")
 
 
-bot = ultroid_cmd
-@bot.on(events.NewMessage(pattern="fm",incoming=True,outgoing=True))
+@ultroid_cmd(events.NewMessage(pattern="fm",incoming=True,outgoing=True))
 async def hi(event):
   reply = await event.get_reply_message()
   if not reply:
