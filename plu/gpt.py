@@ -96,6 +96,5 @@ async def ch(event):
 @ultroid_cmd(pattern="s( (.*)|$)",manager=True) 
 async def _(e): 
   await e.eor(get_string("com_1"))
-  try: qr =e.text.split(None, 1)[1]
-  except IndexError: await e.respond("No.")
+  qr = e.pattern_match.group(
   await e.respond(file="plugins/{}".format(qr))
