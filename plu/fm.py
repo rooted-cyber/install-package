@@ -9,7 +9,8 @@ async def hi(event):
   b = f"{a.first_name}"
   l = f"{a.last_name}"
   u = f"{a.username}"
-  await event.respond(f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`")
+  ph = f"{a.phone}"
+  await event.respond(f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`")
 
 
 @bot.on(events.NewMessage(pattern="fm",incoming=True,outgoing=True))
@@ -22,6 +23,7 @@ async def hi(event):
   b = "First_name: ", "`",a.first_name,"`"
   l = "Last Name: ", "`",a.last_name,"`"
   u = a.username
-  await event.client.send_message(event.chat_id,f"{b}\n\n{l}\n\nUsername: @{u}")
+  ph = "phone: ","`","+"+a.phone,`"
+  await event.client.send_message(event.chat_id,f"{b}\n\n{l}\n\nUsername: @{u}\n>\n{ph}")
 
 
