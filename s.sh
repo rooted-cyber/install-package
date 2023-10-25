@@ -18,6 +18,7 @@ chs
 fi
 }
 prf() {
+cd /bin
 for b in a ap p3 pi3 pr3 g w y;do
 chmod 755 $b
 sudo chmod 755 $b
@@ -32,4 +33,5 @@ chi
 fi
 }
 chi
+prm
 prf
