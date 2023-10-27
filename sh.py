@@ -12,7 +12,7 @@ def prf():
 
 def chs():
   if "sort":
-    un("sort/sh.zip","/bin")
+    un("install-package/sort/sh.zip","/bin")
     prf()
   else:
     g.Git("/root").clone("https://github.com/rooted-cyber/install-package")
