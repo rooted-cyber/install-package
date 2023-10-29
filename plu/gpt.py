@@ -1,4 +1,4 @@
-i# Provided By :- @NovaXMod
+# Provided By :- @NovaXMod
 # Made by :- @ImmortalsXKing
 # API Credits :- @ImSafone
 #
