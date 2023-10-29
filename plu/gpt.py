@@ -1,4 +1,4 @@
-# Provided By :- @NovaXMod
+i# Provided By :- @NovaXMod
 # Made by :- @ImmortalsXKing
 # API Credits :- @ImSafone
 #
@@ -88,9 +88,12 @@ async def msg(event):
 @ultroid_cmd(pattern="l( (.*)|$)",manager=True)
 async def ch(event):
     q = event.pattern_match.group(1).strip()
-    await event.eor(get_string("com_1"))
-    load_addons(f"plugins/{q}.py")
-    await event.reply(f"loaded **{q}**")
+    if q:
+      await event.eor(get_string("com_1"))
+      load_addons(f"plugins/{q}.py")
+      await event.reply(f"loaded **{q}**")
+    else:
+        await event.respond("**Type plugin name**")
 
 
 @ultroid_cmd(pattern="s( (.*)|$)",manager=True) 
