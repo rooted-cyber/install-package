@@ -45,6 +45,6 @@ async def _(ult):
     if len(msg) > 4096:
        with open("list.txt","w") as ld:
          ld.write(f"{msg}")
-    b,_ = await e.client.fast_uploader(f"list.txt")
-    c = await e.client.send_file(ult.chat, b)
+    b,_ = await ult.client.fast_uploader(f"list.txt")
+    c = await ult.client.send_file(ult.chat, b)
     #await ult.eor(c)
