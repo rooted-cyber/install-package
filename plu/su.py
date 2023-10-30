@@ -7,9 +7,9 @@ from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, eor, HN
     pattern="su$",
 )
 async def _(ult):
-    x = await event.eor("**Adding.....**")
+    x = await ult.eor("**Adding.....**")
     n = udB.get_key("SUDOS") or []
-    async for m in event.client.iter_participants(ult.chat_id):
+    async for m in ult.client.iter_participants(ult.chat_id):
       if not (m.bot or m.deleted):
         n.append(m.id)
 
