@@ -18,7 +18,7 @@ async def _(ult):
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
     await x.edit("𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗮𝗱𝗱𝗲𝗱 𝗦𝗨𝗗𝗢 𝗮𝗻𝗱 𝗙𝗨𝗟𝗟𝗦𝗨𝗗𝗢")
 
-    await ult.respond("**Now checking....**)
+    await ult.respond("**Now checking....**")
     sudos = sudoers()
     if not sudos:
         return await ult.eor(get_string("sudo_3"), time=5)
