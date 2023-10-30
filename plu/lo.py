@@ -1,7 +1,7 @@
 import requests as st
 from . import eor, ultroid_cmd, get_string, bash
 
-@ultroid_cmd(pattern="lo ?(.*)")
+@ultroid_cmd(pattern="log( (.*)|$)")
 async def sse_ed(e):
   x = e.pattern_match.group(1).strip()
   y = await e.eor(get_string("com_1")) 
