@@ -2,7 +2,7 @@ from pyUltroid.startup.loader import load_addons
 from os import listdir as ls
 from . import ultroid_cmd, get_string
 
-@ultroid_cmd(pattern="l( (.*)|$)",manager=True)
+@ultroid_cmd(pattern="lo( (.*)|$)",manager=True)
 async def ch(e):
   q = e.pattern_match.group(1).strip()
   reply = await e.get_reply_message()
