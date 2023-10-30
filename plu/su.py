@@ -1,6 +1,6 @@
 from pyUltroid._misc import sudoers
 from os import mkdir, listdir as ls
-from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd
+from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, eor, HNDLR
 
 
 @ultroid_cmd(
@@ -16,7 +16,7 @@ async def _(ult):
     n = list(set(n))
     udB.set_key('SUDOS', n)
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
-    await x.edit("𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗮𝗱𝗱𝗲𝗱 𝗦𝗨𝗗𝗢 𝗮𝗻𝗱 𝗙𝗨𝗟𝗟𝗦𝗨𝗗𝗢")
+    await x.edit(f"𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗮𝗱𝗱𝗲𝗱 𝗦𝗨𝗗𝗢 𝗮𝗻𝗱 𝗙𝗨𝗟𝗟𝗦𝗨𝗗𝗢 𝗔𝗻𝗱 𝗵𝗻𝗱𝗹𝗿 {HNDLR}")
 
     await ult.respond("**Now checking....**")
     sudos = sudoers()
