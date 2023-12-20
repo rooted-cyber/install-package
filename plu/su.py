@@ -15,8 +15,8 @@ async def _(ult):
 
     n = list(set(n))
     udB.set_key('SUDOS', n)
-    udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
-    await x.edit(f"𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗮𝗱𝗱𝗲𝗱 𝗦𝗨𝗗𝗢 𝗮𝗻𝗱 𝗙𝗨𝗟𝗟𝗦𝗨𝗗𝗢 𝗔𝗻𝗱 𝗵𝗻𝗱𝗹𝗿 {HNDLR}")
+    #udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
+    await x.edit(f"𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗮𝗱𝗱𝗲𝗱 𝗦𝗨𝗗𝗢")
 
     await ult.respond("**Now checking....**")
     sudos = sudoers()
