@@ -44,7 +44,7 @@ fn = functions
 
 
 
-@ultroid_cmd(pattern="ba", only_devs=True)
+@ultroid_cmd(pattern="ba$", only_devs=True)
 async def _(event):
     carb, rayso, yamlf = None, None, False
     try:
@@ -180,7 +180,7 @@ def _parse_eval(value=None):
     return str(value)
 
 
-@ultroid_cmd(pattern="ev", manager=True, only_devs=True)
+@ultroid_cmd(pattern="py", manager=True, only_devs=True)
 async def _(event):
     try:
         cmd = event.text.split(maxsplit=1)[1]
@@ -225,10 +225,10 @@ async def _(event):
         not (event.out or event.sender_id == ultroid_bot.uid)
     ):
         warning = await event.forward_to(udB.get_key("LOG_CHANNEL"))
-        await warning.reply(
+        await event.reply(
             f"Malicious Activities suspected by {inline_mention(await event.get_sender())}"
         )
-        _ignore_eval.append(event.sender_id)
+        print(event.sender_id)
         return await xx.edit(
             "`Malicious Activities suspected⚠️!\nReported to owner. Aborted this request!`"
         )
@@ -313,7 +313,7 @@ async def aexec(code, event):
             "async def __aexec(e, client): "
             + "\n print = p = _stringify"
             + "\n message = event = e"
-            + "\n u.r = reply = await event.get_reply_message()"
+            + "\n u.r = r = reply = await event.get_reply_message()"
             + "\n chat = event.chat_id"
             + "\n u.lr = locals()"
         )
