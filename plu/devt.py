@@ -44,7 +44,7 @@ fn = functions
 
 
 
-@ultroid_cmd(pattern="ba$", only_devs=True)
+@ultroid_cmd(pattern="ba", only_devs=True)
 async def _(event):
     carb, rayso, yamlf = None, None, False
     try:
