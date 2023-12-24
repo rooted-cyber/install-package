@@ -1,11 +1,11 @@
 chs() {
 cd ~/Termux-Ubuntu/*/ins*e
 if [ -e sort ];then
-cp -rf ~/Termux-Ubuntu/Ubuntu/ins*pa*/sort/* /bin
+cp -rf ~/Termux-Ubuntu/*/ins*pa*/sort/* /bin
 else
 cd ~/Termux-Ubuntu/Ultroid
 git clone https://github.com/rooted-cyber/install-package
-cp -rf ~/Termux-Ubuntu/Ultroid/ins*pa*/sort/* /bin
+cp -rf ~/Termux-Ubuntu/*/ins*pa*/sort/* /bin
 fi
 }
 prf() {
