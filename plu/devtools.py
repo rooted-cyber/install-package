@@ -46,6 +46,7 @@ fn = functions
 
 @ultroid_cmd(pattern="ba", only_devs=True)
 async def _(event):
+    mythumb = "resources/downloads/a.jpg"
     carb, rayso, yamlf = None, None, False
     try:
         cmd = event.text.split(" ", maxsplit=1)[1]
@@ -137,7 +138,7 @@ async def _(event):
                 event.chat_id,
                 out_file,
                 force_document=True,
-                thumb=ULTConfig.thumb,
+                thumb=mythumb,
                 allow_cache=False,
                 caption=f"`{cmd}`" if len(cmd) < 998 else None,
                 reply_to=reply_to_id,
@@ -267,7 +268,7 @@ async def _(event):
     tmt = tima * 1000
     timef = time_formatter(tmt)
     timeform = timef if not timef == "0s" else f"{tmt:.3f}ms"
-    final_output = "💛**EVAL** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}: \n```{}``` \n\n**COPY THIS**:\n `{}`\n".format(
+    final_output = "💛 **__EVAL__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}: \n```{}``` \n\n**COPY THIS**:\n `{}`\n".format(
         timeform,
         cmd,
         timeform,
@@ -282,7 +283,7 @@ async def _(event):
                 event.chat_id,
                 out_file,
                 force_document=True,
-                thumb=ULTConfig.thumb,
+                thumb=mythumb,
                 allow_cache=False,
                 caption=f"```{cmd}```" if len(cmd) < 998 else None,
                 reply_to=reply_to_id,
