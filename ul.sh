@@ -49,8 +49,8 @@ echo "hrllo,"
 ls
 pwd
 ls Ult*
-cp -rf * ~/install*e/Ultroid/res*/dow*
-ls ~/install*e/Ultroid/res*/dow*
+cp -rf * ~/install*e/insta*e/Ultroid/res*/dow*
+ls ~/install*e/install*e/Ultroid/res*/dow*
 sleep 50
 centt
 cd ~/install*e/plu
@@ -67,10 +67,15 @@ apt upgrade -y
 fix
 for a in wget python3-pip python3 ffmpeg neofetch mediainfo;do
 pentt
+cd /bin
+if [ -e $a ];then
+echo "already"
+else
 printf "Installing $a"
 echo
 apt install  $a -y
 pentt
+fi
 fix
 done
 pip install --upgrade pip
