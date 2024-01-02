@@ -15,14 +15,14 @@ for a in wget python3-pip python3 ffmpeg neofetch mediainfo;do
 pentt
 printf "Installing $a"
 echo
-apt install  $a -y
+#apt install  $a -y
 pentt
 fix
 done
 pip install --upgrade pip
 wget -O req.txt https://github.com/TeamUltroid/Ultroid/raw/main/requirements.txt
 wget -O reqq.txt https://github.com/TeamUltroid/Ultroid/raw/main/requirements.txt
-pip3 install -r req*
+#pip3 install -r req*
 for bb in yt-dlp telegraph aiohttp python-decouple requests;do
 pentt
 printf "Installing $a"
