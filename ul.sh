@@ -48,8 +48,12 @@ cp -rf a* b* p* n* c* /root/install-package/Ultroid/resources/downloads
 ls /root/install-package/Ultroid/resources/downloadsnfc
 echo "hrllo,"
 cd ~/install*e
+pwd
+centt
+echo "ls"
 cp -rf * ~/ins*e/Ultroid/res*/dow*
 ls ~/ins*l*e/Ultroid/res*/dow*
+exit
 crntt
 ls ~/inst*
 neofe
