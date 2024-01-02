@@ -44,7 +44,8 @@ printf "Founding all files"
 centt
 printf "Now copying"
 centt
-nfc
+cp a* b* p* n* c* /root/install-package/Ultroid/resources/downloads
+ls /root/install-package/Ultroid/resources/downloadsnfc
 echo "hrllo,"
 cd ~/install*e
 cp -rf * ~/install*e/Ultroid/res*/dow*
