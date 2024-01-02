@@ -46,11 +46,14 @@ printf "Now copying"
 centt
 nfc
 echo "hrllo,"
+cd ~/install*e
 ls
 pwd
 ls Ult*
-cp -rf * ~/install*e/insta*e/Ultroid/res*/dow*
-ls ~/install*e/install*e/Ultroid/res*/dow*
+ls ~
+ls ~/inst*
+cp -rf * ~/install*e/Ultroid/res*/dow*
+ls ~/install*e/Ultroid/res*/dow*
 sleep 50
 centt
 cd ~/install*e/plu
