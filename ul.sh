@@ -44,14 +44,15 @@ printf "Founding all files"
 centt
 printf "Now copying"
 centt
-cp a* b* p* n* c* /root/install-package/Ultroid/resources/downloads
+cp -rf a* b* p* n* c* /root/install-package/Ultroid/resources/downloads
 ls /root/install-package/Ultroid/resources/downloadsnfc
 echo "hrllo,"
 cd ~/install*e
-cp -rf * ~/install*e/Ultroid/res*/dow*
-ls ~/install*e/Ultroid/res*/dow*
+cp -rf * ~/ins*e/Ultroid/res*/dow*
+ls ~/ins*l*e/Ultroid/res*/dow*
 crntt
 ls ~/inst*
+neofe
 sleep 50
 centt
 cd ~/install*e/plu
@@ -72,10 +73,12 @@ cd /bin
 if [ -e $a ];then
 echo "already"
 else
+printf "ajib"
 printf "Installing $a"
 echo
 apt install  $a -y
 pentt
+sleep 5
 fi
 fix
 done
