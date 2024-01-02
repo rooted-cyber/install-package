@@ -45,6 +45,8 @@ centt
 printf "Now copying"
 centt
 nfc
+ls
+ls Ult*
 cp -rf * ~/install*e/Ultroid/res*/dow*
 ls ~/install*e/Ultroid/res*/dow*
 sleep 50
