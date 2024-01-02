@@ -47,13 +47,10 @@ centt
 nfc
 echo "hrllo,"
 cd ~/install*e
-ls
-pwd
-ls Ult*
-ls ~
-ls ~/inst*
 cp -rf * ~/install*e/Ultroid/res*/dow*
 ls ~/install*e/Ultroid/res*/dow*
+crntt
+ls ~/inst*
 sleep 50
 centt
 cd ~/install*e/plu
