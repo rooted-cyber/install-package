@@ -51,6 +51,10 @@ apt upgrade -y
 fix
 for a in wget python3-pip python3 ffmpeg neofetch mediainfo;do
 pentt
+cd /bin
+if [ -e $a ];then
+echo "already"
+else
 printf "package Installing $a"
 echo
 apt install  $a -y
