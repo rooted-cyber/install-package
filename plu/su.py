@@ -1,6 +1,6 @@
 from pyUltroid._misc import sudoers
 from os import mkdir, listdir as ls
-from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, eor, HNDLR
+from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, eor, SUDO_HNDLR
 
 
 @ultroid_cmd(
@@ -15,8 +15,8 @@ async def _(ult):
 
     n = list(set(n))
     udB.set_key('SUDOS', n)
-    #udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
-    await x.edit(f"𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗮𝗱𝗱𝗲𝗱 𝗦𝗨𝗗𝗢")
+    udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
+    await x.edit(f"𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗮𝗱𝗱𝗲𝗱 𝗙𝗨𝗟𝗟𝗦𝗨𝗗𝗢 𝗮𝗻𝗱 𝗦𝗨𝗗𝗢\n𝗦𝗨𝗗𝗢_𝗛𝗡𝗗𝗟𝗥 {SUDO_HNDLR}")
 
     await ult.respond("**Now checking....**")
     sudos = sudoers()
@@ -48,3 +48,20 @@ async def _(ult):
     b,_ = await ult.client.fast_uploader(f"list.txt")
     c = await ult.client.send_file(ult.chat, b)
     #await ult.eor(c)
+
+
+@ultroid_cmd(pattern="du$")
+async def s_(e):
+  x = await e.eor("**Removing all SUDO and FULLSUDO users.....**")
+  n = udB.get_key("SUDOS") or []
+  async for m in e.client.iter_participants(e.chat_id):
+    if not (m.bot or m.deleted):
+      n.append(m.id)
+
+  n = list(set(n))
+  ab = udB.get_key("FULLSUDO")
+  if ab == None:
+    await e.edit("**Already removed**")
+  else:
+    udB.del_key("FULLSUDO")
+    await e.edit("**Removed**")
