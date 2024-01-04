@@ -43,7 +43,7 @@ async def writer(e):
       rd = await e.reply("**Downloading** `a.otf`")
       await download_file("https://github.com/rooted-cyber/install-package/raw/main/b.jpg","resources/downloads/b.jpg")
       await rd.delete()
-      await e.reply("**Download complete**)
+      await e.reply("**Download complete**m")
     img = Image.open("./resources/downloads/b.jpg")
     draw = ImageDraw.Draw(img)
     if "a.otf" in ls("./resources/downloads/"):
@@ -52,7 +52,7 @@ async def writer(e):
       rfd = await e.reply("**Downloading** `a.otf`")
       await download_file("https://github.com/rooted-cyber/install-package/raw/main/a.otf","resources/downloads/a.otf")
       await rfd.delete()
-      await e.reply("**Download complete**)
+      await e.reply("**Download complete**")
     font = ImageFont.truetype("resources/downloads/a.otf", size=30)
     x, y = 120, 140
     lines = text_set(text)
