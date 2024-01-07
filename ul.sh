@@ -53,23 +53,16 @@ for a in wget python3-pip python3 ffmpeg neofetch mediainfo;do
 pentt
 cd /bin
 if [ -e $a ];then
-echo "already"
+echo "already installed $a"
 else
 printf "package Installing $a"
 echo
 apt install  $a -y
 pentt
 fix
+fi
 done
-pip install --upgrade pip
-for bb in yt-dlp telegraph aiohttp python-decouple requests;do
-pentt
-printf "Installing $a"
-echo
-pip3 uninstall $bb -y
-pip3 install $bb
-pentt
-done
+
 }
 app
 pplf
