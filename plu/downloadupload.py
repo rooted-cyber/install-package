@@ -141,11 +141,10 @@ async def _(event):
         match = match.strip()
     if not event.out and match == ".env":
         return await event.reply("`You can't do this...`")
-    stream, force_doc, delete, thumb = (
+    stream, force_doc, delete = (
         False,
         True,
         False,
-        mythumb,
     )
     if "--stream" in match:
         stream = True
