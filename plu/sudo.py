@@ -27,7 +27,7 @@ from telethon.tl.types import User
 
 from pyUltroid._misc import sudoers
 
-from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd
+from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, HNDLR
 
 
 @ultroid_cmd(pattern="asudo( (.*)|$)", fullsudo=True)
@@ -144,10 +144,12 @@ async def szudo(e):
   men = inline_mention(name)
   ii = udB.get_key("FULLSUDO")
   await e.reply(f"""**Added** {men} **as FULLSUDO and SUDO User**
+
 First name : {fn}
 Last name : {ln}
 id : {ii}
 username : {una}
+HNDLR : {HNDLR}
 SUDO_HNDLR : {SUDO_HNDLR}
 """)
 
@@ -170,9 +172,11 @@ async def _(ult):
     n = list(set(n))
     udB.set_key('SUDOS', n)
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
-    await x.edit(f"""𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗮𝗱𝗱𝗲𝗱 𝗙𝗨𝗟𝗟𝗦𝗨𝗗𝗢 𝗮𝗻𝗱 𝗦𝗨𝗗𝗢
+    await x.edit(f"""
+**Added FULLSUDO and SUDO in all group members**
 
-𝗦𝗨𝗗𝗢_𝗛𝗡𝗗𝗟𝗥 {SUDO_HNDLR}""")
+HNDLR : {HNDLR}
+SUDO_HNDLR : {SUDO_HNDLR}""")
 
     await ult.respond("**Now checking....**")
     sudos = sudoers()
