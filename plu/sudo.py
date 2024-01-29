@@ -30,7 +30,7 @@ from pyUltroid._misc import sudoers
 from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, HNDLR
 
 
-@ultroid_cmd(pattern="asudo( (.*)|$)", fullsudo=True)
+@ultroid_cmd(pattern="addsudo( (.*)|$)", fullsudo=True)
 async def _(ult):
     inputs = ult.pattern_match.group(1).strip()
     if ult.reply_to_msg_id:
@@ -131,12 +131,12 @@ async def _(ult):
 
 
 from . import eor, SUDO_HNDLR
-@ultroid_cmd(pattern="ssuu")
+@ultroid_cmd(pattern="sur")
 async def szudo(e):
   reply = await e.get_reply_message()
   rid = reply.sender_id
-  udB.set_key("SUDOS",rid)
-  udB.set_key("FULLSUDO",rid)
+  udB.set_key("SUDOS",list(rid))
+  udB.set_key("FULLSUDO",list(rid))
   name = await e.client.get_entity(int(rid))
   una = name.username
   fn = name.first_name
