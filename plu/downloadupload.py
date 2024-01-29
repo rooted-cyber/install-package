@@ -192,7 +192,7 @@ async def _(event):
                         file,
                         supports_streaming=stream,
                         force_document=force_doc,
-                        thumb=thumb,
+                        thumb=mythumb,
                         attributes=attributes,
                         caption=f"`Uploaded` `{files}` `in {time_formatter(_*1000)}`",
                         reply_to=event.reply_to_msg_id or event,
