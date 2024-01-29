@@ -134,10 +134,10 @@ from . import eor, SUDO_HNDLR
 @ultroid_cmd(pattern="sur")
 async def szudo(e):
   reply = await e.get_reply_message()
-  rid = reply.sender_id
-  rf = f"{rid.sender_id}"
-  udB.set_key("SUDOS",list(rf))
-  udB.set_key("FULLSUDO",list(rf))
+  rid = "{}".format(reply.sender_id)
+  rf = "{}".format(list(rid))
+  udB.set_key("SUDOS",rf)
+  udB.set_key("FULLSUDO",rf)
   name = await e.client.get_entity(int(rid))
   una = name.username
   fn = name.first_name
