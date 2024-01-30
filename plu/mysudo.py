@@ -135,9 +135,8 @@ from . import eor, SUDO_HNDLR
 async def szudo(e):
   reply = await e.get_reply_message()
   rid = "{}".format(reply.sender_id)
-  rf = "{}".format(list(rid))
-  udB.set_key("SUDOS",rf)
-  udB.set_key("FULLSUDO",rf)
+  udB.set_key("SUDOS",list(rid))
+  udB.set_key("FULLSUDO",rid)
   name = await e.client.get_entity(int(rid))
   una = name.username
   fn = name.first_name
