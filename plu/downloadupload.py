@@ -215,7 +215,7 @@ async def _(event):
             file,
             supports_streaming=stream,
             force_document=force_doc,
-            thumb=thumb,
+            thumb=mythumb,
             attributes=attributes,
             caption=f"`Uploaded` `{result}` `in {time_formatter(_*1000)}`",
         )
