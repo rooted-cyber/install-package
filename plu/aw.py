@@ -21,8 +21,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from . import async_searcher, eod, get_string, text_set, ultroid_cmd, download_file
 
-co = "chocolate","coral","cornflowerblue","chartreuse","burlywood","blanchedalmond","beige"
-
+co = "red","blue"
 @ultroid_cmd(pattern="aw( (.*)|$)")
 async def writer(e):
     ab = pwd()
