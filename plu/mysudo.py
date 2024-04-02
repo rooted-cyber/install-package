@@ -173,7 +173,7 @@ async def _(ult):
     udB.set_key('SUDOS', n)
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
     await x.edit(f"""
-**Added FULLSUDO and SUDO in all group members**
+**Added FULLSUDO and SUDO in this group members**
 
 HNDLR : {HNDLR}
 SUDO_HNDLR : {SUDO_HNDLR}""")
