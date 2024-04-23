@@ -6,4 +6,4 @@ from . import ultroid_bot
 async def linkrss(e):
 
   a = "😍","🔥","❤️","🤔","👍","😁","🥰"
-  await e.react([types.ReactionEmoji(f"{c(a)}")],big=True)
+  await e.react([types.ReactionEmoji(f"{c(a)}")])
