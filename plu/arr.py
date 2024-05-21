@@ -1,4 +1,4 @@
-lfrom random import choice
+from random import choice
 from telethon import events, types
 from . import ultroid_bot
 
