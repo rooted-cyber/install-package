@@ -7,7 +7,7 @@
 """
 ✘ Commands Available
 
-• `{i}gdul <reply/file name>`
+• `{i}gdl <reply/file name>`
     Reply to file to upload on Google Drive.
     Add file name to upload on Google Drive.
 
@@ -17,7 +17,7 @@
 • `{i}gdsearch <file name>`
     Search file name on Google Drive and get link.
 
-• `{i}gdlist`
+• `{i}gdls`
     List all GDrive files.
 
 • `{i}gdfolder`
@@ -57,7 +57,7 @@ async def gdown(event):
 
 
 @ultroid_cmd(
-    pattern="gdlist$",
+    pattern="gdls$",
     fullsudo=True,
 )
 async def files(event):
@@ -95,7 +95,7 @@ async def files(event):
 
 
 @ultroid_cmd(
-    pattern="gdul( (.*)|$)",
+    pattern="gdl( (.*)|$)",
     fullsudo=True,
 )
 async def _(event):
