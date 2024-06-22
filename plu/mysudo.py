@@ -1,4 +1,7 @@
 from . import eor, SUDO_HNDLR, ultroid_cmd
+from os import mkdir, listdir as ls
+from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, eor, SUDO_HNDLR
+
 @ultroid_cmd(pattern="sur")
 async def szudo(e):
   reply = await e.get_reply_message()
@@ -23,8 +26,6 @@ SUDO_HNDLR : {SUDO_HNDLR}
 
 
 from pyUltroid._misc import sudoers
-from os import mkdir, listdir as ls
-from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, eor, SUDO_HNDLR
 
 
 @ultroid_cmd(
