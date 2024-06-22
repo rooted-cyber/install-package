@@ -1,6 +1,6 @@
 from . import eor, SUDO_HNDLR, ultroid_cmd
 from os import mkdir, listdir as ls
-from . import get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, eor, SUDO_HNDLR
+from . import HNDLR, get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, eor, SUDO_HNDLR
 
 @ultroid_cmd(pattern="sur")
 async def szudo(e):
