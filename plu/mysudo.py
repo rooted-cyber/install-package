@@ -1,4 +1,4 @@
-from . import eor, SUDO_HNDLR
+from . import eor, SUDO_HNDLR, ultroid_cmd
 @ultroid_cmd(pattern="sur")
 async def szudo(e):
   reply = await e.get_reply_message()
