@@ -1,4 +1,4 @@
-mport os
+import os
 import base64
 import requests
 from . import LOGS, con
