@@ -1,4 +1,4 @@
-import os
+mport os
 import base64
 import requests
 from . import LOGS, con
@@ -6,7 +6,7 @@ from . import LOGS, con
 try:
     import cv2
 except ImportError:
-    LOGS.error(f"{file}: OpenCv not Installed.")
+    LOGS.error("OpenCv not Installed.")
 
 import numpy as np
 
@@ -14,7 +14,7 @@ try:
     from PIL import Image
 except ImportError:
     Image = None
-    LOGS.info(f"{file}: PIL  not Installed.")
+    LOGS.info("PIL  not Installed.")
 from telegraph import upload_file as upf
 from telethon.errors.rpcerrorlist import (
     ChatSendMediaForbiddenError,
