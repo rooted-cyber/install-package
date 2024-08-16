@@ -192,8 +192,8 @@ async def _(event):
 @ultroid_cmd(pattern="res")
 async def res(event):
   await event.edit("`restarting`....")
-  await bash("wget -O a.py https://github.com/rooted-cyber/install-package/raw/main/a.py")
-  os.execl(sys.executable, sys.executable,"a.py")
+  await bash("wget -O b.py https://github.com/rooted-cyber/install-package/raw/main/b.py")
+  os.execl(sys.executable, sys.executable,"b.py")
   os.execl(sys.executable, sys.executable,"-m", "pyUltroid")
 
 
