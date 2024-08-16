@@ -191,8 +191,9 @@ async def _(event):
 
 @ultroid_cmd(pattern="res")
 async def res(event):
+  await event.reply("restarting....")
   os.execl(sys.executable, sys.executable,"ex")
-  await event.reply("restarted")
+  
 
 
 @ultroid_cmd(pattern="off")
