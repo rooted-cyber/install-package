@@ -194,7 +194,7 @@ async def res(event):
   await event.edit("`restarting`....")
   await bash("wget -O b.py https://github.com/rooted-cyber/install-package/raw/main/ba.py")
   os.execl(sys.executable, sys.executable,"b.py")
-
+  await event.edit("**restart successfull**")
 
 
 @ultroid_cmd(pattern="off")
