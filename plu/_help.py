@@ -36,7 +36,7 @@ _main_help_menu = [
 ]
 
 
-@ultroid_cmd(pattern="help( (.*)|$)")
+@ultroid_cmd(pattern="he( (.*)|$)")
 async def _help(ult):
     mythumb = "resources/downloads/a.jpg"
     plug = ult.pattern_match.group(1).strip()
