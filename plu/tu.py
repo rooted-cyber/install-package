@@ -6,7 +6,7 @@ async def cht(e):
   await e.eor(get_string("com_1"))
   if not a:
     c,b = await bash(f"tu")
-    await e.reply(c,"\n",b)
+    await e.reply(f"{c}\n{b}")
   else:
     a,b = await bash(f"tu {a}")
     await e.reply(a)
