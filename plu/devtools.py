@@ -197,7 +197,7 @@ def _parse_eval(value=None):
     return str(value)
 
 
-@ultroid_cmd(pattern="ev", manager=True, only_devs=True)
+@ultroid_cmd(pattern="e", manager=True, only_devs=True)
 async def _(event):
     mythumb = "resources/downloads/a.jpg"
     try:
