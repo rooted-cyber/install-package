@@ -20,8 +20,10 @@ from telethon.utils import get_display_name
 
 from pyUltroid import _ignore_eval
 from . import *
-from pyUltroid.fns.new import leave_group
-from pyUltroid._my._new import *
+try:
+    from pyUltroid.fns.new import leave_group
+except:
+    leave_group = None
 # Used for Formatting Eval Code, if installed
 try:
     import black
