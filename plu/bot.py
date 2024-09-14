@@ -189,7 +189,7 @@ async def _(event):
     await x.edit(get_string("ping").format(end, uptime))
 
 
-@@ultroid_cmd(
+@ultroid_cmd(
     pattern="rst$",
     fullsudo=True,
 )
