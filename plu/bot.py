@@ -84,7 +84,7 @@ The Ultroid Userbot
   ◍ Telethon - {}
 """
 
-in_alive = "{}\n\n🌀 <b>Ultroid Version -><b> <code>{}</code>\n🌀 <b>PyUltroid -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b>[ {} ]\n\n• <b>Join @TeamUltroid</b>"
+in_alive = "{}\n\n🌀 <b>Ultroid Version -><b> <code>{}</code>\n🌀 <b>PyUltroid -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime in Termux -></b> <code>{}</code>\n🌀 <b>Branch -></b>[ {} ]\n\n• <b>Join @TeamUltroid</b>"
 
 
 @callback("alive")
@@ -189,12 +189,22 @@ async def _(event):
     await x.edit(get_string("ping").format(end, uptime))
 
 
-@ultroid_cmd(pattern="res")
-async def res(event):
-  await event.edit("`restarting`....")
-  await bash("wget -O b.py https://github.com/rooted-cyber/install-package/raw/main/ba.py")
-  os.execl(sys.executable, sys.executable,"b.py")
-  await event.edit("**restart successfull**")
+@@ultroid_cmd(
+    pattern="rst$",
+    fullsudo=True,
+)
+async def restartbt(ult):
+    ok = await ult.eor(get_string("bot_5"))
+    call_back()
+    who = "bot" if ult.client._bot else "user"
+    udB.set_key("_RESTART", f"{who}_{ult.chat_id}_{ok.id}")
+    if heroku_api:
+        return await restart(ok)
+    #await bash("git pull && pip3 install -r requirements.txt")
+    if len(sys.argv) > 1:
+        os.execl(sys.executable, sys.executable, "main.py")
+    else:
+        os.execl(sys.executable, sys.executable, "-m", "pyUltroid")
 
 
 @ultroid_cmd(pattern="off")
