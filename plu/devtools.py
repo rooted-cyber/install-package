@@ -21,7 +21,7 @@ from telethon.utils import get_display_name
 from pyUltroid import _ignore_eval
 from . import *
 try:
-    from pyUltroid.fns.new import leave_group
+    from pyUltroid._my.my import *
 except:
     leave_group = None
 # Used for Formatting Eval Code, if installed
