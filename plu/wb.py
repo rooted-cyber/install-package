@@ -21,7 +21,7 @@ async def fetch_data_from_api(question):
 async def ask_bot(e):
     b = await e.eor(get_string("com_1"))
     reply = await e.get_reply_message()
-    question = e.pattern_match.group(1) or reply.text
+    question = e.pattern_match.group(1) and reply.text
     
     if not question:
         if reply and reply.text:
