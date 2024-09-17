@@ -17,7 +17,7 @@ async def fetch_data_from_api(question):
             data = await response.json()
             return data.get("answer")
 
-@ultroid_cmd(pattern="wb? (.*)")
+@ultroid_cmd(pattern="wb ?(.*)")
 async def ask_bot(e):
     b = await e.eor(get_string("com_1"))
     reply = await e.get_reply_message()
