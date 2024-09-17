@@ -38,5 +38,5 @@ async def ask_bot(e):
         LOGS.warning(exc, exc_info=True)
         return await moi.edit(f"Error: {exc}")
     else:
-        return await moi.edit(f"""**swal**\n`{question}`\n\n**jwab**\n`{response}`
+        return await moi.edit(f"""**swal**\n`{question}`\n\n`Answer 👇👇`\n||{response}||
         """)
