@@ -27,7 +27,7 @@ async def ask_bot(e):
         if reply and reply.text:
             question = reply.message
     if not question:
-        return await e.eor("Please provide a question to ask the bot.")
+        return await e.eor("`Please provide a question to ask the bot.`")
 
     moi = await b.eor("Fetching the answer...")
     try:
@@ -38,5 +38,5 @@ async def ask_bot(e):
         LOGS.warning(exc, exc_info=True)
         return await moi.edit(f"Error: {exc}")
     else:
-        return await moi.edit(f"""**swal**\n`{question}`\n\n`Answer 👇👇`\n||{response}||
+        return await moi.edit(f"""**Question**\n\n`{question}`\n\n`Answer 👇👇`\n**{response}**
         """)
