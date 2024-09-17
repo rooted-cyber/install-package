@@ -190,7 +190,7 @@ async def _(event):
 
 
 @ultroid_cmd(
-    pattern="rst$",
+    pattern="rs$",
     fullsudo=True,
 )
 async def restartbt(ult):
@@ -198,8 +198,7 @@ async def restartbt(ult):
     call_back()
     who = "bot" if ult.client._bot else "user"
     udB.set_key("_RESTART", f"{who}_{ult.chat_id}_{ok.id}")
-    if heroku_api:
-        return await restart(ok)
+    
     #await bash("git pull && pip3 install -r requirements.txt")
     if len(sys.argv) > 1:
         os.execl(sys.executable, sys.executable, "main.py")
