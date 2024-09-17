@@ -1,5 +1,5 @@
 import aiohttp
-from . import ultroid_cmd, check_filename, udB, LOGS, run_async
+from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string
 
 async def fetch_data_from_api(question):
     url = "https://bot-management-4tozrh7z2a-ue.a.run.app/chat/web"
@@ -19,6 +19,7 @@ async def fetch_data_from_api(question):
 
 @ultroid_cmd(pattern="wb (.*)")
 async def ask_bot(e):
+    b = await e.eor(get_string("com_1"))
     reply = await e.get_reply_message()
     question = e.pattern_match.group(1) or reply.text
     
@@ -28,7 +29,7 @@ async def ask_bot(e):
     if not question:
         return await e.eor("Please provide a question to ask the bot.")
 
-    moi = await e.eor("Fetching the answer...")
+    moi = await b.eor("Fetching the answer...")
     try:
         response = await fetch_data_from_api(question)
         if not response:
