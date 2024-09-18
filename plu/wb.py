@@ -29,7 +29,7 @@ async def ask_bot(e):
     if not question:
         return await e.eor("`Please provide a question to ask the bot.`")
 
-    moi = await b.eor("Fetching the answer...")
+    moi = await b.eor(f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n""Fetching the answer...")
     try:
         response = await fetch_data_from_api(question)
         if not response:
