@@ -1,3 +1,6 @@
+"""
+wb -- reply or type
+"""
 import aiohttp
 from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string
 
