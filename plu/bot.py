@@ -180,7 +180,7 @@ async def lol(ult):
     )
 
 
-@ultroid_cmd(pattern="pi$", chats=[], type=["official", "assistant"])
+@ultroid_cmd(pattern="p$", chats=[], type=["official", "assistant"])
 async def _(event):
     start = time.time()
     x = await event.eor("Pong !")
