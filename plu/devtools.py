@@ -309,7 +309,7 @@ async def _(event):
             )
         return await xx.delete()
     hut = "💛 **__EVAL__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}:".format(timeform,cmd,timeform)
-    await xx.edit(f"{hot}{final_output}")
+    await xx.edit(f"{hut}{final_output}")
 
 
 def _stringify(text=None, *args, **kwargs):
