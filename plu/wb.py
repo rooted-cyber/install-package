@@ -45,7 +45,7 @@ async def ask_bot(e):
         out = f"Question ✅\n\n{question}\n\nAnswer 👇`\n{response}"
         with BytesIO(out.encode()) as outf:
             outf.name = "answer.txt"
-            await e.respond(f"`{question}`", file=outf, reply_to=e.reply_to_msg_id)
+            await e.respond(f"`{response}`", file=outf, reply_to=e.reply_to_msg_id)
         await moi.delete()
     else:
         out = f"<b>Question</b> ✅\n\n<code>{question}</code>\n\n<b>Answer</b> 👇\n{response}"
