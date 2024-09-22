@@ -30,7 +30,7 @@ async def ask_bot(e):
         if reply and reply.text:
             question = reply.message
     if not question:
-        return await e.eor("`Please provide a question to ask`)
+        return await e.eor("`Please provide a question to ask")
     def hi():
       if len(question) > 4096:
             with open("kahani.txt","w") as fg:
