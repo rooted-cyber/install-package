@@ -10,4 +10,5 @@ async def gd(e):
   udB.set_key("HNDLR","$")
   udB.set_key("ADDONS", True)
   udB.set_key("PLUGIN_CHANNEL",-4194506928)
+  udB.set_key("TAG_LOG",-1001884618152)
   await b.reply("**successfully set**")
