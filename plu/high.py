@@ -6,7 +6,7 @@ from . import LOGS, con
 try:
     import cv2
 except ImportError:
-    LOGS.error("OpenCv not Installed."\n Not use Termux)
+    LOGS.error("OpenCv not Installed.\n Not use Termux")
 
 import numpy as np
 
