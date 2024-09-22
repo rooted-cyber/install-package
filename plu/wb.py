@@ -1,45 +1,37 @@
 """
 wb -- reply or type
 """
+
 import aiohttp
-from sys import exit as ep
+from io import BytesIO
+
 from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string
+
+
 async def fetch_data_from_api(question):
     url = "https://bot-management-4tozrh7z2a-ue.a.run.app/chat/web"
-    headers = {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-    }
-    payload = {
-        "prompt": question,
-        "bid": "040d0481"
-    }
-    
+    headers = {"Content-Type": "application/json", "Accept": "application/json"}
+    payload = {"prompt": question, "bid": "040d0481"}
+
     async with aiohttp.ClientSession() as session:
         async with session.post(url, headers=headers, json=payload) as response:
             data = await response.json()
             return data.get("answer")
 
+
 @ultroid_cmd(pattern="wb ?(.*)")
 async def ask_bot(e):
-    b = await e.eor(get_string("com_1"))
+    moi = await e.eor(get_string("com_1"))
     reply = await e.get_reply_message()
     question = e.pattern_match.group(1)
-    
+
     if not question:
         if reply and reply.text:
             question = reply.message
     if not question:
-        return await e.eor("`Please provide a question to ask")
-    def hi():
-      if len(question) > 4096:
-            with open("kahani.txt","w") as fg:
-                fg.write(question)
-                
-    
-    if len(question) > 4096:
-      question = None
-    moi = await b.eor(f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n""Fetching the answer...")
+        return await moi.eor("`Please provide a question to ask the bot.`")
+
+    # moi = await b.eor(f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n""Fetching the answer...")
     try:
         response = await fetch_data_from_api(question)
         if not response:
@@ -47,6 +39,13 @@ async def ask_bot(e):
     except Exception as exc:
         LOGS.warning(exc, exc_info=True)
         return await moi.edit(f"Error: {exc}")
+
+    if len(out) > 4096:
+        out = f"Question ✅\n\n{question}\n\nAnswer 👇`\n{response}"
+        with BytesIO(out.encode()) as outf:
+            outf.name = "answer.txt"
+            await e.respond(f"`{question}`", file=outf, reply_to=e.reply_to_msg_id)
+        await moi.delete()
     else:
-        return await moi.edit(f"""**Question ✅**\n\n`{question}`\n\n`Answer❌❌ 👇`\n**{response}**
-        """)
+        out = f"<b>Question</b> ✅\n\n<code>{question}</code>\n\n<b>Answer</b> 👇\n{response}"
+        await moi.edit(out, parse_mode="html")
