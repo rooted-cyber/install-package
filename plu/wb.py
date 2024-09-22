@@ -4,7 +4,6 @@ wb -- reply or type
 import aiohttp
 from sys import exit as ep
 from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string
-
 async def fetch_data_from_api(question):
     url = "https://bot-management-4tozrh7z2a-ue.a.run.app/chat/web"
     headers = {
@@ -32,6 +31,14 @@ async def ask_bot(e):
             question = reply.message
     if not question:
         return await e.eor("`Please provide a question to ask`)
+    def hi():
+      if len(question) > 4096:
+            with open("kahani.txt","w") as fg:
+                fg.write(question)
+                
+    
+    if len(question) > 4096:
+      question = hi()
     moi = await b.eor(f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n""Fetching the answer...")
     try:
         response = await fetch_data_from_api(question)
@@ -41,15 +48,5 @@ async def ask_bot(e):
         LOGS.warning(exc, exc_info=True)
         return await moi.edit(f"Error: {exc}")
     else:
-        if len(question) > 4096:
-            with open("kahani.txt","w") as fg:
-                fg.write(question)
-                
-                
-    b,_ = await e.client.fast_uploader(f"kahani.txt")
-    c = await e.client.send_file(e.chat, b)
-    return await moi.edit(f"""**Question ✅**\n\n`Not possible`\n\n`Answer❌❌ 👇`\n**{response}**
-        """)
-
-    return await moi.edit(f"""**Question ✅**\n\n`{question}`\n\n`Answer❌❌ 👇`\n**{response}**
+        return await moi.edit(f"""**Question ✅**\n\n`{question}`\n\n`Answer❌❌ 👇`\n**{response}**
         """)
