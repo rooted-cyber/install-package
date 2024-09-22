@@ -9,4 +9,5 @@ async def gd(e):
   udB.set("SUDO_HNDLR","$")
   udB.set_key("HNDLR","$")
   udB.set_key("ADDONS", True)
+  udB.get_key("PLUGIN_CHANNEL","-4194506928")
   await b.reply("**successfully set**")
