@@ -48,6 +48,6 @@ async def ask_bot(e):
                 fg.write(question)
                 
                 
-  b,_ = await e.client.fast_uploader(f"kahani.txt")
-  c = await e.client.send_file(e.chat, b)
+    b,_ = await e.client.fast_uploader(f"kahani.txt")
+    c = await e.client.send_file(e.chat, b)
     #a
