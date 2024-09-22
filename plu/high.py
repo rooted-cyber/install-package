@@ -6,7 +6,7 @@ from . import LOGS, con
 try:
     import cv2
 except ImportError:
-    LOGS.error("OpenCv not Installed.")
+    LOGS.error("OpenCv not Installed."\n Not use Termux)
 
 import numpy as np
 
@@ -32,7 +32,7 @@ from . import (
 )
 
 
-@ultroid_cmd(pattern="enhance$")
+@ultroid_cmd(pattern="high$")
 async def enhance_image(event):
     reply_message = await event.get_reply_message()
     if not (reply_message and (reply_message.photo or reply_message.sticker)):
