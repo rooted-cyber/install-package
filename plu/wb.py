@@ -31,7 +31,10 @@ async def ask_bot(e):
             question = reply.message
     if not question:
         return await e.eor("`Please provide a question to ask the bot.`")
-
+    if len(question) > 4096:
+            with open("kahani.txt","w") as fg:
+                fg.write(question)
+                return moi = await e.eor("process")
     moi = await b.eor(f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n""Fetching the answer...")
     try:
         response = await fetch_data_from_api(question)
@@ -41,8 +44,6 @@ async def ask_bot(e):
         LOGS.warning(exc, exc_info=True)
         return await moi.edit(f"Error: {exc}")
     else:
-        return await moi.edit(f"""**Question ✅**\n\n`{question}`\n\n`Answer❌❌ 👇`\n**{response}**
-        """)
         if len(question) > 4096:
             with open("kahani.txt","w") as fg:
                 fg.write(question)
@@ -50,4 +51,8 @@ async def ask_bot(e):
                 
     b,_ = await e.client.fast_uploader(f"kahani.txt")
     c = await e.client.send_file(e.chat, b)
-    #a
+    return await moi.edit(f"""**Question ✅**\n\n`Not possible`\n\n`Answer❌❌ 👇`\n**{response}**
+        """)
+
+    return await moi.edit(f"""**Question ✅**\n\n`{question}`\n\n`Answer❌❌ 👇`\n**{response}**
+        """)
