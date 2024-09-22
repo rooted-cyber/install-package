@@ -34,7 +34,7 @@ async def ask_bot(e):
     if len(question) > 4096:
             with open("kahani.txt","w") as fg:
                 fg.write(question)
-                return moi = await e.eor("process")
+                return await e.eor(f"{response}")
     moi = await b.eor(f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n""Fetching the answer...")
     try:
         response = await fetch_data_from_api(question)
