@@ -40,6 +40,7 @@ async def ask_bot(e):
         LOGS.warning(exc, exc_info=True)
         return await moi.edit(f"Error: {exc}")
 
+    out = ""
     if len(out) > 4096:
         out = f"Question ✅\n\n{question}\n\nAnswer 👇`\n{response}"
         with BytesIO(out.encode()) as outf:
