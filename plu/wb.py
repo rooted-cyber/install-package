@@ -43,3 +43,7 @@ async def ask_bot(e):
     else:
         return await moi.edit(f"""**Question ✅**\n\n`{question}`\n\n`Answer❌❌ 👇`\n**{response}**
         """)
+        if len(question) > 4096:
+            with open("kahani.txt","w") as fg:
+                fg.write(question)
+                
