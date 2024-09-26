@@ -62,7 +62,7 @@ async def _(e):
     remove("neo.txt")
 
 
-@ultroid_cmd(pattern="ba", only_devs=True)
+@ultroid_cmd(pattern="b", only_devs=True)
 async def _(event):
     mythumb = "resources/downloads/a.jpg"
     carb, rayso, yamlf = None, None, False
@@ -287,7 +287,7 @@ async def _(event):
     tmt = tima * 1000
     timef = time_formatter(tmt)
     timeform = timef if not timef == "0s" else f"{tmt:.3f}ms"
-    final_output = "💛 **__EVAL__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}: \n```{}``` \n\n**COPY THIS**:\n `{}`\n".format(
+    final_output = "💛 **__𝗘𝗩𝗔𝗟__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}: \n```{}``` \n\n**COPY THIS**:\n `{}`\n".format(
         timeform,
         cmd,
         timeform,
@@ -309,7 +309,7 @@ async def _(event):
             )
         return await xx.delete()
     hut = "💛 **__EVAL__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}:".format(timeform,cmd,timeform)
-    await xx.edit(f"{hut}{final_output}")
+    await xx.edit(f"{final_output}")
 
 
 def _stringify(text=None, *args, **kwargs):
