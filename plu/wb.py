@@ -48,5 +48,6 @@ async def ask_bot(e):
             await e.respond(f"`{response}`", file=outf, reply_to=e.reply_to_msg_id)
         await moi.delete()
     else:
+        abc = udB.get_key("ALIVE_PIC")
         out = f"<b>Question</b> ✅\n\n<code>{question}</code>\n\n<b>Answer</b> 👇\n{response}"
-        await moi.edit(out, parse_mode="html")
+        await moi.edit(file=abc,out, parse_mode="html")
