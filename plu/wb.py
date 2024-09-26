@@ -50,4 +50,4 @@ async def ask_bot(e):
     else:
         abc = udB.get_key("ALIVE_PIC")
         out = f"<b>Question</b> ✅\n\n<code>{question}</code>\n\n<b>Answer</b> 👇\n{response}"
-        await moi.reply(file=abc,out, parse_mode="html")
+        await moi.edit(out, parse_mode="html")
