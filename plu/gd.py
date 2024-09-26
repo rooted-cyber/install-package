@@ -12,4 +12,6 @@ async def gd(e):
   udB.set_key("PLUGIN_CHANNEL",-4194506928)
   udB.set_key("TAG_LOG",-1001884618152)
   udB.set_key("ALIVE_PIC","https://envs.sh/SbN.jpg")
+  udB.set_key("INLINE_PIC","https://envs.sh/SbN.jpg")
+  udB.set_key("PMPIC","https://envs.sh/SbN.jpg")
   await b.reply("**successfully set**")
