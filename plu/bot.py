@@ -94,7 +94,7 @@ async def alive(event):
 
 
 @ultroid_cmd(
-    pattern="alive( (.*)|$)",
+    pattern="a( (.*)|$)",
 )
 async def lol(ult):
     match = ult.pattern_match.group(1).strip()
