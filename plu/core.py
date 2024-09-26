@@ -1,4 +1,4 @@
-# Ultroid - UserBot
+1# Ultroid - UserBot
 # Copyright (C) 2021-2023 TeamUltroid
 #
 # This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
@@ -18,7 +18,7 @@ from pyUltroid.startup.loader import load_addons
 from . import LOGS, async_searcher, eod, get_string, safeinstall, ultroid_cmd, un_plug
 
 
-@ultroid_cmd(pattern="i", fullsudo=True)
+@ultroid_cmd(pattern="i$")
 async def install(event):
     await safeinstall(event)
 
@@ -34,31 +34,7 @@ async def unload(event):
     lsd = os.listdir("addons")
     zym = f"{shortname}.py"
     if zym in lsd:
-        try:
-            un_plug(shortname)
-            await event.eor(f"**Uɴʟᴏᴀᴅᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=3)
-        except Exception as ex:
-            LOGS.exception(ex)
-            return await event.eor(str(ex))
-    elif zym in os.listdir("plugins"):
-        return await event.eor(get_string("core_11"), time=3)
-    else:
-        await event.eor(f"**Nᴏ Pʟᴜɢɪɴ Nᴀᴍᴇᴅ** `{shortname}`", time=3)
 
-
-@ultroid_cmd(
-    pattern=r"u( (.*)|$)",
-)
-async def uninstall(event):
-    shortname = event.pattern_match.group(1).strip()
-    if not shortname:
-        await event.eor(get_string("core_13"))
-        return
-    lsd = os.listdir("addons")
-    zym = f"{shortname}.py"
-    if zym in lsd:
-        try:
-            un_plug(shortname)
             await event.eor(f"**Uɴɪɴsᴛᴀʟʟᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=3)
             os.remove(f"addons/{shortname}.py")
         except Exception as ex:
