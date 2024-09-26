@@ -34,7 +34,7 @@ async def unload(event):
     lsd = os.listdir("addons")
     zym = f"{shortname}.py"
     if zym in lsd:
-
+        try:
             await event.eor(f"**Uɴɪɴsᴛᴀʟʟᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=3)
             os.remove(f"addons/{shortname}.py")
         except Exception as ex:
