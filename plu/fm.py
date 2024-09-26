@@ -3,7 +3,7 @@ from . import ultroid_cmd
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
 async def hi(event):
   reply = await event.get_reply_message()
-  ty = event.pattern_match.group(1).strip():
+  ty = event.pattern_match.group(1).strip()
   if not reply:
     await event.edit("`Reply any user`")
   else:
@@ -18,7 +18,7 @@ async def hi(event):
 
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
 async def hi(event):
-  ty = event.pattern_match.group(1).strip():
+  ty = event.pattern_match.group(1).strip()
   reply = await event.get_reply_message()
   if not reply:
     await event.edit("𝗥𝗲𝗽𝗹𝘆 𝗮𝗻𝘆 𝘂𝘀𝗲𝗿`")
