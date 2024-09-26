@@ -1,6 +1,6 @@
 from telethon import events
 from . import ultroid_cmd
-@ultroid_cmd(pattern="fm",manager=True)
+@ultroid_cmd(pattern="fm( (.*)|$",manager=True)
 async def hi(event):
   reply = await event.get_reply_message()
   ty = event.pattern_match.group(1).strip():
@@ -16,7 +16,7 @@ async def hi(event):
   await event.respond(f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`")
 
 
-@ultroid_cmd(pattern="fm ? (.*)",manager=True)
+@ultroid_cmd(pattern="fm( (.*)|$",manager=True)
 async def hi(event):
   ty = event.pattern_match.group(1).strip():
   reply = await event.get_reply_message()
