@@ -7,7 +7,7 @@ async def hi(event):
   if not reply:
     await event.edit("`Reply any user`")
   else:
-    return reply = ty
+    reply = ty
   a = await event.client.get_entity(reply.sender_id)
   b = f"{a.first_name}"
   l = f"{a.last_name}"
