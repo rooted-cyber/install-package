@@ -4,11 +4,10 @@ from . import ultroid_cmd
 async def hi(event):
   reply = await event.get_reply_message()
   ty = event.pattern_match.group(1).strip()
+  rep = reply.sender_id and ty
   if not reply:
     await event.edit("`Reply any user`")
-  else:
-    reply = ty
-  a = await event.client.get_entity(reply.sender_id)
+  a = await event.client.get_entity(rep)
   b = f"{a.first_name}"
   l = f"{a.last_name}"
   u = f"{a.username}"
@@ -20,11 +19,10 @@ async def hi(event):
 async def hi(event):
   ty = event.pattern_match.group(1).strip()
   reply = await event.get_reply_message()
+  rep = reply.sender_id and ty
   if not reply:
     await event.edit("𝗥𝗲𝗽𝗹𝘆 𝗮𝗻𝘆 𝘂𝘀𝗲𝗿`")
-  else:
-    reply = ty
-  a = await event.client.get_entity(reply.sender_id)
+  a = await event.client.get_entity(rep)
   b = "First_name: ", "`",a.first_name,"`"
   l = "Last Name: ", "`",a.last_name,"`"
   u = a.username
