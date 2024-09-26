@@ -5,7 +5,7 @@ async def hi(event):
   reply = await event.get_reply_message()
   ty = event.pattern_match.group(1).strip()
   rep = reply.sender_id
-  pho = await bot.download_profile_photo(rep)
+  pho = await event.client_download_profile_photo(rep)
   if not reply:
     await event.edit("`Reply any user`")
   a = await event.client.get_entity(rep)
