@@ -5,7 +5,7 @@ async def hi(event):
   reply = await event.get_reply_message()
   ty = event.pattern_match.group(1).strip()
   rep = reply.sender_id
-  pho = await event.client_download_profile_photo(rep)
+  pho = await event.client.download_profile_photo(rep)
   if not reply:
     await event.edit("`Reply any user`")
   a = await event.client.get_entity(rep)
@@ -13,7 +13,7 @@ async def hi(event):
   l = f"{a.last_name}"
   u = f"{a.username}"
   ph = f"{a.phone}"
-  await event.respond("{}".format(f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`"))
+  await event.respond("{}".format(file=pho,f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`"))
 
 
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
