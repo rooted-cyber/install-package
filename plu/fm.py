@@ -6,7 +6,7 @@ async def hi(event):
   ty = event.pattern_match.group(1).strip()
   rep = reply.sender_id
   if not ty:
-    if reply and repl:
+    if reply and rep:
       ty = rep
   pho = await event.client.download_profile_photo(rep)
   if not reply:
