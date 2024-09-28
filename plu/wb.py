@@ -49,5 +49,5 @@ async def ask_bot(e):
         await moi.delete()
     else:
         abc = udB.get_key("ALIVE_PIC")
-        out = f"<b>Question</b> ✅\n\n<code>{question}</code>\n\n<b>Answer</b> 👇\n{response}"
+        out = f"**Question**✅\n\n{question}\n\n**Answer** 👇\n{response}"
         await moi.edit(out,parse_mode="md")
