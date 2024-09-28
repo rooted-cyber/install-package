@@ -27,7 +27,8 @@ async def install(event):
 async def ins(e):
     r = await e.get_reply_message()
     nam = r.file.name
-    await dl(r.media)
+    await dl(e)
+    await e.reply(ls("."))
     await bash(f"cp {nam} plu*")
     load_addons(f"plugins/{nam}")
     if nam in ls("plugins"):
