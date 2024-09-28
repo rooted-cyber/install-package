@@ -12,6 +12,7 @@ __doc__ = get_help("help_core")
 
 
 import os
+from os implort listdir as ls
 
 from pyUltroid.startup.loader import load_addons 
 
@@ -24,12 +25,13 @@ async def install(event):
 
 @ultroid_cmd(pattern="inn$")
 async def ins(e):
+    r = await e.get_reply_message()
     nam = r.file.name
     await client.download_media(r.media)
     await bash(f"cp {nam} plu*")
     load_addons(f"{pllugins/{nam}")
-    if {nam} in ls("plugins"):
-        aw
+    if nam in ls("plugins"):
+        await e.reply("success")
 @ultroid_cmd(
     pattern=r"unload( (.*)|$)",
 )
