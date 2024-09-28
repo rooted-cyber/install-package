@@ -29,7 +29,7 @@ async def ins(e):
     nam = r.file.name
     await client.download_media(r.media)
     await bash(f"cp {nam} plu*")
-    load_addons(f"{pllugins/{nam}")
+    load_addons(f"plugins/{nam}")
     if nam in ls("plugins"):
         await e.reply("success")
 @ultroid_cmd(
