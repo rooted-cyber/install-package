@@ -43,12 +43,6 @@ async def unload(event):
             os.remove(f"addons/{shortname}.py")
         except Exception as ex:
             return await event.eor(str(ex))
-    elif zym in os.listdir("plugins"):
-        return await event.eor(get_string("core_15"), time=3)
-    else:
-        return await event.eor(f"**Nᴏ Pʟᴜɢɪɴ Nᴀᴍᴇᴅ** `{shortname}`", time=3)
-
-
 @ultroid_cmd(
     pattern=r"load( (.*)|$)",
     fullsudo=True,
