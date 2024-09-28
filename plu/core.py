@@ -12,7 +12,7 @@ __doc__ = get_help("help_core")
 
 
 import os
-from os implort listdir as ls
+from os import listdir as ls
 
 from pyUltroid.startup.loader import load_addons 
 
