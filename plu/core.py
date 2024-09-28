@@ -32,7 +32,11 @@ async def unload(event):
         await event.eor(get_string("core_9"))
         return
     lsd = os.listdir("addons")
+    lsp = os.listdir("plugins")
     zym = f"{shortname}.py"
+    if zym in lsp:
+        await event.eor(f"**Uɴɪɴsᴛᴀʟʟᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=3)
+        os.remove(f"plugins/{shortname}.py")
     if zym in lsd:
         try:
             await event.eor(f"**Uɴɪɴsᴛᴀʟʟᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=3)
