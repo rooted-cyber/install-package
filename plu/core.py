@@ -13,16 +13,23 @@ __doc__ = get_help("help_core")
 
 import os
 
-from pyUltroid.startup.loader import load_addons
+from pyUltroid.startup.loader import load_addons 
 
-from . import LOGS, async_searcher, eod, get_string, safeinstall, ultroid_cmd, un_plug
+from . import LOGS, async_searcher, eod, get_string, safeinstall, ultroid_cmd, un_plug, bash
 
 
 @ultroid_cmd(pattern="install", fullsudo=True)
 async def install(event):
     await safeinstall(event)
 
-
+@ultroid_cmd(pattern="inn$")
+async def ins(e):
+    nam = r.file.name
+    await client.download_media(r.media)
+    await bash(f"cp {nam} plu*")
+    load_addons(f"{pllugins/{nam}")
+    if {nam} in ls("plugins"):
+        aw
 @ultroid_cmd(
     pattern=r"unload( (.*)|$)",
 )
