@@ -27,8 +27,8 @@ async def install(event):
     await safeinstall(event)
 
 @ultroid_cmd(pattern="inn$")
-async def ins(e):
-    r = await ins(e)
+async def inst(e):
+    await ins(e)
 
 @ultroid_cmd(
     pattern=r"unload( (.*)|$)",
