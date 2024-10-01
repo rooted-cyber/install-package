@@ -1,4 +1,4 @@
-lfrom . import get_help
+from . import get_help
 
 __doc__ = get_help("help_core")
 
