@@ -9,7 +9,7 @@ async def hi(event):
   if not reply:
     rep = f"{rep}"
   else:
-    rep = f"[rep}"
+    rep = f"{rep}"
   a = await event.client.get_entity(rep)
   b = f"{a.first_name}"
   l = f"{a.last_name}"
