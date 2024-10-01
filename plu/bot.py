@@ -183,10 +183,10 @@ async def lol(ult):
 @ultroid_cmd(pattern="p$", chats=[], type=["official", "assistant"])
 async def _(event):
     start = time.time()
-    x = await event.eor("Pong !")
+    x = await event.respond("Pong !", file=udB.get_key("ALIVE_PIC"))
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    await x.edit(get_string("ping").format(end, uptime))
+    await x.edit("{}".format("\n",f"Bot start time : {uptime}"))
 
 
 @ultroid_cmd(
