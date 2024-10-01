@@ -4,6 +4,10 @@ __doc__ = get_help("help_core")
 
 
 import os
+try:
+  from pyUltroid._my.my import *
+except:
+  ins = None
 
 from pyUltroid.startup.loader import load_addons
 
