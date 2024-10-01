@@ -184,7 +184,7 @@ async def lol(ult):
 async def _(event):
     start = time.time()
     uptime = time_formatter((time.time() - start_time) * 1000)
-    x = await event.respond(f"Bot start time : {uptime}, file=udB.get_key("ALIVE_PIC"))
+    x = await event.respond(f"Bot start time : {uptime}", file=udB.get_key("ALIVE_PIC"))
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
     await x.edit("{}".format("\n",f"Bot start time : {uptime}"))
