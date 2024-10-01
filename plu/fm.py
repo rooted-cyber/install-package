@@ -7,15 +7,15 @@ async def hi(event):
   rep = reply.sender_id
   pho = await event.client.download_profile_photo(rep)
   if not reply:
-    rep = f"ty"
+    rep = f"{rep}"
   else:
-    rep = f"rep"
+    rep = f"[rep}"
   a = await event.client.get_entity(rep)
   b = f"{a.first_name}"
   l = f"{a.last_name}"
   u = f"{a.username}"
   ph = f"{a.phone}"
-  await event.respond(file=pic,f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`")
+  await event.respond(file=await event.client.download_profile_photo(rep),f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`")
 
 
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
