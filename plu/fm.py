@@ -7,7 +7,9 @@ async def hi(event):
   rep = reply.sender_id
   pho = await event.client.download_profile_photo(rep)
   if not reply:
-    await event.edit("`Reply any user`")
+    rep = f"ty"
+  else:
+    rep = f"rep"
   a = await event.client.get_entity(rep)
   b = f"{a.first_name}"
   l = f"{a.last_name}"
