@@ -15,28 +15,9 @@ async def install(event):
     await safeinstall(event)
 
 
-@ultroid_cmd(
-    pattern=r"unload( (.*)|$)",
-)
-async def unload(event):
-    shortname = event.pattern_match.group(1).strip()
-    if not shortname:
-        await event.eor(get_string("core_9"))
-        return
-    lsd = os.listdir("addons")
-    zym = f"{shortname}.py"
-    if zym in lsd:
-        try:
-            un_plug(shortname)
-            await event.eor(f"**Uɴʟᴏᴀᴅᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=3)
-        except Exception as ex:
-            LOGS.exception(ex)
-            return await event.eor(str(ex))
-    elif zym in os.listdir("plugins"):
-        return await event.eor(get_string("core_11"), time=3)
-    else:
-        await event.eor(f"**Nᴏ Pʟᴜɢɪɴ Nᴀᴍᴇᴅ** `{shortname}`", time=3)
-
+@ultroid_cmd(pattern="inn$")
+async def plin(e):
+  await ins(e)
 
 @ultroid_cmd(
     pattern=r"un( (.*)|$)",
