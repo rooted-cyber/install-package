@@ -38,6 +38,8 @@ async def uninstall(event):
         un_plug(shortname)
         await event.eor(f"**Plugins : Uɴɪɴsᴛᴀʟʟᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=5)
         os.remove(f"plugins/{shortname}.py")
+     else:
+        await event.eor(f"**Not found **{shortname}**")
     if zym in lsd:
         try:
             un_plug(shortname)
