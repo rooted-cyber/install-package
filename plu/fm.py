@@ -13,8 +13,10 @@ async def hi(e):
   l = a.last_name or ""
   u = ("@" + a.username) if a.username else "???"
   ph = a.phone
+  fr = "First_name: ", "`",a.first_name,"`"
+  las = "Last Name: ", "`",a.last_name,"`"
   pic = file=await photo(e)
-  await e.respond(f"{pic}First Name: `{b}`\nLast Name: `{l}`\nUsername: `{u}`\nPhone: `+{ph}`")
+  await e.respond(f"{pic}First Name: `{b}`\n{fr}\nLast Name: `{l}`\n{las}\nUsername: `{u}`\nPhone: `+{ph}`")
 
 
 # ye alg h
