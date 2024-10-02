@@ -15,7 +15,8 @@ async def hi(event):
   l = f"{a.last_name}"
   u = f"{a.username}"
   ph = f"{a.phone}"
-  await event.respond(file=await photo(e),f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`")
+  b = file=await photo(e)
+  await event.respond(f"{b}First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`")
 
 
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
