@@ -1,20 +1,23 @@
 from telethon import events
 from . import ultroid_cmd
 from pyUltroid._my.my import *
+
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
 async def hi(e):
   reply = await event.get_reply_message()
   ty = event.pattern_match.group(1).strip()
-  rep = reply.sender_id
-  a = await event.client.get_entity(rep)
-  b = f"{a.first_name}"
-  l = f"{a.last_name}"
-  u = f"{a.username}"
-  ph = f"{a.phone}"
-  b = file=await photo(e)
-  await event.respond(f"{b}First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`")
+  if not reply:
+    return await event.eor("not reply...", time=5)
+  a = reply.sender  # await event.client.get_entity(rep)
+  b = a.first_name
+  l = a.last_name or ""
+  u = ("@" + a.username) if a.username else "???"
+  ph = a.phone
+  # file=await photo(e)
+  await event.respond(f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `{u}`\nPhone: `+{ph}`")
 
 
+"""
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
 async def hi(event):
   ty = event.pattern_match.group(1).strip()
@@ -28,5 +31,5 @@ async def hi(event):
   u = a.username
   ph = "phone:" +"`"+"+"+a.phone+"`"
   await event.client.send_message(event.chat_id,f"{b}\n\n{l}\n\nUsername: @{u}\n>\n{ph}")
-
+"""
 
