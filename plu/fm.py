@@ -2,7 +2,7 @@ from telethon import events
 from . import ultroid_cmd
 from pyUltroid._my.my import *
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
-async def hi(event):
+async def hi(e):
   reply = await event.get_reply_message()
   ty = event.pattern_match.group(1).strip()
   rep = reply.sender_id
