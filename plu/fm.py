@@ -4,17 +4,17 @@ from pyUltroid._my.my import *
 
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
 async def hi(e):
-  reply = await event.get_reply_message()
-  ty = event.pattern_match.group(1).strip()
+  reply = await e.get_reply_message()
+  ty = e.pattern_match.group(1).strip()
   if not reply:
-    return await event.eor("not reply...", time=5)
+    return await e.eor("not reply...", time=5)
   a = reply.sender  # await event.client.get_entity(rep)
   b = a.first_name
   l = a.last_name or ""
   u = ("@" + a.username) if a.username else "???"
   ph = a.phone
-  # file=await photo(e)
-  await event.respond(f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `{u}`\nPhone: `+{ph}`")
+  pic = file=await photo(e)
+  await event.respond(f"{pic}First Name: `{b}`\nLast Name: `{l}`\nUsername: `{u}`\nPhone: `+{ph}`")
 
 
 """
