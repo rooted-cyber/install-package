@@ -1,5 +1,6 @@
 from . import ultroid_cmd, get_string, bash, callback
 import os, sys
+from pyUltroid._my.my import *
 @ultroid_cmd(pattern="cpp",manager=True)
 async def cht(e):
   c = await e.eor(get_string("com_1"))
