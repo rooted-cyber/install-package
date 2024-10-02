@@ -16,19 +16,4 @@ async def hi(e):
   fr = "First_name: ", "`",a.first_name,"`"
   las = "Last Name: ", "`",a.last_name,"`"
   pic = file=await photo(e)
-  await e.respond(f"{pic}First Name: `{b}`\n{fr}\nLast Name: `{l}`\n{las}\nUsername: `{u}`\nPhone: `+{ph}`")
-
-
-# ye alg h
-@ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
-async def hi(event):
-  ty = event.pattern_match.group(1).strip()
-  reply = await event.get_reply_message()
-  rep = reply.sender_id
-  if not reply:
-    await event.edit("𝗥𝗲𝗽𝗹𝘆 𝗮𝗻𝘆 𝘂𝘀𝗲𝗿`")
-  a = await event.client.get_entity(rep)
-  b = "First_name: ", "`",a.first_name,"`"
-  l = "Last Name: ", "`",a.last_name,"`"
-  await event.client.send_message(event.chat_id,f"{b}\n\n{l}\n\n")
-
+  await e.respond(f"{pic}\nFirst Name: `{b}`\n{fr}\nLast Name: `{l}`\n{las}\nUsername: `{u}`\nPhone: `+{ph}`")
