@@ -48,6 +48,6 @@ async def ask_bot(e):
             await e.respond(f"`{response}`", file=outf, reply_to=e.reply_to_msg_id)
         await moi.delete()
     else:
-        abc = udB.get_key("ALIVE_PIC")
+        abc = file=udB.get_key("ALIVE_PIC")
         out = f"**Question**✅\n\n{question}\n\n**Answer** 👇\n{response}"
-        await moi.edit(out,parse_mode="md")
+        await moi.edit(f"{abc}{out}"parse_mode="md")
