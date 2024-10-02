@@ -28,7 +28,5 @@ async def hi(event):
   a = await event.client.get_entity(rep)
   b = "First_name: ", "`",a.first_name,"`"
   l = "Last Name: ", "`",a.last_name,"`"
-  u = a.username
-  ph = "phone:" +"`"+"+"+a.phone+"`"
-  await event.client.send_message(event.chat_id,f"{b}\n\n{l}\n\nUsername: @{u}\n>\n{ph}")
+  await event.client.send_message(event.chat_id,f"{b}\n\n{l}\n\n")
 
