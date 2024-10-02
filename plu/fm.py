@@ -15,5 +15,5 @@ async def hi(e):
   ph = a.phone
   fr = "First_name: ", "`",a.first_name,"`"
   las = "Last Name: ", "`",a.last_name,"`"
-  pic = file=await photo(e)
+  pic = file=await bot.download_profile_photo(reply.sender_id)
   await e.respond(f"{pic}\nFirst Name: `{b}`\nLast Name: `{l}`\nnUsername: `{u}`\nPhone: `+{ph}`\n\n{fr}\n{las}")
