@@ -17,7 +17,7 @@ async def hi(e):
   await e.respond(f"{pic}First Name: `{b}`\nLast Name: `{l}`\nUsername: `{u}`\nPhone: `+{ph}`")
 
 
-"""
+# ye alg h
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
 async def hi(event):
   ty = event.pattern_match.group(1).strip()
@@ -31,5 +31,4 @@ async def hi(event):
   u = a.username
   ph = "phone:" +"`"+"+"+a.phone+"`"
   await event.client.send_message(event.chat_id,f"{b}\n\n{l}\n\nUsername: @{u}\n>\n{ph}")
-"""
 
