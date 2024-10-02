@@ -6,10 +6,6 @@ async def hi(event):
   reply = await event.get_reply_message()
   ty = event.pattern_match.group(1).strip()
   rep = reply.sender_id
-  if not reply:
-    rep = f"{rep}"
-  else:
-    rep = f"{rep}"
   a = await event.client.get_entity(rep)
   b = f"{a.first_name}"
   l = f"{a.last_name}"
