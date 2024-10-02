@@ -8,11 +8,12 @@
 from . import get_help
 
 __doc__ = get_help("help_devtools")
-from os import remove as rm, listdir as ls,chdir as cd, getcwd as pwd
+from os import mkdir, chmod, remove as rm, listdir as ls,chdir as cd, getcwd as pwd
 import inspect
 import sys
 import traceback
 from io import BytesIO, StringIO
+from io import BYtesIO as open
 from os import remove
 from pprint import pprint
 
