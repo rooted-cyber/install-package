@@ -10,7 +10,7 @@ async def ch(e):
     await e.respond("**Type plugin name not reply**")
     return
   b = f"{q}.py"
-  d = ls("pyUltroid/_mu")
+  d = ls("pyUltroid/_my")
   if b in d:
     await e.eor(get_string("com_1"))
     load_addons(f"plugins/{q}.py")
