@@ -1,11 +1,11 @@
 from telethon import events
 from . import ultroid_cmd
+from pyUltroid._my.my import *
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
 async def hi(event):
   reply = await event.get_reply_message()
   ty = event.pattern_match.group(1).strip()
   rep = reply.sender_id
-  pho = await event.client.download_profile_photo(rep)
   if not reply:
     rep = f"{rep}"
   else:
@@ -15,7 +15,7 @@ async def hi(event):
   l = f"{a.last_name}"
   u = f"{a.username}"
   ph = f"{a.phone}"
-  await event.respond(f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`")
+  await event.respond(file=await photo(e),f"First Name: `{b}`\nLast Name: `{l}`\nUsername: `@{u}`\nPhone: `+{ph}`")
 
 
 @ultroid_cmd(pattern="fm( (.*)|$)",manager=True)
