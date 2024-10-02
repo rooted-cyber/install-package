@@ -13,7 +13,6 @@ import inspect
 import sys
 import traceback
 from io import BytesIO, StringIO
-from io import BYtesIO as open
 from os import remove
 from pprint import pprint
 
