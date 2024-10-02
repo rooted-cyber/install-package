@@ -14,7 +14,7 @@ async def hi(e):
   u = ("@" + a.username) if a.username else "???"
   ph = a.phone
   pic = file=await photo(e)
-  await event.respond(f"{pic}First Name: `{b}`\nLast Name: `{l}`\nUsername: `{u}`\nPhone: `+{ph}`")
+  await e.respond(f"{pic}First Name: `{b}`\nLast Name: `{l}`\nUsername: `{u}`\nPhone: `+{ph}`")
 
 
 """
