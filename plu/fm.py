@@ -16,4 +16,4 @@ async def hi(e):
   fr = "First_name: ", "`",a.first_name,"`"
   las = "Last Name: ", "`",a.last_name,"`"
   pic = file=await photo(e)
-  await e.respond(f"{pic}\nFirst Name: `{b}`\nLast Name: `{l}`\n\n\n{fr}\n{las}\nUsername: `{u}`\nPhone: `+{ph}`")
+  await e.respond(f"{pic}\nFirst Name: `{b}`\nLast Name: `{l}`\nnUsername: `{u}`\nPhone: `+{ph}`\n\n{fr}\n{las}")
