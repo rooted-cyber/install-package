@@ -214,7 +214,11 @@ async def _(event):
         #return await event.eor(get_string("devs_2"), time=5)
     xx = None
     mode = ""
-    spli = cmd.split()
+    try:
+        spli = None
+    except:
+        spli = cmd.split()
+        
 
     async def get_():
         try:
