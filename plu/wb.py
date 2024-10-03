@@ -49,5 +49,5 @@ async def ask_bot(e):
         await moi.delete()
     else:
         abc = file=await photo(e)
-        out = f"**Question**✅\n\n{question}\n\n**Answer** 👇\n{response}"
-        await moi.respond(f"{abc}{out}",parse_mode="md")
+        out = f"**Question**✅\n\n`{question}`\n\n**Answer** 👇\n{response}"
+        await moi.respond(f"{out}",parse_mode="md")
