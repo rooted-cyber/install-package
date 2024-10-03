@@ -210,14 +210,10 @@ async def _(event):
     try:
         cmd = event.text.split(maxsplit=1)[1]
     except IndexError:
-        cmd = reply
-        #return await event.eor(get_string("devs_2"), time=5)
+        return await event.eor(get_string("devs_2"), time=5)
     xx = None
     mode = ""
-    try:
-        spli = None
-    except:
-        spli = cmd.split()
+    spli = cmd.split()
         
 
     async def get_():
