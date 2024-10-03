@@ -188,8 +188,8 @@ async def _(event):
     uptime = time_formatter((time.time() - start_time) * 1000)
     x = await event.respond(f"""
     \n\n
-    **Bot start time** : {uptime}\n
-    **Currwent date & time** : {dy}""", file=udB.get_key("ALIVE_PIC"),parse_mode="md")
+    **Bot start time** : `{uptime}`
+    **Current date & time** : `{dy}`""", file=udB.get_key("ALIVE_PIC"),parse_mode="md")
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
     await x.edit("{}".format("\n",f"Bot start time : {uptime}"))
