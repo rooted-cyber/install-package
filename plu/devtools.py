@@ -202,6 +202,11 @@ def _parse_eval(value=None):
 @ultroid_cmd(pattern="e", manager=True, only_devs=True)
 async def _(event):
     mythumb = "resources/downloads/a.jpg"
+    reply = await event.get_reply_message()
+    if reply:
+        cmd = reply
+
+    
     try:
         cmd = event.text.split(maxsplit=1)[1]
     except IndexError:
