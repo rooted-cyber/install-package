@@ -45,7 +45,7 @@ async def pastee(path):
         return ""
 
 
-@ultroid_cmd(pattern="sd ?(.*)|$")
+@ultroid_cmd(pattern="sd( (.*)|$")
 async def semd_plugin(ult):
     mythumb = "resources/downloads/a.jpg"
     repo = "https://github.com/TeamUltroid/Ultroid"
