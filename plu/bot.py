@@ -190,7 +190,7 @@ async def _(event):
 %F /%v
 """)
     b = s("""
-%T
+%r
 """)
     start = time.time()
     uptime = time_formatter((time.time() - start_time) * 1000)
