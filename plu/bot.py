@@ -12,6 +12,7 @@ __doc__ = get_help("help_bot")
 import os
 import sys
 import time
+from time import strftime as s
 from platform import python_version as pyver
 from random import choice
 from pyUltroid._my.my import *
@@ -185,10 +186,10 @@ async def lol(ult):
 async def _(event):
     import time as g
     dy = g.ctime()
-    a = await tm("""
+    a = s("""
 %F /%v
 """)
-    b = await tm("""
+    b = s("""
 %T
 """)
     start = time.time()
