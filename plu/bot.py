@@ -193,10 +193,12 @@ async def _(event):
 %r
 """)
     start = time.time()
+    sp = round((time.time() - start) * 1000)
     reply_to_id = event.reply_to_msg_id or event.id
     uptime = time_formatter((time.time() - start_time) * 1000)
     x = await event.respond(f"""
     \n\n
+    **Speed {sp}
     **Bot start time** : `{uptime}`
     **𝗧𝗶𝗺𝗲** :{b}
     **𝗗𝗮𝘁𝗲** :{a}
