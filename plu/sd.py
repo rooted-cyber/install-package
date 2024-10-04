@@ -51,7 +51,7 @@ async def semd_plugin(ult):
     repo = "https://github.com/TeamUltroid/Ultroid"
     args = ult.pattern_match.group(1)
     if not args:
-        return await ult.eod("`Give a plugin name too`")
+        return await ult.eor("`Give a plugin name too`")
 
     eris = await ult.eor("`processing`")
     path = send(args)
