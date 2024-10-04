@@ -64,6 +64,7 @@ async def _(e):
 
 @ultroid_cmd(pattern="b", only_devs=True)
 async def _(event):
+    a = apt install
     mythumb = "resources/downloads/a.jpg"
     carb, rayso, yamlf = None, None, False
     try:
