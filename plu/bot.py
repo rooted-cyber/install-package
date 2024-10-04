@@ -185,13 +185,19 @@ async def lol(ult):
 async def _(event):
     import time as g
     dy = g.ctime()
+    a = await tm("""
+%F /%v
+""")
+    b = await tm("""
+%T
+""")
     start = time.time()
     uptime = time_formatter((time.time() - start_time) * 1000)
     x = await event.respond(f"""
     \n\n
     **Bot start time** : `{uptime}`
-    **𝗧𝗶𝗺𝗲* :
-    **𝗗𝗮𝘁𝗲** :file=udB.get_key("ALIVE_PIC"),parse_mode="md")
+    **𝗧𝗶𝗺𝗲* :{b}
+    **𝗗𝗮𝘁𝗲** :{a}file=udB.get_key("ALIVE_PIC"),parse_mode="md")
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
     await x.edit("{}".format("\n",f"Bot start time : {uptime}"))
