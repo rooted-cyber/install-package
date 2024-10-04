@@ -64,7 +64,7 @@ async def _(e):
 
 @ultroid_cmd(pattern="b", only_devs=True)
 async def _(event):
-    def a(pk):
+    async def a(pk):
         print(await bash(f"apt install {pk}"))
 
     
