@@ -1,3 +1,0 @@
-#!/bin/bash
-a=$1
-apt install $a

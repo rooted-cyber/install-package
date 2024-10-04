@@ -1,3 +1,0 @@
-#!/bin/bash
-a=$1
-pip3 install $a
