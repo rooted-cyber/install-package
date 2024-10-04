@@ -14,6 +14,7 @@ import sys
 import time
 from platform import python_version as pyver
 from random import choice
+from pyUltroid._my.my import *
 
 from telethon import __version__
 from telethon.errors.rpcerrorlist import (
@@ -189,7 +190,8 @@ async def _(event):
     x = await event.respond(f"""
     \n\n
     **Bot start time** : `{uptime}`
-    **Current date & time** : `{dy}`""", file=udB.get_key("ALIVE_PIC"),parse_mode="md")
+    **𝗧𝗶𝗺𝗲* :
+    **𝗗𝗮𝘁𝗲** :file=udB.get_key("ALIVE_PIC"),parse_mode="md")
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
     await x.edit("{}".format("\n",f"Bot start time : {uptime}"))
