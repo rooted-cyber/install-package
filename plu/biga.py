@@ -6,7 +6,7 @@ from . import bash, con, downloader, get_paste, get_string, udB, ultroid_cmd, up
 
 opn = []
 @ultroid_cmd(
-    pattern="b( (.*)|$)",
+    pattern="r( (.*)|$)",
 )
 async def imak(event):
     reply = await event.get_reply_message()
