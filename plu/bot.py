@@ -192,7 +192,7 @@ async def _(event):
     end = round((time.time() - start) * 1000)
     reply_to_id = event.reply_to_msg_id or event.id
     uptime = time_formatter((time.time() - start_time) * 1000)
-    x = await event.respond(f"**Bot start time** : `{uptime}`\n**Time** : `{b}`**𝗗𝗮𝘁𝗲** :\n{a}",file=udB.get_key("ALIVE_PIC"),parse_mode="md",reply_to=reply_to_id)
+    x = await event.respond(f"**Bot start time** : `{uptime}`\n**Time** : `{b}`\n**Date**:{a}",file=udB.get_key("ALIVE_PIC"),parse_mode="md",reply_to=reply_to_id)
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
     #await x.edit("{}".format("\n",f"Bot start time : {uptime}"))
