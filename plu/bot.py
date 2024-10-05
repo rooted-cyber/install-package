@@ -198,9 +198,8 @@ async def _(event):
     uptime = time_formatter((time.time() - start_time) * 1000)
     x = await event.respond(f"""
     \n\n
-    **Speed**  {end}
     **Bot start time** : `{uptime}`
-    **𝗧𝗶𝗺𝗲** :{b}
+    **Time** :{b}
     **𝗗𝗮𝘁𝗲** :{a}
     """,file=udB.get_key("ALIVE_PIC"),parse_mode="md",reply_to=reply_to_id)
     end = round((time.time() - start) * 1000)
