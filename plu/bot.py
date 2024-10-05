@@ -186,12 +186,8 @@ async def lol(ult):
 async def _(event):
     import time as g
     dy = g.ctime()
-    a = s("""
-%F /%v
-""")
-    b = s("""
-%r
-""")
+    a = s("""%F /%v""")
+    b = s("""%r""")
     start = time.time()
     end = round((time.time() - start) * 1000)
     reply_to_id = event.reply_to_msg_id or event.id
