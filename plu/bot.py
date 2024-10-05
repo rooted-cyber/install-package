@@ -186,7 +186,7 @@ async def lol(ult):
 async def _(event):
     import time as g
     dy = g.ctime()
-    a = s("%d-%B-%G")
+    a = s("%d %B %G (%Z)")
     b = s("""%r""")
     start = time.time()
     end = round((time.time() - start) * 1000)
