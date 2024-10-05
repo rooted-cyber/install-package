@@ -198,13 +198,14 @@ async def _(event):
     uptime = time_formatter((time.time() - start_time) * 1000)
     x = await event.respond(f"""
     \n\n
+    {end}
     **Bot start time** : `{uptime}`
-    **Time** :{b}
+**Time** :{b}
     **𝗗𝗮𝘁𝗲** :{a}
     """,file=udB.get_key("ALIVE_PIC"),parse_mode="md",reply_to=reply_to_id)
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    await x.edit("{}".format("\n",f"Bot start time : {uptime}"))
+    #await x.edit("{}".format("\n",f"Bot start time : {uptime}"))
 
 
 @ultroid_cmd(
