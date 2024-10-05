@@ -199,8 +199,8 @@ async def _(event):
     x = await event.respond(f"""
     \n\n
     {end}
-    **Bot start time** : `{uptime}`
-**Time** :{b}
+**Bot start time** : `{uptime}`
+**Time** : `{b}`
     **𝗗𝗮𝘁𝗲** :{a}
     """,file=udB.get_key("ALIVE_PIC"),parse_mode="md",reply_to=reply_to_id)
     end = round((time.time() - start) * 1000)
