@@ -85,7 +85,7 @@ async def semd_plugin(ult):
         await ult.client.send_file(
             ult.chat_id, path,
             caption=caption, parse_mode="html",
-            thumb=ULTConfig.thumb
+            thumb=ULTConfig.thumb,
             silent=True, reply_to=ult.reply_to_msg_id,
         )
         await eris.delete()
