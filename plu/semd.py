@@ -64,7 +64,7 @@ async def pastee(path):
         return ""
 
 
-@ultroid_cmd(pattern="semd ?(.*)")
+@ultroid_cmd(pattern="sd ?(.*)")
 async def semd_plugin(ult):
     repo = "https://github.com/TeamUltroid/Ultroid"
     args = ult.pattern_match.group(1)
