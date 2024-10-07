@@ -4,8 +4,8 @@ from io import BytesIO as open
 async def sshe_ed(e):
   x = e.pattern_match.group(1).strip()
   d = await e.edit(f'[+] **searching** `{x}`')
-  z,  _ = await bash(f"sher")
-  a = await bash("sher {x}")
+  z,  _ = await bash("sher")
+  a = await bash(f"sher {x}")
   if len(a) > 4096:
     with open(a.encode()) as sh:
       sh.name = "details.txt"
