@@ -6,7 +6,7 @@ async def sshe_ed(e):
   d = await e.reply(f'[+] **searching** `{x}`')
   y = await e.eor(get_string("com_1"))
   z,  _ = await bash(f"sher")
-  a = await bash("sherlock {x}")
+  a = await bash("sher {x}")
   if len(a) > 4096:
     with open(a.encode()) as sh:
       sh.name = "details.txt"
