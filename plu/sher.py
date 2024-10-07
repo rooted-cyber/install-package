@@ -1,5 +1,5 @@
 from . import eor, ultroid_cmd, get_string, bash, LOGS
-
+from io import BYtesIO
 @ultroid_cmd(pattern="sher ?(.*)")
 async def sshe_ed(e):
   x = e.pattern_match.group(1).strip()
@@ -11,7 +11,7 @@ async def sshe_ed(e):
     with BYtesI9(a.encode()) as sh:
       sh.name = "details.txt"
       await e.respond(file=sh)
-  b,_ = await e.client.fast_uploader(f"{x}.txt")
-  c = await e.client.send_file(e.chat, b)
-  await y.reply(a)
+  #b,_ = await e.client.fast_uploader(f"{x}.txt")
+  #c = await e.client.send_file(e.chat, b)
+  await y.edit(a)
   
