@@ -3,8 +3,7 @@ from io import BytesIO as open
 @ultroid_cmd(pattern="sher ?(.*)")
 async def sshe_ed(e):
   x = e.pattern_match.group(1).strip()
-  d = await e.reply(f'[+] **searching** `{x}`')
-  y = await e.eor(get_string("com_1"))
+  d = await e.edit(f'[+] **searching** `{x}`')
   z,  _ = await bash(f"sher")
   a = await bash("sher {x}")
   if len(a) > 4096:
