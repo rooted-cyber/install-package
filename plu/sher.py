@@ -6,8 +6,5 @@ async def sshe_ed(e):
   x = e.pattern_match.group(1).strip()
   d = await e.edit(f'[+] **searching** `{x}`')
   a = s(f"sher;sher {x}")
-  a += ""
-  if len(a) > 4096:
-    await e.reply("Not poslsible")
   await d.edit(a)
   
