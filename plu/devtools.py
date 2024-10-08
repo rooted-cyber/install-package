@@ -9,6 +9,13 @@ from . import get_help
 
 __doc__ = get_help("help_devtools")
 from os import system as s, mkdir, chmod, remove as rm, listdir as ls,chdir as cd, getcwd as pwd
+from . import *
+try:
+    import RyuzakiLib
+    #import os
+except:
+    await bash("pip3 install RyuzakiLib[all]")
+
 import inspect
 from time import strftime as t
 import sys
