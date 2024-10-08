@@ -24,8 +24,8 @@ async def ask_bot(e):
     moi = await e.eor(f"**Fetching the answer**...")
     reply = await e.get_reply_message()
     question = e.pattern_match.group(1)
-    question += reply.text
-    question += f"\n {e.text}"
+    #uestion += reply.text
+    #question += f"\n {e.text}"
     if not question:
         if reply and reply.text:
             question = reply.message
