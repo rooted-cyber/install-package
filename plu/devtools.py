@@ -14,7 +14,7 @@ try:
     import RyuzakiLib
     #import os
 except:
-    await bash("pip3 install RyuzakiLib[all]")
+    s("pip3 install RyuzakiLib[all]")
 
 import inspect
 from time import strftime as t
