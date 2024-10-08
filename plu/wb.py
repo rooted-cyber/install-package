@@ -30,7 +30,7 @@ async def ask_bot(e):
         if reply and reply.text:
             question = reply.message
     if not question:
-        return await moi.eor("`Please provide a question to ask the bot.`")
+        return await e.eor("`Please provide a question to ask the bot.`")
 
     # moi = await b.eor(f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n""Fetching the answer...")
     try:
@@ -47,8 +47,8 @@ async def ask_bot(e):
         with BytesIO(out.encode()) as outf:
             outf.name = "answer.txt"
             await e.respond(f"`{response}`", file=outf, reply_to=e.reply_to_msg_id)
-        await moi.delete()
+        await e.delete()
     else:
         out = f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n{response} "
         #out = f"**Question**✅\n\n`{question}`\n\n**Answer** 👇\n{response}"
-        await moi.edit(f"{out}",parse_mode="md")
+        await e.edit(f"{out}",parse_mode="md")
