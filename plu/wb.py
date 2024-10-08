@@ -21,7 +21,7 @@ async def fetch_data_from_api(question):
 
 @ultroid_cmd(pattern="wb ?(.*)")
 async def ask_bot(e):
-    moi = await e.eor(get_string("com_1"))
+    moi = await e.eor(f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n""Fetching the answer...")
     reply = await e.get_reply_message()
     question = e.pattern_match.group(1)
 
