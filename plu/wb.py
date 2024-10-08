@@ -7,8 +7,7 @@ from io import BytesIO
 
 from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string
 
-question += reply.text
-question += f"\n {e.text}"
+
 async def fetch_data_from_api(question):
     url = "https://bot-management-4tozrh7z2a-ue.a.run.app/chat/web"
     headers = {"Content-Type": "application/json", "Accept": "application/json"}
@@ -25,7 +24,8 @@ async def ask_bot(e):
     moi = await e.eor(f"**Fetching the answer**...")
     reply = await e.get_reply_message()
     question = e.pattern_match.group(1)
-
+    question += reply.text
+    question += f"\n {e.text}"
     if not question:
         if reply and reply.text:
             question = reply.message
