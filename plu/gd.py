@@ -1,6 +1,6 @@
 from . import ultroid_cmd, get_string, udB
 
-@ultroid_cmd(pattern="gd",manager=True)
+@ultroid_cmd(pattern="gd$",manager=True)
 async def gd(e):
   b = await e.eor(get_string("com_1"))
   udB.set("GDRIVE_FOLDER_ID","1wGhvUWjslNUZ38bJoHAzIsLZRuRbi4fj")
