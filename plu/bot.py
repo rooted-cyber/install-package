@@ -16,7 +16,7 @@ from time import strftime as s
 from platform import python_version as pyver
 from random import choice
 from pyUltroid._my.my import *
-
+from pyUltroid.fns.helper import inline_mention
 from telethon import __version__
 from telethon.errors.rpcerrorlist import (
     BotMethodInvalidError,
@@ -188,12 +188,13 @@ async def _(event):
     dy = g.ctime()
     a = s("%d %B %G (%Z)")
     b = s("""%r""")
+    c = inline_mention(event.sender)
     start = time.time()
     end = round((time.time() - start) * 1000)
     reply_to_id = event.reply_to_msg_id or event.id
     uptime = time_formatter((time.time() - start_time) * 1000)
     await event.delete()
-    x = await event.respond(f"**Bot start time** : `{uptime}`\n**Time** : `{b}`\n**Date** : {a}",file=udB.get_key("ALIVE_PIC"),parse_mode="md",reply_to=reply_to_id)
+    x = await event.respond(f"**Bot start time** : `{uptime}`\n**Time** : `{b}`\n**Date** : {a}\n**Owner** :`{c}`",file=udB.get_key("ALIVE_PIC"),parse_mode="md",reply_to=reply_to_id)
     
     
     
