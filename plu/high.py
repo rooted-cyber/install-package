@@ -6,10 +6,12 @@ from . import LOGS, con
 try:
     import cv2
 except ImportError:
-    LOGS.error("OpenCv not Installed.\n Not use Termux")
+    LOGS.info("OpenCv not Installed.\n\n Not installed in Termux")
 
-import numpy as np
-
+try:
+    import numpy as np
+except:
+    LOGS.info("\nnumpy not install")
 try:
     from PIL import Image
 except ImportError:
