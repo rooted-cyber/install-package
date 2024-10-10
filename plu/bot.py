@@ -188,7 +188,7 @@ async def _(event):
     dy = g.ctime()
     a = s("%d %B %G (%Z)")
     b = s("""%r""")
-    parse="md"
+    parse="html"
     c = inline_mention(event.sender)
     start = time.time()
     end = round((time.time() - start) * 1000)
