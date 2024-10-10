@@ -29,14 +29,14 @@ import os
 import time
 
 from telethon.tl.types import Message
-from pyUltroid.fns.helper bash
+from pyUltroid.fns.helper import bash
 try:
   from pyUltroid.fns.gDrive import GDriveManager
 except:
   await bash("""
 pip install --upgrade oauth2client
 pip install --upgrade google-api-python-client
-pip install apiclien""")
+pip install apiclient""")
 from pyUltroid.fns.helper import time_formatter
 
 from . import ULTConfig, asst, eod, eor, get_string, ultroid_cmd
