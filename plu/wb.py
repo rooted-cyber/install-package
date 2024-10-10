@@ -11,7 +11,7 @@ from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string
 async def fetch_data_from_api(question):
     url = "https://bot-management-4tozrh7z2a-ue.a.run.app/chat/web"
     headers = {"Content-Type": "application/json", "Accept": "application/json"}
-    payload = {"prompt": question, "bid": "040d0481"}
+    payload = {"prompt": question, "bid"}
 
     async with aiohttp.ClientSession() as session:
         async with session.post(url, headers=headers, json=payload) as response:
