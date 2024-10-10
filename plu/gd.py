@@ -33,7 +33,7 @@ from pyUltroid.fns.helper import bash
 try:
   from pyUltroid.fns.gDrive import GDriveManager
 except:
-  await bash("""
+  bash("""
 pip install --upgrade oauth2client
 pip install --upgrade google-api-python-client
 pip install apiclient""")
