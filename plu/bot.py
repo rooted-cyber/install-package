@@ -188,13 +188,14 @@ async def _(event):
     dy = g.ctime()
     a = s("%d %B %G (%Z)")
     b = s("""%r""")
+    parse="md"
     c = inline_mention(event.sender)
     start = time.time()
     end = round((time.time() - start) * 1000)
     reply_to_id = event.reply_to_msg_id or event.id
     uptime = time_formatter((time.time() - start_time) * 1000)
     await event.delete()
-    x = await event.respond(f"**Bot start time** : `{uptime}`\n**Time** : `{b}`\n**Date** : {a}\n**Owner** :`{c}`",file=udB.get_key("ALIVE_PIC"),reply_to=reply_to_id)
+    x = await event.respond(f"**Bot start time** : `{uptime}`\n**Time** : `{b}`\n**Date** : {a}\n**Owner** :`{c}`",file=udB.get_key("ALIVE_PIC"),reply_to=reply_to_id,parse_mode=parse)
     
     
     
