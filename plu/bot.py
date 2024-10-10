@@ -194,7 +194,7 @@ async def _(event):
     reply_to_id = event.reply_to_msg_id or event.id
     uptime = time_formatter((time.time() - start_time) * 1000)
     await event.delete()
-    x = await event.respond(f"**Bot start time** : `{uptime}`\n**Time** : `{b}`\n**Date** : {a}\n**Owner** :`{c}`",file=udB.get_key("ALIVE_PIC"),parse_mode="md",reply_to=reply_to_id)
+    x = await event.respond(f"**Bot start time** : `{uptime}`\n**Time** : `{b}`\n**Date** : {a}\n**Owner** :`{c}`",file=udB.get_key("ALIVE_PIC"),reply_to=reply_to_id)
     
     
     
