@@ -47,7 +47,8 @@ async def _(ult):
 HNDLR : {HNDLR}
 SUDO_HNDLR : {SUDO_HNDLR}""")
   if is_private:
-    
+    a = inline_mention(r.sender_id)
+    await ult.reply(f"List of sudo users :\n {a}")
 
     await ult.respond("**Now checking....**")
     sudos = sudoers()
