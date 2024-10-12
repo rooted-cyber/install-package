@@ -1,4 +1,6 @@
 import asyncio
+from . import ultroid_cmd, get_string
+
 @ultroid_cmd(pattern="file ?(.*)")
 async def hi(event):
   text = event.pattern_match.group(1)
