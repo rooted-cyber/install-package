@@ -46,6 +46,8 @@ async def _(ult):
 
 HNDLR : {HNDLR}
 SUDO_HNDLR : {SUDO_HNDLR}""")
+  if is_private:
+    
 
     await ult.respond("**Now checking....**")
     sudos = sudoers()
