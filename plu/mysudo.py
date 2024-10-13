@@ -46,8 +46,9 @@ async def _(ult):
 
 HNDLR : {HNDLR}
 SUDO_HNDLR : {SUDO_HNDLR}""")
-    if reply.is_private:
-      reply = await e.get_reply_message()
+    re = await e.get_reply_message()
+    if re.is_private:
+      re = await e.get_reply_message()
       a = inline_mention(reply.sender_id)
       await ult.reply(f"List of sudo users :\n {a}")
 
