@@ -48,8 +48,12 @@ HNDLR : {HNDLR}
 SUDO_HNDLR : {SUDO_HNDLR}""")
     re = await ult.get_reply_message()
     if re.is_private:
-      a = inline_mention(re.sender_id)
+      reid = "{}".format(re.sender_id)
+      ab = await ult.client.get_entity(int(reid))
+      a = inline_mention(ab)
       await ult.reply(f"List of sudo users :\n {a}")
+    else:
+      return await ult.reply("4096+ text")
 
     await ult.respond("**Now checking....**")
     sudos = sudoers()
