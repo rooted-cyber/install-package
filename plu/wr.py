@@ -1,9 +1,12 @@
 import os
 from PIL import Image, ImageDraw, ImageFont
-
+import os
+from random import choice as c
+co = "red","blue"
 from . import async_searcher, eod, get_string, ultroid_cmd, text_set
 @ultroid_cmd(pattern="wr( (.*)|$)")
 async def writer(e):
+    rg = f"{c(co)}"
     if e.reply_to:
         reply = await e.get_reply_message()
         text = reply.message
@@ -19,7 +22,7 @@ async def writer(e):
     lines = text_set(text)
     line_height = font.getbbox("hg")[3] - font.getbbox("hg")[1]
     for line in lines:
-        draw.text((x, y), line, fill=(1, 22, 55), font=font)
+        draw.text((x, y), line, fill=(f"{rg}"), font=font)
         y = y + line_height - 5
     file = "ult.jpg"
     img.save(file)
