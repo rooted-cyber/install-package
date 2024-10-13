@@ -12,9 +12,11 @@ __doc__ = get_help("help_bot")
 import os
 import sys
 import time
+from time import strftime as s
 from platform import python_version as pyver
 from random import choice
-
+from pyUltroid._my.my import *
+from pyUltroid.fns.helper import inline_mention
 from telethon import __version__
 from telethon.errors.rpcerrorlist import (
     BotMethodInvalidError,
@@ -182,14 +184,20 @@ async def lol(ult):
 
 @ultroid_cmd(pattern="p$", chats=[], type=["official", "assistant"])
 async def _(event):
+    import time as g
+    dy = g.ctime()
+    a = s("%d %B %G ")
+    b = s("""%r (%Z)""")
+    parse="html"
+    c = inline_mention(event.sender)
     start = time.time()
-    uptime = time_formatter((time.time() - start_time) * 1000)
-    x = await event.respond(f"\n\n**Bot start time** : {uptime}", file=udB.get_key("ALIVE_PIC"),parse_mode="md")
     end = round((time.time() - start) * 1000)
+    reply_to_id = event.reply_to_msg_id or event.id
     uptime = time_formatter((time.time() - start_time) * 1000)
-    await x.edit("{}".format("\n",f"Bot start time : {uptime}"))
-
-
+    await event.delete()
+    x = await event.respond(f"<pre><b>Bot start time</b> : <code>{uptime}</code>\n<b>Time</b> : {b}\n<b>Date</b> : {a}\n<b>Owner</b> : <code>{c}</code></pre>",file=udB.get_key("ALIVE_PIC"),reply_to=reply_to_id,parse_mode=parse)
+    
+    
 @ultroid_cmd(
     pattern="rs$",
     fullsudo=True,

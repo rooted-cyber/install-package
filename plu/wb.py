@@ -11,7 +11,7 @@ from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string
 async def fetch_data_from_api(question):
     url = "https://bot-management-4tozrh7z2a-ue.a.run.app/chat/web"
     headers = {"Content-Type": "application/json", "Accept": "application/json"}
-    payload = {"prompt": question, "bid": "040d0481"}
+    payload = {"prompt": question, "bid" : "edwo6pg1"}
 
     async with aiohttp.ClientSession() as session:
         async with session.post(url, headers=headers, json=payload) as response:
@@ -21,15 +21,16 @@ async def fetch_data_from_api(question):
 
 @ultroid_cmd(pattern="wb ?(.*)")
 async def ask_bot(e):
-    moi = await e.eor(get_string("com_1"))
+    moi = await e.eor(f"**Fetching the answer**...")
     reply = await e.get_reply_message()
     question = e.pattern_match.group(1)
-
+    #uestion += reply.text
+    #question += f"\n {e.text}"
     if not question:
         if reply and reply.text:
             question = reply.message
     if not question:
-        return await moi.eor("`Please provide a question to ask the bot.`")
+        return await e.eor("`Please provide a question to ask the bot.`")
 
     # moi = await b.eor(f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n""Fetching the answer...")
     try:
@@ -46,8 +47,8 @@ async def ask_bot(e):
         with BytesIO(out.encode()) as outf:
             outf.name = "answer.txt"
             await e.respond(f"`{response}`", file=outf, reply_to=e.reply_to_msg_id)
-        await moi.delete()
+        await e.delete()
     else:
-        abc = udB.get_key("ALIVE_PIC")
-        out = f"**Question**✅\n\n{question}\n\n**Answer** 👇\n{response}"
-        await moi.edit(out,parse_mode="md")
+        out = f"**Question ✅**\n\n`{question}`\n\n`Answer❌❌ `\n{response} "
+        #out = f"**Question**✅\n\n`{question}`\n\n**Answer** 👇\n{response}"
+        await e.edit(f"{out}",parse_mode="md")
