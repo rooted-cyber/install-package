@@ -18,11 +18,6 @@ from . import LOGS, async_searcher, eod, get_string, safeinstall, ultroid_cmd, u
 async def install(event):
     await safeinstall(event)
 
-
-@ultroid_cmd(pattern="inn$")
-async def plin(e):
-  await ins(e)
-
 @ultroid_cmd(
     pattern=r"un( (.*)|$)",
 )
@@ -39,7 +34,7 @@ async def uninstall(event):
         await event.eor(f"**Plugins : Uɴɪɴsᴛᴀʟʟᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=5)
         os.remove(f"plugins/{shortname}.py")
     else:
-        await event.eor(f"**Not found **{shortname}**")
+        await event.eor(f"**Not found **\n{shortname}**")
     if zym in lsd:
         try:
             un_plug(shortname)
@@ -73,7 +68,7 @@ async def load(event):
         )
 
 
-@ultroid_cmd(pattern="getaddons( (.*)|$)", fullsudo=True)
+@ultroid_cmd(pattern="link( (.*)|$)", fullsudo=True)
 async def get_the_addons_lol(event):
     thelink = event.pattern_match.group(1).strip()
     xx = await event.eor(get_string("com_1"))
