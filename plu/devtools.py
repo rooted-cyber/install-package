@@ -333,24 +333,3 @@ async def aexec(code, event):
     )
 
     return await locals()["__aexec"](event, event.client)
-
-
-
-async def aexec(code, event):
-    exec(
-        (
-            "async def __aexec(e, client): "
-            + "\n print = p = _stringify"
-            + "\n message = event = e"
-            + "\n u.r = r = reply = await event.get_reply_message()"
-            + "\n chat = event.chat_id"
-            + "\n a = await()"
-      )
-        + "".join(f"\n {l}" for l in code.split("\n"))
-    )
-
-    return await locals()["__aexec"](event, event.client)
-
-   
-
-
