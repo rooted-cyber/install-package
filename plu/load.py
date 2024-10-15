@@ -12,8 +12,8 @@ async def ch(e):
   b = f"{q}.py"
   d = ls("plugins")
   if b in d:
-    await e.eor(get_string("com_1"))
+    pr = await e.eor(get_string("com_1"))
     load_addons(f"plugins/{q}.py")
-    await e.reply(f"Successfully loaded **{q}** plugin")
+    await pr.edit(f"Successfully loaded **{q}** plugin")
   else:
-     await e.respond(f"**{q} plugin not found**")
+     await e.respond(f"**{q}** `plugin not found`")
