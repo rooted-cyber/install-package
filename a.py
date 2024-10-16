@@ -1,2 +1,1 @@
-print("off your bot")
-exit
+print("Run your bot")
