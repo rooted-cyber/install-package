@@ -5,7 +5,7 @@ from telethon.errors.rpcerrorlist import UserAlreadyParticipantError
 # Ensure your bot variable is defined and correctly initialized somewhere in your main script
 # For demonstration, ensure 'bot' is the actual instantiated and logged-in TelegramClient
 
-@ultroid_cmd(pattern="join (.+)")
+@ultroid_cmd(pattern="jn( (.+)")
 async def join_channel_or_group(event):
     input_str = event.pattern_match.group(1)
 
