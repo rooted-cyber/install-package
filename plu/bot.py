@@ -203,6 +203,7 @@ async def _(event):
     fullsudo=True,
 )
 async def restartbt(ult):
+    await ult.eor("rs")
     ok = await ult.eor(get_string("bot_5"))
     call_back()
     who = "bot" if ult.client._bot else "user"
