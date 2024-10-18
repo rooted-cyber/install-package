@@ -1,5 +1,5 @@
 from . import *
-@ultroid_cmd(pattern="akn$",manager=True)
+@ultroid_cmd(pattern="ak$",manager=True)
 async def hi(event):
   reply = await event.get_reply_message()
   import akenoai as dev
