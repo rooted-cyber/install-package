@@ -33,7 +33,7 @@ from pyUltroid._misc import sudoers
     pattern="su$",
 )
 async def _(ult):
-    x = await ult.eor("**Adding sudo/fullsodo.....**")
+    x = await ult.eor("**Adding Sudo or Fullsodo.....**")
     n = udB.get_key("SUDOS") or []
     async for m in ult.client.iter_participants(ult.chat_id):
       if not (m.bot or m.deleted):
@@ -42,4 +42,12 @@ async def _(ult):
     n = list(set(n))
     udB.set_key('SUDOS', n)
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
-    await x.edit("**List of sudo users**\n1.All members in this group")
+    await x.edit(f"""
+**List of Sudo and Fullsudo users**
+1.All members in this group
+
+**Info**
+My `HNDLR : {HNDLR}`
+My `SUDO_HNDLR : {SUDO_HNDLR}`
+""")
+""")
