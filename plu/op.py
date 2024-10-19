@@ -1,5 +1,6 @@
 from . import ultroid_cmd, get_string, get_paste
 import os
+from ioimport BytesIO
 @ultroid_cmd(
     pattern="op( (.*)|$)",
 )
@@ -21,8 +22,8 @@ async def _(event):
     try:
         await xx.edit(f"```{d}```")
     except BaseException:
-        what, key = await get_paste(d)
-        #await xx.edit(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**")
-        await xx.client.inline_query(asst.me.username,f"pasta-{key}") 
+        with BytrsIO(d.encode()) as faltu:
+            faltu.name = "pasted.txt"
+        await xx.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**{faltu}") 
     if rem:
         os.remove(b)
