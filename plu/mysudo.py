@@ -42,6 +42,4 @@ async def _(ult):
     n = list(set(n))
     udB.set_key('SUDOS', n)
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
-    await x.edit(f"""
-    **List of sudo users**
-    1.**All members in this group**""")
+    await x.edit("**List of sudo users**\n1.All members in this group")
