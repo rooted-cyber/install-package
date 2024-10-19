@@ -21,7 +21,7 @@ async def _(event):
         await xx.edit(f"```{d}```")
     except BaseException:
         what, key = await get_paste(d)
-        await xx.edit(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**)
+        await xx.edit(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**")
        await event.client.inline_query(asst.me.username"pasta-{key}") 
     if rem:
         os.remove(b)
