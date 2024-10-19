@@ -44,7 +44,7 @@ async def _(ult):
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
     await x.edit(f"""
 <b>List of Sudo and Fullsudo users</b>
-1. All members in this group
+<pre>1. All members in this group</pre>
 
 <b>Info</b>
 My <code>HNDLR : {HNDLR}</code>
