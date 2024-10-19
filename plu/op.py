@@ -1,4 +1,5 @@
 from . import ultroid_cmd, get_string, get_paste
+import os
 @ultroid_cmd(
     pattern="op( (.*)|$)",
 )
