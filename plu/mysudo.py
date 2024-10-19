@@ -45,34 +45,3 @@ async def _(ult):
     await x.edit(f"""
     **List of sudo users**
     1.**All members in this group**""")
-
-    sudos = sudoers()
-    if not sudos:
-        return await ult.eor(get_string("sudo_3"), time=5)
-    msg = ""
-    for i in sudos:
-        try:
-            name = await ult.client.get_entity(int(i))
-        except BaseException:
-            name = None
-        if name:
-            msg += f"• {inline_mention(name)} ( `{i}` )\n"
-        else:
-            msg += f"• `{i}` -> Invalid User\n"
-    m = udB.get_key("SUDO") or True
-    if not m:
-        m = "[False](https://graph.org/Ultroid-04-06)"
-        await ult.eor(
-        f"**SUDO MODE : {m}\n\nList of SUDO Users :**\n{msg}", link_preview=False
-    )
-
-    if not "sudo":
-      mkdir("sudo")
-
-    if len(msg) > 4096:
-       with open("list.txt","w") as ld:
-         ld.write(f"{msg}")
-    b,_ = await ult.client.fast_uploader(f"list.txt")
-    c = await ult.client.send_file(ult.chat, b)
-    #await ult.eor(c)
-
