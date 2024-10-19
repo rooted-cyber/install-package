@@ -1,4 +1,4 @@
-from . import ultroid_cmd, get_string, get_paste
+from . import asst, ultroid_cmd, get_string, get_paste
 import os
 from io import BytesIO
 @ultroid_cmd(
