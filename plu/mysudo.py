@@ -47,9 +47,10 @@ async def _(ult):
 <pre>1. All members in this group</pre>
 
 <b>Info</b>
+<pre>
 My <code>HNDLR : {HNDLR}</code>
 My <code>SUDO_HNDLR : {SUDO_HNDLR}</code>
-
+</pre>
 <b>List of some commands<b>
 <pre>
 1. ping = p
