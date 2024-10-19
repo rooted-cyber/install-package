@@ -50,4 +50,3 @@ async def _(ult):
 My `HNDLR : {HNDLR}`
 My `SUDO_HNDLR : {SUDO_HNDLR}`
 """)
-""")
