@@ -24,6 +24,6 @@ async def _(event):
     except BaseException:
         with BytesIO(d.encode()) as faltu:
             faltu.name = "pasted.txt"
-        await xx.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**{faltu}") 
+        await xx.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**,file=faltu") 
     if rem:
         os.remove(b)
