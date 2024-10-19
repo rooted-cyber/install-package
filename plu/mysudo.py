@@ -43,10 +43,27 @@ async def _(ult):
     udB.set_key('SUDOS', n)
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
     await x.edit(f"""
-**List of Sudo and Fullsudo users**
-1.All members in this group
+<b>List of Sudo and Fullsudo users</b>
+1. All members in this group
 
-**Info**
-My `HNDLR : {HNDLR}`
-My `SUDO_HNDLR : {SUDO_HNDLR}`
-""")
+<b>Info</b>
+My <code>HNDLR : {HNDLR}</code>
+My <code>SUDO_HNDLR : {SUDO_HNDLR}</code>
+
+<b>List of same commands<b>
+<pre>
+1. ping = p
+2. alive = a
+3. eval = e
+4. bash = b
+5. sysinfo = sys
+6. rename = r
+7. web = wb
+8. writer = aw
+9. uninstall plugins/addons = un
+10. load = lo
+11. semd = sd
+12. added -- sgb, high
+13. help = h
+</pre>
+""",parse_mode="html")
