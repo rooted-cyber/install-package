@@ -1,5 +1,6 @@
 from . import eor, SUDO_HNDLR, ultroid_cmd
 from os import mkdir, listdir as ls
+from pyUltroid.fns.helper import inline_mention
 from . import HNDLR, get_string, inline_mention, udB, ultroid_bot, ultroid_cmd, eor, SUDO_HNDLR
 
 @ultroid_cmd(pattern="sur")
@@ -32,7 +33,7 @@ from pyUltroid._misc import sudoers
     pattern="su$",
 )
 async def _(ult):
-    x = await ult.eor("**Adding.....**")
+    x = await ult.eor("**Adding sudo/fullsodo.....**")
     n = udB.get_key("SUDOS") or []
     async for m in ult.client.iter_participants(ult.chat_id):
       if not (m.bot or m.deleted):
@@ -42,12 +43,9 @@ async def _(ult):
     udB.set_key('SUDOS', n)
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
     await x.edit(f"""
-**Added FULLSUDO and SUDO in this group members**
+    **List of sudo users**
+    1.**All members in this group**""")
 
-HNDLR : {HNDLR}
-SUDO_HNDLR : {SUDO_HNDLR}""")
-
-    await ult.respond("**Now checking....**")
     sudos = sudoers()
     if not sudos:
         return await ult.eor(get_string("sudo_3"), time=5)
