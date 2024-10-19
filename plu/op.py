@@ -22,7 +22,7 @@ async def _(event):
     try:
         await xx.edit(f"```{d}```")
     except BaseException:
-        with BytrsIO(d.encode()) as faltu:
+        with BytesIO(d.encode()) as faltu:
             faltu.name = "pasted.txt"
         await xx.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**{faltu}") 
     if rem:
