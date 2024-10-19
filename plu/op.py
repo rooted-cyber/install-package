@@ -22,6 +22,6 @@ async def _(event):
     except BaseException:
         what, key = await get_paste(d)
         await xx.edit(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**")
-        await event.client.inline_query(asst.me.username"pasta-{key}") 
+        await event.client.inline_query(asst.me.username,f"pasta-{key}") 
     if rem:
         os.remove(b)
