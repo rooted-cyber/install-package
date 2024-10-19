@@ -1,6 +1,6 @@
 from . import ultroid_cmd, get_string, get_paste
 import os
-from ioimport BytesIO
+from io import BytesIO
 @ultroid_cmd(
     pattern="op( (.*)|$)",
 )
