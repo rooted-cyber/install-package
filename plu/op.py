@@ -1,4 +1,4 @@
-from . import asst, ultroid_cmd, get_string, get_paste
+from . import asst, ultroid_cmd, get_string, get_paste, ULTConfig
 import os
 from io import BytesIO
 @ultroid_cmd(
@@ -25,7 +25,7 @@ async def _(event):
         hat, key = await get_paste(d)
         with BytesIO(d.encode()) as faltu:
             faltu.name = "pasted.txt"
-            await xx.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/api/v1/documents/{key}/raw)",file=faltu)
+            await xx.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/api/v1/documents/{key}/raw)",file=faltu,thumb=ULTConfig.thumb)
             await event.client.inline_query(asst.me.username, f"pasta-{key}")
     if rem:
         os.remove(b)
