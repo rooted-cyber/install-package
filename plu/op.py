@@ -25,7 +25,7 @@ async def _(event):
         hat, key = await get_paste(d)
         with BytesIO(d.encode()) as faltu:
             faltu.name = "pasted.txt"
-            await xx.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**",file=faltu)
+            await xx.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key})",file=faltu)
             await event.client.inline_query(asst.me.username, f"pasta-{key}")
     if rem:
         os.remove(b)
