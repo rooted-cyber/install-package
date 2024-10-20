@@ -8,8 +8,8 @@ async def _(event):
     a = await event.get_reply_message()
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
-        bakwaas.name = "bakwaas.txt"
-        await event.reply(file=bakwaas,thumb=ULTConfig.thumb)
+          bakwaas.name = "bakwaas.txt"
+          await event.reply(file=bakwaas,thumb=ULTConfig.thumb)
     b = event.pattern_match.group(1).strip()
     if not ((a and a.media) or (b and os.path.exists(b))):
         return await event.eor(get_string("cvt_7"), time=5)
