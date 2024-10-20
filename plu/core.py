@@ -14,6 +14,10 @@ from pyUltroid.startup.loader import load_addons
 from . import LOGS, async_searcher, eod, get_string, safeinstall, ultroid_cmd, un_plug
 
 
+@ultroid_cmd(pattern="sp")
+async def speed(e):
+  await sp(e)
+  
 @ultroid_cmd(pattern="ins", fullsudo=True)
 async def install(event):
     await safeinstall(event)
