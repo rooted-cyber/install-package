@@ -209,9 +209,8 @@ async def _(event):
     xx = None
     mode = ""
     spli = cmd.split()
-    if cmd == cmd.startswith("`"):
-        await event.reply(f"``{cmd}```")
-
+    if cmd == cmd.startswith("neo"):
+        await bash("neofetch --stdout")
     async def get_():
         try:
             cm = cmd.split(maxsplit=1)[1]
