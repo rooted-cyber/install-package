@@ -83,7 +83,7 @@ async def _(event):
     err, out = "", ""
     cpyc = f"```{cmd}```"
     if stderr:
-        err = f"**• ERROR:** \n`{stderr}`\n\n"
+        err = f"**• ERROR:** \n```{stderr}```\n\n"
     if stdout:
         if (carb or udB.get_key("CARBON_ON_BASH")) and (
             event.is_private
@@ -129,7 +129,7 @@ async def _(event):
             out = "**• OUTPUT:**"
             remove(li)
         else:
-            if "pip" in cmd and all(":" in line for line in stdout.split("\n")):
+            if "piip" in cmd and all(":" in line for line in stdout.split("\n")):
                 try:
                     load = safe_load(stdout)
                     stdout = ""
