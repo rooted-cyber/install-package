@@ -209,7 +209,7 @@ async def _(event):
     xx = None
     mode = ""
     spli = cmd.split()
-    if cmd == cmd.starswith("`"):
+    if cmd == cmd.startswith("`"):
         await event.reply(f"``{cmd}```")
 
     async def get_():
