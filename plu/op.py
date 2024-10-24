@@ -6,9 +6,10 @@ from io import BytesIO
 )
 async def _(event):
     a = await event.get_reply_message()
+    c = event.pattern_match.group(1)
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
-          bakwaas.name = "bakwaas.txt"
+          bakwaas.name = c
           await event.reply(file=bakwaas,thumb=ULTConfig.thumb)
     b = event.pattern_match.group(1).strip()
     if not ((a and a.media) or (b and os.path.exists(b))):
