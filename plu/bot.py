@@ -8,6 +8,17 @@
 from . import get_help
 
 __doc__ = get_help("help_bot")
+import asyncio
+import os
+import sys
+import time
+
+async def _(event):
+    start = time.time()
+    x = await event.eor("Pong !")
+    end = round((time.time() - start) * 1000)
+    uptime = time_formatter((time.time() - start_time) * 1000)
+    await x.reply(get_string("ping").format(end, uptime))
 
 import os
 import sys
@@ -189,6 +200,7 @@ async def _(event):
     a = s("%d %B %G ")
     b = s("""%r (%Z)""")
     parse="html"
+    await _(event)
     c = inline_mention(event.sender)
     start = time.time()
     end = round((time.time() - start) * 1000)
