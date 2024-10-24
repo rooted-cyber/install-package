@@ -13,7 +13,7 @@ import os
 import sys
 import time
 
-async def _(event):
+async def pi(event):
     start = time.time()
     x = await event.eor("Pong !")
     end = round((time.time() - start) * 1000)
@@ -200,7 +200,7 @@ async def _(event):
     a = s("%d %B %G ")
     b = s("""%r (%Z)""")
     parse="html"
-    await _(event)
+    await pi(event)
     c = inline_mention(event.sender)
     start = time.time()
     end = round((time.time() - start) * 1000)
