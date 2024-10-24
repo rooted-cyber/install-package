@@ -4,9 +4,8 @@ from os import getcwd as pwd
 
 @ultroid_cmd(pattern="all")
 async def sshe_ed(e):
-  r = await e.get_reply_message()
-  if r:
+  try:
     await dl(e)
     await photo(e)
-  else:
+  except:
     await photo(e)
