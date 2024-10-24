@@ -12,8 +12,8 @@ async def _(event):
           bakwaas.name = c
           await event.reply(file=bakwaas,thumb=ULTConfig.thumb)
     b = event.pattern_match.group(1).strip()
-    #if not ((a and a.media) or (b and os.path.exists(b))):
-        #return await event.eor(get_string("cvt_7"), time=5)
+    if not ((a and a.media) or (b and os.path.exists(b))):
+        return await event.eor(get_string("com_1"), time=5)
     xx = await event.eor(get_string("com_1"))
     rem = None
     if not b:
