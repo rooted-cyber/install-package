@@ -200,14 +200,15 @@ async def _(event):
     a = s("%d %B %G ")
     b = s("""%r (%Z)""")
     parse="html"
-    await pi(event)
+    pn = await pi(event)
+    await pn.delete()
     c = inline_mention(event.sender)
     start = time.time()
     end = round((time.time() - start) * 1000)
     reply_to_id = event.reply_to_msg_id or event.id
     uptime = time_formatter((time.time() - start_time) * 1000)
     await event.delete()
-    x = await event.respond(f"<pre><b>Bot start time</b> : <code>{uptime}</code>\n<b>Time</b> : {b}\n<b>Date</b> : {a}\n<b>Owner</b> : <code>{c}</code></pre>",file=udB.get_key("ALIVE_PIC"),reply_to=reply_to_id,parse_mode=parse)
+    x = await event.respond(f"<pre{pn}\n\n><b>Bot start time</b> : <code>{uptime}</code>\n<b>Time</b> : {b}\n<b>Date</b> : {a}\n<b>Owner</b> : <code>{c}</code></pre>",file=udB.get_key("ALIVE_PIC"),reply_to=reply_to_id,parse_mode=parse)
     
     
 @ultroid_cmd(
