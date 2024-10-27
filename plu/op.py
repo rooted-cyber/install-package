@@ -5,12 +5,13 @@ from io import BytesIO
     pattern="op( (.*)|$)",
 )
 async def _(event):
+    ax = await event.eor(get_string("com_1"))
     a = await event.get_reply_message()
     c = event.pattern_match.group(1)
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
           bakwaas.name = c
-          return await event.reply(file=bakwaas,thumb=ULTConfig.thumb)
+          return await ax.edit(file=bakwaas,thumb=ULTConfig.thumb)
     b = event.pattern_match.group(1).strip()
     if not ((a and a.media) or (b and os.path.exists(b))):
         return await event.eor(get_string("com_1"), time=5)
