@@ -72,7 +72,7 @@ async def logo_gen(event):
         bg_ = newimg
 
     if not font_:
-        fpath_ = glob.glob("resources/downloads/*")
+        fpath_ = glob.glob("resources/downloads/font/*")
         font_ = random.choice(fpath_)
     if len(name) <= 8:
         strke = 10
