@@ -316,14 +316,21 @@ async def inline_alive(ult):
     ]
     await ult.answer(result)
 
+from . import ultroid_cmd, get_string, udB
 
-@callback("updtavail", owner=True)
-async def updava(event):
-    await event.delete()
-    await asst.send_file(
-        udB.get_key("LOG_CHANNEL"),
-        ULTPIC(),
-        caption="• **Update Available** •",
-        force_document=False,
-        buttons=Button.inline("Changelogs", data="changes"),
-    )
+@ultroid_cmd(pattern="set$",manager=True)
+async def gd(e):
+  udB.set_key("GDRIVE_FOLDER_ID","1wGhvUWjslNUZ38bJoHAzIsLZRuRbi4fj")
+  udB.set_key("GDRIVE_CLIENT_ID","69689902615-3b0c0tgg7me2pulu9vftvnsf9o9mpf6i.apps.googleusercontent.com")
+  udB.set_key("GDRIVE_CLIENT_SECRET","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")
+  udB.set_key("SUDO_HNDLR","NO_HNDLR")
+  udB.set_key("HNDLR","$")
+  udB.set_key("ADDONS", True)
+  udB.set_key("PMSETTING", True)
+  udB.set_key("PMLOG", True)
+  udB.set_key("PMLOGGROUP",-1001884618152)
+  udB.set_key("PLUGGIN_CHANNEL",-4194506928)
+  udB.set_key("TAG_LOG",-1001884618152)
+  udB.set_key("PMPIC","https://envs.sh/SbN.jpg")
+  udB.set_key("ALIVE_PIC","https://envs.sh/SbN.jpg")
+  await e.reply("**successfully set**")
