@@ -34,6 +34,7 @@ async def sangmata_beta(e):
         async with e.client.conversation(CHAT, total_timeout=15) as conv:
             msg = await conv.send_message(f"{user_id}")
             response = await conv.get_response()
+            response
             if response and "no data available" in response.text.lower():
                 await lol.edit("okbie, No records found for this user")
             elif str(user_id) in response.message:
