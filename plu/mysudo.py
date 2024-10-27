@@ -30,7 +30,7 @@ from pyUltroid._misc import sudoers
 
 
 @ultroid_cmd(
-    pattern="su$",
+    pattern="sup$",
 )
 async def _(ult):
     x = await ult.eor("**Adding Sudo or Fullsodo.....**")
@@ -51,8 +51,7 @@ async def _(ult):
 My <code>SUDO_HNDLR : {SUDO_HNDLR}</code>
 </pre>
 <b>List of some commands<b>
-<pre>
-1. ping = p
+<pre>1. ping = p
 2. alive = a
 3. eval = e
 4. bash = b
@@ -67,6 +66,5 @@ My <code>SUDO_HNDLR : {SUDO_HNDLR}</code>
 13. help = h
 14. restart = rs
 15. open = op
-16. speedtest = sp
-</pre>
+16. speedtest = sp</pre>
 """,parse_mode="html")
