@@ -4,9 +4,11 @@ from os import getcwd as pwd
 @ultroid_cmd(pattern="pwd")
 async def sshe_ed(e):
   await e.reply(f"Your directory : **{pwd()}**")
-    
-    """
-wb -- reply or type
+
+"""
+commands
+
+$wb -- reply or type
 """
 
 import aiohttp
