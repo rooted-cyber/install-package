@@ -50,7 +50,8 @@ async def _(ult):
 <pre>My <code>HNDLR : {HNDLR}</code>
 My <code>SUDO_HNDLR : {SUDO_HNDLR}</code>
 </pre>
-<pre><code class-language-<b>List of some commands<b>
+<b>List of some commands<b>
+<pre>
 1. ping = p
 2. alive = a
 3. eval = e
@@ -67,5 +68,5 @@ My <code>SUDO_HNDLR : {SUDO_HNDLR}</code>
 14. restart = rs
 15. open = op
 16. speedtest = sp
-</code></pre>
+</pre>
 """,parse_mode="html")
