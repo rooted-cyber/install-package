@@ -16,6 +16,7 @@ emojis = ("😍","🔥","❤️","🤔","👍","😁","🥰")
 
 @ultroid_bot.on(events.NewMessage(func=lambda e: e.out or (e.mentioned and not e.is_private)))
 async def rootedcyber(rootedcyber):
-  await rootedcyber.reply("9")
+  a = await rootedcyber.reply(rootedcyber.text)
+  await a.delete()
   #await rootedcyber.react([types.ReactionEmoji(choice(emojis))], big=False if rootedcyber.out else choice((True, False)))
 
