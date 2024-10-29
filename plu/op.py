@@ -8,7 +8,7 @@ async def _(event):
     ax = await event.eor(get_string("com_1"))
     a = await event.get_reply_message()
     if not a:
-        return await event.eor("`Reply any msg/flle`"
+        return await event.eor("`Reply any msg/flle`")
     c = event.pattern_match.group(1)
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
