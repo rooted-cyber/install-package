@@ -18,10 +18,10 @@ from . import ultroid_bot
 emojis = ("😍","🔥","❤️","🤔","👍","😁","🥰")
 
 @ultroid_bot.on(events.NewMessage(func=lambda e: e.out or (e.mentioned and not e.is_private)))
-async def rootedcyber(rootedcyber):
+async def rootedcyber(e):
   #a = await rootedcyber.reply(rootedcyber.text)
   #await a.delete()
   try:
-    await rootedcyber.react([types.ReactionEmoji(choice(emojis))], big=False if rootedcyber.out else choice((True, False)))
+    await e.react([types.ReactionEmoji(choice(emojis))], big=False e.out else choice((True, False)))
   except Exception as ex:
     return LOGS.exception(ex)
