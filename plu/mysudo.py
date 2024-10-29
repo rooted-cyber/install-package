@@ -42,7 +42,7 @@ async def _(ult):
     n = list(set(n))
     udB.set_key('SUDOS', n)
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
-    reply_to_id = event.reply_to_msg_id or event.id
+    reply_to_id = ult.reply_to_msg_id or ult.id
     await x.edit(f"""
 <b>List of Sudo and Fullsudo users</b>
 <pre>1. All members in this group</pre>
