@@ -30,7 +30,7 @@ from pyUltroid._misc import sudoers
 
 
 @ultroid_cmd(
-    pattern="sup$",
+    pattern="su$",
 )
 async def _(ult):
     x = await ult.eor("**Adding Sudo or Fullsodo.....**")
@@ -42,7 +42,7 @@ async def _(ult):
     n = list(set(n))
     udB.set_key('SUDOS', n)
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
-    await x.edit(f"""
+    reply_to_id = event.reply_to_msg_id or event.idawait x.edit(f"""
 <b>List of Sudo and Fullsudo users</b>
 <pre>1. All members in this group</pre>
 
@@ -67,4 +67,4 @@ My <code>SUDO_HNDLR : {SUDO_HNDLR}</code>
 14. restart = rs
 15. open = op
 16. speedtest = sp</pre>
-""",parse_mode="html")
+""",parse_mode="html",reply_to=reply_to_id)
