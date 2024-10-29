@@ -14,16 +14,13 @@ async def _(event):
         with BytesIO(a.text.encode()) as bakwaas:
           bakwaas.name = c
           return await ax.reply(file=bakwaas,thumb=ULTConfig.thumb)
-    if a.media:
-        with open(a.media) as f:
-            await ax.reply(f.read())
     b = event.pattern_match.group(1).strip()
     if not ((a and a.media) or (b and os.path.exists(b))):
         return await event.eor(get_string("com_1"), time=5)
     xx = await event.eor(get_string("com_1"))
     rem = None
     if not b:
-        b = await a.download_media()
+        b = await event.client.download_media(a)
         rem = True
     try:
         with open(b) as c:
