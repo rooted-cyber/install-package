@@ -68,4 +68,4 @@ My <code>SUDO_HNDLR : {SUDO_HNDLR}</code>
 14. restart = rs
 15. open = op
 16. speedtest = sp</pre>
-""",parse_mode="html",reply_to=reply_to_id)
+""",parse_mode="html")
