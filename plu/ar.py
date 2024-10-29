@@ -10,6 +10,7 @@ async def linkrss(e):
     await e.react([types.ReactionEmoji(f"{c(a)}")])
   except Exception as ex:
     return LOGS.exception(ex)
+  print("""
 
 from random import choice
 from telethon import events, types
@@ -25,3 +26,5 @@ async def rootedcyber(e):
     await e.react([types.ReactionEmoji(choice(emojis))], big=False e.out else choice((True, False)))
   except Exception as ex:
     return LOGS.exception(ex)
+
+    """)
