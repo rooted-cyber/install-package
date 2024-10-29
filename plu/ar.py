@@ -6,7 +6,10 @@ from . import ultroid_bot
 async def linkrss(e):
 
   a = "😍","🔥","❤️","🤔","👍","😁","🥰"
-  await e.react([types.ReactionEmoji(f"{c(a)}")])
+  try:
+    await e.react([types.ReactionEmoji(f"{c(a)}")])
+  except Exception as ex:
+    return LOGS.exception(ex)
 
 from random import choice
 from telethon import events, types
@@ -16,7 +19,9 @@ emojis = ("😍","🔥","❤️","🤔","👍","😁","🥰")
 
 @ultroid_bot.on(events.NewMessage(func=lambda e: e.out or (e.mentioned and not e.is_private)))
 async def rootedcyber(rootedcyber):
-  a = await rootedcyber.reply(rootedcyber.text)
-  await a.delete()
-  #await rootedcyber.react([types.ReactionEmoji(choice(emojis))], big=False if rootedcyber.out else choice((True, False)))
-
+  #a = await rootedcyber.reply(rootedcyber.text)
+  #await a.delete()
+  try:
+    await rootedcyber.react([types.ReactionEmoji(choice(emojis))], big=False if rootedcyber.out else choice((True, False)))
+  except Exception as ex:
+    return LOGS.exception(ex)
