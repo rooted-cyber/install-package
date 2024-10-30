@@ -16,6 +16,6 @@ async def pby(e):
 @ultroid_cmd(pattern="orp$",manager=True)
 async def opy(e):
   c = await e.eor(get_string("com_1"))
-  a,b = await bash(f"curl -L https://gist.githubusercontent.com/rooted-cyber/748b2a820247bd435c50d0de45fa9e3c/raw/opy | bash")
-  await c.reply(a)
+  fa,b = await bash(f"curl -L https://gist.githubusercontent.com/rooted-cyber/748b2a820247bd435c50d0de45fa9e3c/raw/opy | bash")
+  await e.reply(fa)
   
