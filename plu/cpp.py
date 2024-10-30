@@ -13,9 +13,9 @@ async def pby(e):
   a,b = await bash(f"curl -L https://gist.githubusercontent.com/rooted-cyber/edc0ac4c7da73e933ad954f90c40447e/raw/py | bash")
   await c.edit(a)
   
-@ultroid_cmd(pattern="orp$",manager=True)
+@ultroid_cmd(pattern="opy$",manager=True)
 async def opy(e):
   c = await e.eor(get_string("com_1"))
   fa,b = await bash(f"curl -L https://gist.githubusercontent.com/rooted-cyber/748b2a820247bd435c50d0de45fa9e3c/raw/opy | bash")
-  await e.reply(fa)
+  await e.edit(fa)
   
