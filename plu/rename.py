@@ -42,7 +42,7 @@ async def imak(event):
         f"`{xxx.name}`",
         file=xxx,
         force_document=False,
-        thumb="resources/extras/ultroid.jpg",
+        thumb="resources/download/a.jpg",
     )
     os.remove(inp)
     await xx.delete()
