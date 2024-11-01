@@ -1,7 +1,7 @@
 from telethon import events
 from random import choice as c
 from telethon.tl import types
-from . import ultroid_bot
+from . import ultroid_bot, LOGS
 @ultroid_bot.on(events.NewMessage(outgoing=True))
 async def linkrss(e):
 
@@ -11,20 +11,6 @@ async def linkrss(e):
   except Exception as ex:
     return LOGS.exception(ex)
   print("""
+Now bot start
 
-from random import choice
-from telethon import events, types
-from . import ultroid_bot
-
-emojis = ("😍","🔥","❤️","🤔","👍","😁","🥰")
-
-@ultroid_bot.on(events.NewMessage(func=lambda e: e.out or (e.mentioned and not e.is_private)))
-async def rootedcyber(e):
-  #a = await rootedcyber.reply(rootedcyber.text)
-  #await a.delete()
-  try:
-    await e.react([types.ReactionEmoji(choice(emojis))], big=False e.out else choice((True, False)))
-  except Exception as ex:
-    return LOGS.exception(ex)
-
-    """)
+"""
