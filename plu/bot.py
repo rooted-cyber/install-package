@@ -240,7 +240,7 @@ async def off(event):
 )
 async def _(event):
     opt = event.pattern_match.group(1).strip()
-    file = f"ultroid{sys.argv[-1]}.log" if len(sys.argv) > 1 else "ultroid.log"
+    file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else "ultroid.txt"
     if opt == "heroku":
         await heroku_logs(event)
     elif opt == "carbon" and Carbon:
@@ -257,7 +257,7 @@ async def _(event):
             return
         await event.reply("**Ultroid Logs.**", file=file)
     elif opt == "open":
-        with open("ultroid.log", "r") as f:
+        with open("ultroid.txt", "r") as f:
             file = f.read()[-4000:]
         return await event.eor(f"`{file}`")
     else:
