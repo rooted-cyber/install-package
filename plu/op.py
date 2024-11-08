@@ -20,10 +20,10 @@ async def _(event):
     xx = await event.eor(get_string("com_1"))
     rem = None
     if not b:
-        b = await event.client.download_media(a)
+        br = await event.client.download_media(a)
         rem = True
     try:
-        with open(b) as c:
+        with open(br) as c:
             d = c.read()
     except UnicodeDecodeError:
         return await xx.eor(get_string("cvt_8"), time=5)
