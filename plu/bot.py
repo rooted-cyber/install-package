@@ -336,4 +336,5 @@ async def gd(e):
   udB.set_key("PMPIC","https://envs.sh/SbN.jpg")
   udB.set_key("ALIVE_PIC","https://envs.sh/SbN.jpg")
   udB.set_key("RMBG_API","npe4xGxDQf7D8KiG9WPxmJR8")
+  udB.set_key("OCR_API","K84695599388957")
   await e.reply("**successfully set**")
