@@ -147,7 +147,7 @@ async def _(event):
             out = f"**• OUTPUT:**\n{stdout}"
     if not stderr and not stdout:
         out = "**• OUTPUT:**\n`Success`"
-    cpyc = f"```{cmd}```**All Output :**\n{stdout}{stderr}"
+    cpyc = f"**All Output :**\n{stdout}{stderr}"
     OUT += f"{err}{out}{cpyc}"
     if len(OUT) > 4096:
         ultd = f"{err}{out}{cpyc}"
