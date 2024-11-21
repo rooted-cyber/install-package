@@ -14,7 +14,7 @@ async def _(event):
         abr = await event.client.download_media(a)
         with open(abr) as rw:
             b = rw.read()
-        return await event.reply(f"{b}",file=a)
+        return await event.reply(f"```{b}```")
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
           bakwaas.name = c
