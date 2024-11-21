@@ -11,7 +11,8 @@ async def _(event):
         return await event.eor("`Reply any msg/flle`")
     c = event.pattern_match.group(1)
     if a.media:
-        with open(a) as rw:
+        abr = await event.client.download_media(a)
+        with open(abr) as rw:
             b = rw.write()
         return await event.reply(f"{b}",file=a)
     if a.text:
