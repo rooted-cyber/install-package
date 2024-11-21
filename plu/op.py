@@ -14,7 +14,18 @@ async def _(event):
         abr = await event.client.download_media(a)
         with open(abr) as rw:
             b = rw.read()
-            return await event.reply(file=b,f"```{b}```")
+        try:
+          return await event.reply(f"```{b}```")
+        except:
+            hat, key = await get_paste(d)
+            with BytesIO(d.encode()) as faltu:
+              faltu.name = "pasted.txt"
+              await xx.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/api/v1/documents/{key}/raw)",file=faltu,thumb=ULTConfig.thumb)
+
+
+
+    
+    if rem:
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
           bakwaas.name = c
