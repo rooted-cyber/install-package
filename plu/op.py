@@ -18,7 +18,7 @@ async def _(event):
           return await event.reply(f"```{b}```")
         except:
             hat, key = await get_paste(b)
-            with BytesIO(d.encode()) as faltu:
+            with BytesIO(b.encode()) as faltu:
               faltu.name = "pasted.txt"
               await xx.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/api/v1/documents/{key}/raw)",file=faltu,thumb=ULTConfig.thumb)
     if a.text:
