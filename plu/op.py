@@ -10,6 +10,8 @@ async def _(event):
     if not a:
         return await event.eor("`Reply any msg/flle`")
     c = event.pattern_match.group(1)
+    if a.media:
+        return await event.reply(file=a)
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
           bakwaas.name = c
