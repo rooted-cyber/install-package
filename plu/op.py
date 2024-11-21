@@ -13,7 +13,7 @@ async def _(event):
     if a.media:
         abr = await event.client.download_media(a)
         with open(abr) as rw:
-            b = rw.write()
+            b = rw.read()
         return await event.reply(f"{b}",file=a)
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
