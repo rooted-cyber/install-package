@@ -144,7 +144,7 @@ async def _(event):
                     LOGS.exception(er)
             else:
                 stdout = f"```{stdout}```"
-            out = f"**• OUTPUT:**\n{stdout}"
+            out = f"\n{stdout}"
     if not stderr and not stdout:
         out = "**• OUTPUT:**\n`Success`"
     cpyc = f"**All Output :**\n{err}{out}"
