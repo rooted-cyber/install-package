@@ -24,6 +24,12 @@
     Link to your Google Drive Folder.
     If added then all files will be uploaded in this folder.
 """
+async def inst():
+    await bash("""
+pip install --upgrade oauth2client
+pip install --upgrade google-api-python-client
+pip install apiclient""")
+
 
 import os
 import time
@@ -33,10 +39,7 @@ from pyUltroid.fns.helper import bash
 try:
   from pyUltroid.fns.gDrive import GDriveManager
 except:
-  bash("""
-pip install --upgrade oauth2client
-pip install --upgrade google-api-python-client
-pip install apiclient""")
+  await inst()
 from pyUltroid.fns.helper import time_formatter
 
 from . import ULTConfig, asst, eod, eor, get_string, ultroid_cmd
