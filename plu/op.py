@@ -24,11 +24,13 @@ async def _(event):
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
           bakwaas.name = c
+            ab = ULTConfig.thumb
+            rp = a.text
           return await ax.reply(f"{file=bakwaas,thumb=ULTConfig.thumb}{a.text}")
-    b = event.pattern_match.group(1).strip()
-    if not ((a and a.media) or (b and os.path.exists(b))):
-        return await event.eor(get_string("com_1"), time=5)
-    xx = await event.eor(get_string("com_1"))
+    #b = event.pattern_match.group(1).strip()
+    #if not ((a and a.media) or (b and os.path.exists(b))):
+        #return await event.eor(get_string("com_1"), time=5)
+    #xx = await event.eor(get_string("com_1"))
     rem = None
     if not b:
         br = await event.client.download_media(a)
