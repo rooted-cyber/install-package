@@ -41,7 +41,7 @@ try:
 except ImportError:
   s("pip install --upgrade oauth2client google-api-python-client apiclient")
 except ImportError:
-  baish("pp i oauth2client google-api-python-client apiclient")
+  ba("pp i oauth2client google-api-python-client apiclient")
 
 
 @ultroid_cmd(
