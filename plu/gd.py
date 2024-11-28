@@ -28,7 +28,7 @@
 import asyncio
 import os
 import time
-from os import system as bash
+from os import system as s
 
 from telethon.tl.types import Message
 from pyUltroid.fns.helper import bash
@@ -39,7 +39,7 @@ from . import ULTConfig, asst, eod, eor, get_string, ultroid_cmd
 try:
   from pyUltroid.fns.gDrive import GDriveManager
 except ImportError:
-  bash("pip install --upgrade oauth2client google-api-python-client apiclient")
+  s("pip install --upgrade oauth2client google-api-python-client apiclient")
 except ImportError:
   baish("pp i oauth2client google-api-python-client apiclient")
 
