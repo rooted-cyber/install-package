@@ -35,7 +35,7 @@ from pyUltroid.fns.helper import bash
 from pyUltroid.fns.helper import time_formatter
 
 from . import ULTConfig, asst, eod, eor, get_string, ultroid_cmd
-
+from pyUltroid.fns.gDrive import GDriveManager
 try:
   from pyUltroid.fns.gDrive import GDriveManager
 except:
