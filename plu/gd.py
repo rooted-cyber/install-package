@@ -24,26 +24,21 @@
     Link to your Google Drive Folder.
     If added then all files will be uploaded in this folder.
 """
-async def inst():
-    await bash("""
-pip install --upgrade oauth2client
-pip install --upgrade google-api-python-client
-pip install apiclient""")
 
-
+import asyncio
 import os
 import time
-import asyncio
 
 from telethon.tl.types import Message
 from pyUltroid.fns.helper import bash
-try:
-  from pyUltroid.fns.gDrive import GDriveManager
-except:
-  asyncio.create_task(inst())
 from pyUltroid.fns.helper import time_formatter
 
 from . import ULTConfig, asst, eod, eor, get_string, ultroid_cmd
+
+try:
+  from pyUltroid.fns.gDrive import GDriveManager
+except ImportError:
+  asyncio.create_task(bash("pip install --upgrade oauth2client google-api-python-client apiclient"))
 
 
 @ultroid_cmd(
