@@ -27,7 +27,7 @@ async def _(event):
           ab = thumb=ULTConfig.thumb
           rp = a.text
           fb = file=bakwaas
-          return await ax.reply(f"{b}{ab}")
+          return await ax.reply(file=bakwaas)
     #b = event.pattern_match.group(1).strip()
     #if not ((a and a.media) or (b and os.path.exists(b))):
         #return await event.eor(get_string("com_1"), time=5)
