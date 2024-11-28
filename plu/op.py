@@ -1,4 +1,5 @@
 from . import asst, ultroid_cmd, get_string, get_paste, ULTConfig
+from os import remove as rk
 import os
 from io import BytesIO
 @ultroid_cmd(
@@ -15,7 +16,8 @@ async def _(event):
         with open(abr) as rw:
             b = rw.read()
         try:
-          return await event.reply(f"```{b}```")
+          await event.reply(f"```{b}```")
+          return rm(abr)
         except:
             hat, key = await get_paste(b)
             with BytesIO(b.encode()) as faltu:
