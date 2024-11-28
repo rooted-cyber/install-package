@@ -33,13 +33,14 @@ pip install apiclient""")
 
 import os
 import time
+import asyncio
 
 from telethon.tl.types import Message
 from pyUltroid.fns.helper import bash
 try:
   from pyUltroid.fns.gDrive import GDriveManager
 except:
-  await inst()
+  asyncio.create_task(inst())
 from pyUltroid.fns.helper import time_formatter
 
 from . import ULTConfig, asst, eod, eor, get_string, ultroid_cmd
