@@ -34,15 +34,15 @@ async def _(event):
     #if not ((a and a.media) or (b and os.path.exists(b))):
         #return await event.eor(get_string("com_1"), time=5)
     #xx = await event.eor(get_string("com_1"))
-    rem = None
-    if not b:
-        br = await event.client.download_media(a)
-        rem = True
-    try:
-        with open(br) as c:
-            d = c.read()
-    except UnicodeDecodeError:
-        return await xx.eor(get_string("cvt_8"), time=5)
+   # rem = None
+    #if not b:
+     #   br = await event.client.download_media(a)
+     #   rem = True
+    #try:
+     #   with open(br) as c:
+      #      d = c.read()
+    #except UnicodeDecodeError:
+     #   return await xx.eor(get_string("cvt_8"), time=5)
     try:
         await xx.edit(f"```{d}```")
     except BaseException:
