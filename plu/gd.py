@@ -39,9 +39,8 @@ from . import ULTConfig, asst, eod, eor, get_string, ultroid_cmd
 try:
   from pyUltroid.fns.gDrive import GDriveManager
 except ImportError:
-  s("pip install --upgrade oauth2client google-api-python-client apiclient")
-except ImportError:
-  ba("pp i oauth2client google-api-python-client apiclient")
+    s("pp i oauth2client google-api-python-client apiclient")
+    from pyUltroid.fns.gDrive import GDriveManager
 
 
 @ultroid_cmd(
