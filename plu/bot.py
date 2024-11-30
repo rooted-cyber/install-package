@@ -105,6 +105,15 @@ async def alive(event):
     text = alive_txt.format(ultroid_version, UltVer, __version__)
     await event.answer(text, alert=True)
 
+@ultroid_cmd(pattern="(d|del)")
+async def dl(d):
+    reply = await event.get_reply_message()
+    if not reply:
+        await d.delete()
+    else:
+        await d.delete()
+        await reply.delete()
+
 
 @ultroid_cmd(
     pattern="a( (.*)|$)",
