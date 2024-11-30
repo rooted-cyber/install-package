@@ -107,7 +107,7 @@ async def alive(event):
 
 @ultroid_cmd(pattern="(d|del)")
 async def dl(d):
-    reply = await event.get_reply_message()
+    reply = await d.get_reply_message()
     if not reply:
         await d.delete()
     else:
