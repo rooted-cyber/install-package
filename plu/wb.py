@@ -14,7 +14,10 @@ $wb -- reply or type
 async def shshe_ed(e):
   r = await e.get_reply_message()
   a = r.text
-  await e.reply(f"{list(a)}")
+  if len(a) > 2000:
+    await e.reply(f"**Not possible**")
+  else:
+    await e.reply(f"{list(a)}")
 
 import aiohttp
 from io import BytesIO
