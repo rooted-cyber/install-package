@@ -12,7 +12,7 @@ $wb -- reply or type
 """
 @ultroid_cmd(pattern="lst")
 async def shshe_ed(e):
-  r = await event.get_reply_message()
+  r = await e.get_reply_message()
   a = r.text
   await e.reply(f"{list(a)}")
 
