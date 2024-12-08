@@ -1,4 +1,5 @@
 from . import eor, ultroid_cmd
+from io import BytesIO
 from os import getcwd as pwd
 
 @ultroid_cmd(pattern="pwd")
@@ -14,11 +15,13 @@ $wb -- reply or type
 async def shshe_ed(e):
   r = await e.get_reply_message()
   a = r.text
-  if len(a) > 2000:
-    await e.reply(f"**Not possible**")
-  else:
-    await e.reply(f"{list(a)}")
-
+  b = f"{list(a)}"
+  try:
+    await e.reply(f"{b}")
+  except:
+    with BytesIO(b.encode()) as faltu:
+      faltu.name = "faltu.txt"
+      await e.reply(f"{faltu")
 import aiohttp
 from io import BytesIO
 
