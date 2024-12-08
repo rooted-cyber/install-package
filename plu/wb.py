@@ -21,7 +21,7 @@ async def shshe_ed(e):
   except:
     with BytesIO(b.encode()) as faltu:
       faltu.name = "faltu.txt"
-      await e.reply(f"{faltu}")
+      await e.reply(f"{file=faltu}")
 import aiohttp
 from io import BytesIO
 
