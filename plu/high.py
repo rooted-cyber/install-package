@@ -6,10 +6,12 @@ from . import LOGS, con
 try:
     import cv2
 except ImportError:
+    pass
     #LOGS.info("OpenCv not Installed.")
 try:
     import numpy as np
 except:
+    pass
     #LOGS.info("numpy not install")
 try:
     from PIL import Image
