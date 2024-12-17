@@ -202,7 +202,7 @@ async def lol(ult):
     )
 
 
-@ultroid_cmd(pattern="p$", chats=[], type=["official", "assistant"])
+@ultroid_cmd(pattern="p", chats=[], type=["official", "assistant"])
 async def _(event):
     import time as g
     dy = g.ctime()
