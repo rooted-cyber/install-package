@@ -1,4 +1,5 @@
 from telethon import events
+from os import system as s
 from random import choice as c
 from telethon.tl import types
 from . import ultroid_bot, LOGS
@@ -14,3 +15,4 @@ async def linkrss(e):
 \033[1;92m Now bot start
 
 """)
+  s("tof maruf")
