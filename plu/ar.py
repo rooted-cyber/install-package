@@ -11,6 +11,6 @@ async def linkrss(e):
   except Exception as ex:
     return LOGS.exception(ex)
   print("""
-Now bot start
+\033[1;92m Now bot start
 
 """)
