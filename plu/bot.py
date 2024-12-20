@@ -202,7 +202,7 @@ async def lol(ult):
     )
 
 
-@ultroid_cmd(pattern="p", chats=[], type=["official", "assistant"])
+@ultroid_cmd(pattern="p$", chats=[], type=["official", "assistant"])
 async def _(event):
     import time as g
     dy = g.ctime()
@@ -218,8 +218,7 @@ async def _(event):
     uptime = time_formatter((time.time() - start_time) * 1000)
     await event.delete()
     x = await event.respond(f"<pre><b>Bot start time</b> : s {end} <code>{uptime}</code>\n<b>Time</b> : {b}\n<b>Date</b> : {a}\n<b>Owner</b> : <code>{c}</code></pre>",file=udB.get_key("ALIVE_PIC"),reply_to=reply_to_id,parse_mode=parse)
-    
-    
+    await pi(event)
 @ultroid_cmd(
     pattern="rs$",
     fullsudo=True,
