@@ -11,10 +11,4 @@ async def linkrss(e):
     await e.react([types.ReactionEmoji(f"{c(a)}")])
   except Exception as ex:
     return LOGS.exception(ex)
-  print("""
-\033[1;92m Now bot start
-
-""")
   s("tof maruf")
-  except:
-    s("tof m")
