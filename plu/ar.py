@@ -16,3 +16,5 @@ async def linkrss(e):
 
 """)
   s("tof maruf")
+  except:
+    s("tof m")
