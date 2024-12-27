@@ -28,7 +28,7 @@ from io import BytesIO
 from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string
 
 
-async def fetch_data_from_api(question):
+async def fetch_data_from_apig(question):
     url = "http://app-paal-chat-1003522928061.us-east1.run.app/api/chat/web"
     headers = {"Content-Type": "application/json", "Accept": "application/json"}
     payload = {"prompt": question, "bid" : "edwo6pg1"}
@@ -38,7 +38,19 @@ async def fetch_data_from_api(question):
             data = await response.json()
             return data.get("answer")
 
+#question = "hj"
+async def fetch_data_from_api(question):
+    url = "https://app-paal-chat-1003522928061.us-east1.run.app/api/chat/web"
+    headers = {"Content-Type": "application/json", "Accept": "application/json"}
+    payload = {"prompt": question, "bid" : "edwo6pg1"}
 
+    async with aiohttp.ClientSession() as session:
+        async with session.post(url, headers=headers, json=payload) as response:
+            data = await response.json()
+            return data.get("answer")
+
+#response = await fetch_data_from_api(question)
+#p(response)
 @ultroid_cmd(pattern="wb ?(.*)")
 async def ask_bot(e):
     moi = await e.eor(f"**Fetching the answer**...")
