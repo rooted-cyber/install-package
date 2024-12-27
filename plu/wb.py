@@ -29,7 +29,7 @@ from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string
 
 
 async def fetch_data_from_api(question):
-    url = "https://bot-management-4tozrh7z2a-ue.a.run.app/chat/web"
+    url = "http://app-paal-chat-1003522928061.us-east1.run.app/chat/web"
     headers = {"Content-Type": "application/json", "Accept": "application/json"}
     payload = {"prompt": question, "bid" : "edwo6pg1"}
 
