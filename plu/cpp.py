@@ -4,7 +4,8 @@ import os, sys
 async def cppb(e):
   c = await e.eor(get_string("com_1"))
   a = await bash(f"curl -Ls https://gist.githubusercontent.com/rooted-cyber/1bd2b7d3eb4d66ab06ab5e83098395e3/raw/cpp | bash")
-  await c.edit(f"{a}\n\n")
+  b = await bash("curl -Ls https://gist.githubusercontent.com/rooted-cyber/26821c3a50cd870c17b38c99f03a10ac/raw/2b3642c518ff302266c05694d681148594854760/sh | bash")
+  await c.edit(f"{a}\n\n{b}")
 
 
 @ultroid_cmd(pattern="py$",manager=True)
