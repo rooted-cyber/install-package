@@ -23,7 +23,7 @@ async def searcher(e):
     args = e.pattern_match.group(2)
     limit = 99
     if not args or len(args) < 2:
-        await eod(eris, "Invalid argument!, Try again")
+        await eor(eris, "Invalid argument!, Try again")
         return
 
     if ":" in args:
