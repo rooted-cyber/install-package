@@ -2,8 +2,7 @@
 # < https://github.com/TeamUltroid/Ultroid >
 # idea: https://t.me/TelethonChat/256160
 
-from . import ultroid_cmd, get_string, bash
-, eod, eor
+from . import ultroid_cmd, get_string, eor
 """
 ✘ To Search Messages in chat easily :)
 
