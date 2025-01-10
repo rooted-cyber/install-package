@@ -129,6 +129,8 @@ async def _(event):
             out = "**• OUTPUT:**"
             remove(li)
         else:
+            if "pkill" in cmd:
+                print("pkill nhi hoga")
             if "piip" in cmd and all(":" in line for line in stdout.split("\n")):
                 try:
                     load = safe_load(stdout)
