@@ -20,9 +20,6 @@ async def cht(e):
   if not a:
     c,b = await bash(f"pp")
     await e.reply(f"{c}\n{b}")
-  elif a == c:
-    a,z = await bash(f"pp c tele")
-    await e.reply(a)
   else:
-    a,b = await bash(f"pp {a}")
+    a,b = await bash(f"pp i {a}")
     await e.reply(a)
