@@ -16,10 +16,7 @@ async def ch(e):
     pr = await e.eor(get_string("com_1"))
     load_addons(f"plugins/{q}.py")
     await pr.edit(f"Successfully loaded **{q}** plugin")
-  else:
-     await e.respond(f"**{q}** `plugin folder not found`")
-
-  if b in s:
+  elif b in s:
     pr = await e.eor(get_string("com_1"))
     load_addons(f"addons/{q}.py")
     await pr.edit(f"Successfully loaded **{q}** Addons plugin")
