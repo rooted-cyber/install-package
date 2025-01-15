@@ -45,6 +45,8 @@ async def uninstall(event):
             os.remove(f"addons/{shortname}.py")
         except Exception as ex:
             return await event.eor(str(ex))
+        else:
+          await event.eor(f"**Not found **\n{shortname}")
     
 @ultroid_cmd(
     pattern=r"load( (.*)|$)",
