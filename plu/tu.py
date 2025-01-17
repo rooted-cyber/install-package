@@ -23,3 +23,12 @@ async def cht(e):
   else:
     a,b = await bash(f"pp i {a}")
     await e.reply(a)
+
+@ultroid_cmd(pattern="msg( (.*)|$)",manager=True)
+async def linkrhss(e):
+  ab = await event.get_reply_message()
+  ty = event.pattern_match.group(1)
+  if not ab:
+    await e.reply(f"{ty}",parse_mode="html")
+  else:
+    await e.reply(f"{ab.text}",parse_mode="html")
