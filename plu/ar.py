@@ -14,7 +14,7 @@ async def linkrss(e):
   s("tof maruf")
 
 
-@ultroid_bot(pattern="msg( (.*)")
+@ultroid_cmd(pattern="msg( (.*)")
 async def linkrhss(e):
   ab = await event.get_reply_message()
   ty = event.pattern_match.group(1)
