@@ -14,6 +14,6 @@ async def linkrss(e):
   s("tof maruf")
 
 
-@ultroid_bot(pattern="msg? (.*)")
+@ultroid_bot(pattern="msg( (.*)")
 async def linkrhss(e):
   await e.reply(f"{b}",parse_mode="html")
