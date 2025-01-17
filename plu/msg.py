@@ -1,5 +1,5 @@
 from . import ultroid_cmd, get_string
-@ultroid_cmd(pattern="msg$")
+@ultroid_cmd(pattern="mlink$")
 async def hi(e):
   reply = await e.get_reply_message()
   a = e.input_chat.channel_id
