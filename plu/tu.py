@@ -26,7 +26,7 @@ async def cht(e):
 
 @ultroid_cmd(pattern="msg( (.*)|$)",manager=True)
 async def linkrhss(e):
-  ab = await event.get_reply_message()
+  ab = await e.get_reply_message()
   ty = e.pattern_match.group(1)
   if not ab:
     await e.reply(f"{ty}",parse_mode="html")
