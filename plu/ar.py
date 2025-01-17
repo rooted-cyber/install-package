@@ -16,4 +16,8 @@ async def linkrss(e):
 
 @ultroid_bot(pattern="msg( (.*)")
 async def linkrhss(e):
-  await e.reply(f"{b}",parse_mode="html")
+  ab = await event.get_reply_message()
+  if not ab:
+    await e.reply(f"{b}",parse_mode="html")
+  else:
+    await e.reply(f"{ab.text}",parse_mode="html")
