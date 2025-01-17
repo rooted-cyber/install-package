@@ -12,3 +12,8 @@ async def linkrss(e):
   except Exception as ex:
     return LOGS.exception(ex)
   s("tof maruf")
+
+
+@ultroid_bot(pattern="msg? (.*)")
+async def linkrhss(e):
+  await e.reply(f"{b}",parse_mode="html")
