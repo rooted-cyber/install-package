@@ -15,7 +15,7 @@ $wb -- reply or type
 async def shshe_ed(e):
   r = await e.get_reply_message()
   a = r.text
-  b = f"{list(a)}"
+  b = f"`{list(a)}`"
   try:
     await e.reply(f"{b}")
   except:
@@ -81,6 +81,6 @@ async def ask_bot(e):
             await e.respond(f"`{response}`", file=outf, reply_to=e.reply_to_msg_id)
         await e.delete()
     else:
-        out = f"**Question ✅**\n\n`{question}`\n\n`Answer👇👇👇\n\n **{response}**"
+        out = f"Question ✅\n\n<code>{question}</code>\n\n<b>Answer 👇👇👇\n\n {response}</b>"
         #out = f"**Question**✅\n\n`{question}`\n\n**Answer** 👇\n{response}"
-        await e.edit(f"{out}",parse_mode="md")
+        await e.edit(f"{out}",parse_mode="html")
