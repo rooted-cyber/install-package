@@ -229,7 +229,7 @@ async def restartbt(ult):
     call_back()
     who = "bot" if ult.client._bot else "user"
     udB.set_key("_RESTART", f"{who}_{ult.chat_id}_{ok.id}")
-    
+    await bash("cd ~/T*d/U*")
     if len(sys.argv) > 1:
         os.execl(sys.executable, sys.executable, "main.py")
     else:
