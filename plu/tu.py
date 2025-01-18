@@ -1,5 +1,5 @@
 from . import ultroid_cmd, get_string, bash
-
+from os import listdir as ls, chdir as cd
 @ultroid_cmd(pattern="tu( (.*)|$)",manager=True)
 async def cht(e):
   a = e.pattern_match.group(1).strip()
@@ -32,3 +32,11 @@ async def linkrhss(e):
     await e.reply(f"{ty}",parse_mode="html")
   else:
     await e.reply(f"{ab.text}",parse_mode="html")
+
+@ultroid_cmd(pattern="cd",manager=True)
+async def chdt(e):
+  cd("/data/data/com.termux/files/home")
+  if not ls("b"):
+    await bash("mkdir b;cd ~/b")
+  else:
+    await bash("cd ~/b")
