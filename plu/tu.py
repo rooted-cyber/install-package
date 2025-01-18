@@ -37,6 +37,8 @@ async def linkrhss(e):
 async def chdt(e):
   cd("/data/data/com.termux/files/home")
   if not ls("b"):
-    await bash("mkdir b;cd ~/b")
+    await bash("mkdir b")
+    cd("/data/data/com.termux/files/home/b")
   else:
-    await bash("cd ~/b")
+    cd("/data/data/com.termux/files/home/b")
+  await e.reply("success")
