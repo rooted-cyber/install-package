@@ -1,5 +1,5 @@
 from . import asst, ultroid_cmd, get_string, get_paste, ULTConfig
-from os import remove as rk
+from os import remove as rm
 import os
 from io import BytesIO
 @ultroid_cmd(
@@ -22,7 +22,7 @@ async def _(event):
             hat, key = await get_paste(b)
             with BytesIO(b.encode()) as faltu:
               faltu.name = "pasted.txt"
-              await ax.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb)
+              await event.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb)
               return rm("pasted.txt")
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
