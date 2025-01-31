@@ -211,7 +211,7 @@ async def _(event):
     parse="html"
     #await pi(event)
     #await pn.delete():) 
-    d = awaiy event.reply("pong")
+    d = await event.reply("pong")
     c = inline_mention(event.sender)
     command_received_time = time.time()
     end = round((time.time() - command_received_time) * 1000)
