@@ -39,14 +39,11 @@ async def uninstall(event):
         await event.eor(f"**Plugins : Uɴɪɴsᴛᴀʟʟᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=5)
         os.remove(f"plugins/{shortname}.py")
     elif zym in lsd:
-        try:
             un_plug(shortname)
             await event.eor(f"**Addons : Uɴɪɴsᴛᴀʟʟᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=5)
             os.remove(f"addons/{shortname}.py")
-        except Exception as ex:
-            return await event.eor(str(ex))
-        else:
-          await event.eor(f"**Not found **\n{shortname}")
+    else:
+            await event.eor(f"**Not found **\n{shortname}")
     
 @ultroid_cmd(
     pattern=r"load( (.*)|$)",
