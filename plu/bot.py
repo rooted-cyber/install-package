@@ -212,7 +212,7 @@ async def _(event):
     #await pi(event)
     #await pn.delete()
     c = inline_mention(event.sender)
-    command_received_timet = time.time()
+    command_received_time = time.time()
     end = round((time.time() - command_received_time) * 1000)
     reply_to_id = event.reply_to_msg_id or event.id
     uptime = time_formatter((time.time() - start_time) * 1000)
