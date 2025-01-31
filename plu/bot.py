@@ -216,7 +216,7 @@ async def _(event):
     end = round((time.time() - command_received_time) * 1000)
     reply_to_id = event.reply_to_msg_id or event.id
     uptime = time_formatter((time.time() - start_time) * 1000)
-    await event.delete()
+    #await event.delete()
     x = await event.edit(f"<pre><b>Bot start time</b> : s {end} <code>{uptime}</code>\n<b>Time</b> : {b}\n<b>Date</b> : {a}\n<b>Owner</b> : <code>{c}</code></pre>",file=udB.get_key("ALIVE_PIC"),reply_to=reply_to_id,parse_mode=parse)
     await pi(event)
 @ultroid_cmd(
