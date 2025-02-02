@@ -23,7 +23,7 @@ async def _(event):
             with BytesIO(b.encode()) as faltu:
               faltu.name = "pasted.txt"
               await event.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb)
-              return rm("pasted.txt")
+              return rm("b")
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
           bakwaas.name = c
