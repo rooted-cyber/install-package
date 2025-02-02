@@ -216,7 +216,7 @@ async def _(event):
     end = round((time.time() - command_received_time) * 1000)
     #reply_to_id = event.reply_to_msg_id or event.id
     uptime = time_formatter((time.time() - start_time) * 1000)
-    x = await event.respond(f"<pre>{end}\nBot start time</b> : <code>{uptime}</code>\n<b>Time</b> : {b}\n<b>Date</b> : {a}\n<b>Owner</b> : <code>{c}</code></pre>",file=udB.get_key("ALIVE_PIC"),parse_mode=parse)
+    x = await event.edit(f"<pre>{end}\nBot start time</b> : <code>{uptime}</code>\n<b>Time</b> : {b}\n<b>Date</b> : {a}\n<b>Owner</b> : <code>{c}</code></pre>",file=udB.get_key("ALIVE_PIC"),parse_mode=parse)
 @ultroid_cmd(
     pattern="rs$",
     fullsudo=True,
