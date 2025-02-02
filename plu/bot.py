@@ -210,7 +210,7 @@ async def _(event):
     b = s("""%r (%Z)""")
     parse="html"
     #await pi(event)
-    #await pn.delete():) 
+    await event.delete()
     c = inline_mention(event.sender)
     command_received_time = time.time()
     end = round((time.time() - command_received_time) * 1000)
