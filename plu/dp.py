@@ -281,7 +281,7 @@ async def deep_command_handler(e):
         else:
             if len(response_text) < 4095:
                 #answer = f"**DeepSeek Response:**\n\n{response_text}"
-                answer = f"**Question**\n\n`{args}`\n\n**Answer** 👇\n\n**{response_text}**"
+                answer = f"**Sawal**\n\n`{args}`\n\n**response** 👇\n\n**{response_text}**"
                 return await status_message.edit(answer,parse_mode="md")
             else:
                 with BytesIO(response_text.encode()) as file:
