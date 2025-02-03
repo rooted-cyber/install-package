@@ -196,7 +196,7 @@ def get_deep_response(prompt: str) -> str:
 
     return complete_response or "🤔 I didn't receive any response. Please try again."
 
-@ultroid_cmd(pattern="deep(?:\s|$)(.*)")
+@ultroid_cmd(pattern="dp(?:\s|$)(.*)")
 async def deep_command_handler(e):
     """
     Handles the `.deep` command with subcommands:
