@@ -48,7 +48,7 @@ async def generate_code(event):
         generated_response = data["choices"][0]["message"]["content"]
         GPT_CHAT_HISTORY.append({"role": "assistant", "content": generated_response})
 
-        full_message = f"**Query:**\n~ __{query[:400]}__\n\n**Response:**\n~ {generated_response}"
+        full_message = f"**Buddy**\n\n**Query:**\n~ `{query[:400]}`\n\n**Response:**\n~ **{generated_response}**"
 
         if len(full_message) > TELEGRAM_CHAR_LIMIT:
             with BytesIO(full_message.encode()) as file:
@@ -58,7 +58,7 @@ async def generate_code(event):
                 )
             await msg.delete()
         else:
-            await msg.edit(full_message)
+            await msg.edit(full_message,parse_mode="md")
     except Exception as exc:
         LOGS.error(f"Error generating response: {exc}")
         GPT_CHAT_HISTORY.pop()
