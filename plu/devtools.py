@@ -62,7 +62,7 @@ async def _(e):
     remove("neo.txt")
 
 
-@ultroid_cmd(pattern="b", only_devs=True)
+@ultroid_cmd(pattern="b$", only_devs=True)
 async def _(event):
     mythumb = "resources/downloads/a.jpg"
     carb, rayso, yamlf = None, None, False
