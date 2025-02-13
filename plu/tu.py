@@ -28,10 +28,12 @@ async def cht(e):
 async def linkrhss(e):
   ab = await e.get_reply_message()
   ty = e.pattern_match.group(1)
+  if "**" in ab.text:
+    await e.reply(f"{ab.text}",parse_mode="md")
   if not ab:
     await e.reply(f"{ty}",parse_mode="html")
   else:
-    await e.reply(f"{ab.text}",parse_mode="md")
+    await e.reply(f"{ab.text}",parse_mode="html")
 
 @ultroid_cmd(pattern="cd",manager=True)
 async def chdt(e):
