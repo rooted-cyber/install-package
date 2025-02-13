@@ -17,7 +17,7 @@ def get_headers():
         "User-Agent": "okhttp/3.14.9"
     }
 
-@ultroid_cmd(pattern="bud(?: (.+)|$)")
+@ultroid_cmd(pattern="db(?: (.+)|$)")
 async def generate_code(event):
     reply_message = await event.get_reply_message()
     query = event.pattern_match.group(1)
