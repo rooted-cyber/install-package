@@ -31,7 +31,7 @@ async def linkrhss(e):
   if not ab:
     await e.reply(f"{ty}",parse_mode="html")
   else:
-    await e.reply(f"{ab.text}",parse_mode="html")
+    await e.reply(f"{ab.text}",parse_mode="md")
 
 @ultroid_cmd(pattern="cd",manager=True)
 async def chdt(e):
