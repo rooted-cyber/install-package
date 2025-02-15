@@ -7,7 +7,7 @@ async def ch(e):
   q = e.pattern_match.group(1).strip()
   reply = await e.get_reply_message()
   if reply:
-    await e.respond("**Type plugin name not reply**")
+    await e.respond("**Type plugin name or reply**")
     return
   b = f"{q}.py"
   d = ls("plugins")
@@ -16,6 +16,8 @@ async def ch(e):
     pr = await e.eor(get_string("com_1"))
     load_addons(f"plugins/{q}.py")
     await pr.edit(f"Successfully loaded **{q}** plugin")
+    load_addons(f"plugins/{reply}.py")
+    await pr.edit(f"Successfully loaded **{reply}** plugin"
   elif b in s:
     pr = await e.eor(get_string("com_1"))
     load_addons(f"addons/{q}.py")
