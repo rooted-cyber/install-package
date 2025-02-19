@@ -44,6 +44,8 @@ async def _(ult):
     udB.set_key('FULLSUDO', " ".join(str(i) for i in n))
     reply_to_id = ult.reply_to_msg_id or ult.id
     await x.edit(f"""
+ <b>𝗔𝗱𝗱𝗶𝗻𝗱 𝗙𝗨𝗟𝗟𝗦𝗨𝗗𝗢+𝗦𝗨𝗗𝗢 𝗶𝗻 𝗴𝗿𝗼𝘂𝗽 [ 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗔𝗗𝗗𝗘𝗗 ( ✅ )]</b>
+
 <b>List of Sudo and Fullsudo users</b>
 <pre>1. All members in this group</pre>
 
