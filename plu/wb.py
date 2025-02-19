@@ -54,7 +54,7 @@ async def fetch_data_from_api(question):
 @ultroid_cmd(pattern="wb ?(.*)")
 async def ask_bot(e):
     pr = "----------------------------------------------------------- "
-    pb = "••••••••••••••••••••••••••••••"
+    pb = "•••••••••••••••••••••••••"
     moi = await e.eor(f"**Fetching the answer**...")
     reply = await e.get_reply_message()
     question = e.pattern_match.group(1)
@@ -83,6 +83,6 @@ async def ask_bot(e):
             await e.respond(f"`{response}`", file=outf, reply_to=e.reply_to_msg_id)
         await e.delete()
     else:
-        out = f"{pr}\m{pb}\n**web**\n{pr}\n\nQuestion ✅\n\n~ `{question}`\n\n**Answer**\n\n ~ **{response}**</b>"
+        out = f"{pr}\n{pb}\n**web**\n{pr}\n\nQuestion ✅\n\n~ `{question}`\n\n**Answer**\n\n ~ **{response}**</b>"
         #out = f"**Question**✅\n\n`{question}`\n\n**Answer** 👇\n{response}"
         await e.edit(f"{out}",parse_mode="md")
