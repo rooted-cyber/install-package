@@ -1,4 +1,4 @@
- from . import eor, ultroid_cmd
+from . import eor, ultroid_cmd
 from io import BytesIO
 from os import getcwd as pwd
 
