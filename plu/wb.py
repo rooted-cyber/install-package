@@ -81,6 +81,6 @@ async def ask_bot(e):
             await e.respond(f"`{response}`", file=outf, reply_to=e.reply_to_msg_id)
         await e.delete()
     else:
-        out = f"**web**\n\nQuestion ✅\n\n`{question}`\n\n**Answer**\n\n **{response}**</b>"
+        out = f"**web**\n\nQuestion ✅\n\n~ `{question}`\n\n**Answer**\n\n ~ **{response}**</b>"
         #out = f"**Question**✅\n\n`{question}`\n\n**Answer** 👇\n{response}"
         await e.edit(f"{out}",parse_mode="md")
