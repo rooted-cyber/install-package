@@ -53,7 +53,7 @@ async def fetch_data_from_api(question):
 #p(response)
 @ultroid_cmd(pattern="wb ?(.*)")
 async def ask_bot(e):
-    pr = "----------------------------------------"
+    pr = "-----------------------------------------------------------"
     moi = await e.eor(f"**Fetching the answer**...")
     reply = await e.get_reply_message()
     question = e.pattern_match.group(1)
