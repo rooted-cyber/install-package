@@ -97,7 +97,7 @@ def get_deep_response(prompt: str) -> str:
         return "❌ Error: No chat session available. Please reset the session using `.deep -c`."
 
     #url = 'https://chat.deepseek.com/api/v0/chat/completion'
-    url 'https://api.openai.com/v1/chat/completions'
+    url = 'https://api.openai.com/v1/chat/completions'
     headers = {
         'x-ds-pow-response': 'eyJhbGdvcml0aG0iOiJEZWVwU2Vla0hhc2hWMSIsImNoYWxsZW5nZSI6IjY5OTY5M2RhNWU4MjU1NmQwMjY1NmI0NDVhYjdmMjVlNTJhMDFiODA4MzgzZjJjNjJlZTJhZjc4ODJmYmEzOWQiLCJzYWx0IjoiZDUyODRkOGIzYjUzZTE4MTdhMWYiLCJzaWduYXR1cmUiOiJlYTNiNjU3MTI1OGE2ZDg5OGIwODFjNWJkYzdjMjRmNjJlMjBlYTRmZDY5YmUwOWM2NmI5ZjAxNDViMDNkNWFiIiwiYW5zd2VyIjoyODMyMywidGFyZ2V0X3BhdGgiOiIvYXBpL3YwL2NoYXQvY29tcGxldGlvbiJ9',
         'x-client-platform': 'android',
