@@ -353,9 +353,10 @@ async def openai_ai(event):
         except Exception:
             pass
 
-    async def deepseek_ai(event):
+@ultroid_cmd(pattern="dpk( (.*)|$)")
+async def deepseek_ai(event):
 
-    bkmdmxmxmxmmdm
+    
     """Use DeepSeek AI"""
     prompt = event.pattern_match.group(1).strip()
     if not prompt:
