@@ -377,7 +377,7 @@ async def deepseek_ai(event):
         f"**💡 Response:**\n"
     )
     
-    if event.client.me.bot:
+    if f"{event.client.me.bot}":
         await msg.edit(formatted_response)
         response = ""
         async for chunk in get_ai_response("deepseek", prompt, api_key, stream=True):
