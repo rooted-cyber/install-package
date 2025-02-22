@@ -17,7 +17,7 @@
 • `{i}gpt <prompt>`
     Get response from OpenAI GPT.
 
-• `{i}deep <prompt>`
+• `{i}dpk <prompt>`
     Get response from DeepSeek AI.
 
 Set custom models using:
@@ -389,7 +389,7 @@ async def deepseek_ai(event):
     else:
         response = ""
         async for chunk in get_ai_response("deepseek", prompt, api_key, stream=True):
-            response += f"{chunk}"
+            response += chunk
 
         try:
             await msg.edit(formatted_response + response)
