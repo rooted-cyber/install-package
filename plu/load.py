@@ -6,7 +6,7 @@ from . import ultroid_cmd, get_string
 async def ch(e):
   q = e.pattern_match.group(1).strip()
   reply = await e.get_reply_message()
-  if reply:
+  if not reply:
     await e.respond("**Type plugin name or reply**")
     return
   b = f"{q}.py"
