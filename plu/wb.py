@@ -75,14 +75,11 @@ async def ask_bot(e):
         LOGS.warning(exc, exc_info=True)
         return await moi.edit(f"Error: {exc}")
 
-    out = f"Question ✅\n\n{question}\n\nAnswer 👇`\n{response}"
-    if len(out) > 4096:
-        out = f"Question ✅\n\n{question}\n\nAnswer 👇`\n{response}"
-        with BytesIO(out.encode()) as outf:
+    try:
+      out = f"{pb}  **web**  {pb}\n~ `{question}`\n{pb} `𝘈𝘯𝘴𝘸𝘦𝘳` {pb}👇\n\n ~ **{response}**</b>"out = f"{pb}  **web**  {pb}\n~ `{question}`\n{pb} `𝘈𝘯𝘴𝘸𝘦𝘳` {pb}👇\n\n ~ **{response}**</b>"
+      await e.edit(f"{out}",parse_mode="md")
+    except:
+      with BytesIO(out.encode()) as outf:
             outf.name = "answer.txt"
             await e.respond(f"`{response}`", file=outf, reply_to=e.reply_to_msg_id)
         await e.delete()
-    else:
-        out = f"{pb}  **web**  {pb}\n~ `{question}`\n{pb} `𝘈𝘯𝘴𝘸𝘦𝘳` {pb}👇\n\n ~ **{response}**</b>"
-        #out = f"**Question**✅\n\n`{question}`\n\n**Answer** 👇\n{response}"
-        await e.edit(f"{out}",parse_mode="md")
