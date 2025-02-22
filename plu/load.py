@@ -23,5 +23,5 @@ async def ch(e):
     load_addons(f"addons/{q}.py")
     await pr.edit(f"Successfully loaded **{q}** Addons plugin")
   else:
-     await e.respond(f"**{q}** `Not found Plugins or Addons folder`")
+     await e.respond(f"**{q}** `Not found Plugin`")
 
