@@ -353,7 +353,7 @@ async def openai_ai(event):
         except Exception:
             pass
 
-@ultroid_cmd(pattern="deepseek( (.*)|$)")
+@ultroid_cmd(pattern="dpk ( (.*)|$)")
 async def deepseek_ai(event):
     """Use DeepSeek AI"""
     prompt = event.pattern_match.group(1).strip()
@@ -390,7 +390,7 @@ async def deepseek_ai(event):
             response += f"{chunk}"
 
         try:
-            await msg.edit(f"{formatted_response} {{response}")
+            await msg.edit(f"{formatted_response} {response}")
         except Exception:
             pass
 
