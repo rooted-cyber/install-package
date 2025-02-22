@@ -367,7 +367,7 @@ async def deepseek_ai(event):
     msg = await event.eor("🤔 Thinking...")
     model = get_model("deepseek")
     
-    formatted_response = (
+    fomatted_response = (
         "🤖 **DeepSeek AI**\n"
         f"**Model:** `{model}`\n"
         "➖➖➖➖➖➖➖➖➖➖\n\n"
