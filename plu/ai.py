@@ -17,7 +17,7 @@
 • `{i}gpt <prompt>`
     Get response from OpenAI GPT.
 
-• `{i}deepseek <prompt>`
+• `{i}deep <prompt>`
     Get response from DeepSeek AI.
 
 Set custom models using:
