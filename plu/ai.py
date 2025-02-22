@@ -353,7 +353,7 @@ async def openai_ai(event):
         except Exception:
             pass
 
-async def deepseek_ai(event):
+    async def deepseek_ai(event):
 
     bkmdmxmxmxmmdm
     """Use DeepSeek AI"""
@@ -395,3 +395,4 @@ async def deepseek_ai(event):
         except Exception:
             pass
 
+    await deepseek_ai(event)
