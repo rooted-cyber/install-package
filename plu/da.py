@@ -366,7 +366,8 @@ async def deepseek_ai(event):
     if not api_key:
         return await event.eor("⚠️ Please set DeepSeek API key using `setdb DEEPSEEK_API_KEY your_api_key`")
 
-    msg = await event.eor("🤔 Thinking...")
+    msg = await event.eor("🤔 Not Thinking...")
+    hi
     model = get_model("deepseek")
     
     fomatted_response = (
