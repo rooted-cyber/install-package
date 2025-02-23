@@ -353,6 +353,6 @@ async def openai_ai(event):
         except Exception:
             pass
 
-@ultroid_cmd(pattern="dpk( (.*)|$)")
+@ultroid_cmd(pattern="dpkh (.*)|$)")
 async def deepseek_ai(event):
   hi
