@@ -233,12 +233,15 @@ async def get_ai_response(provider, prompt, api_key, stream=False):
         yield f"Error: {str(e)}"
 
 
-@ultroid_cmd(pattern="gemini( (.*)|$)")
+@ultroid_cmd(pattern="gm( (.*)|$)")
 async def gemini_ai(event):
     """Use Google Gemini"""
     prompt = event.pattern_match.group(1).strip()
-    if not prompt:
-        return await event.eor("❌ Please provide a prompt!")
+    ra = await e.get_reply_message()
+    if prompt:
+        if ra and ra.message:
+            prompt = ra.message
+        
 
     api_key = udB.get_key("GEMINI_API_KEY")
     if not api_key:
