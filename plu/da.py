@@ -357,9 +357,12 @@ async def openai_ai(event):
 async def deepseek_ai(event):
     """Use DeepSeek AI"""
     prompt = event.pattern_match.group(1).strip()
-    if not prompt:
-        return await event.eor("❌ Please provide a prompt!")
-
+    rp = await event.get_reply_message()
+    #if not prompt:
+        #return await event.eor("❌ Please provide a prompt!")
+    if prompt:
+        if rp and rp.text:
+            prompt
     api_key = udB.get_key("DEEPSEEK_API_KEY")
     if not api_key:
         return await event.eor("⚠️ Please set DeepSeek API key using `setdb DEEPSEEK_API_KEY your_api_key`")
