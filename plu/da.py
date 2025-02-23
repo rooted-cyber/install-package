@@ -237,7 +237,7 @@ async def get_ai_response(provider, prompt, api_key, stream=False):
 async def gemini_ai(event):
     """Use Google Gemini"""
     prompt = event.pattern_match.group(1).strip()
-    ra = await e.get_reply_message()
+    ra = await event.get_reply_message()
     if prompt:
         if ra and ra.message:
             prompt = ra.message
