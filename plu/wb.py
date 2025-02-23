@@ -62,7 +62,7 @@ async def ask_bot(e):
     #question += f"\n {e.text}"
     if not question:
         if reply and reply.text:
-            question = reply.message
+            question = reply.message + question
     if not question:
         return await e.eor("`Please provide a question to ask the bot.`")
 
