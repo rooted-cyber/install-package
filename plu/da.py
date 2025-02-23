@@ -362,7 +362,7 @@ async def deepseek_ai(event):
         #return await event.eor("❌ Please provide a prompt!")
     if prompt:
         if rp and rp.text:
-            prompt
+            prompt = rp.trxt
     api_key = udB.get_key("DEEPSEEK_API_KEY")
     if not api_key:
         return await event.eor("⚠️ Please set DeepSeek API key using `setdb DEEPSEEK_API_KEY your_api_key`")
