@@ -235,7 +235,7 @@ async def get_ai_response(provider, prompt, api_key, stream=False):
 
 @ultroid_cmd(pattern="gemini( (.*)|$)")
 async def gemini_ai(event):
-    a"""Use Google Gemini"""
+    """Use Google Gemini"""
     prompt = event.pattern_match.group(1).strip()
     if not prompt:
         return await event.eor("❌ Please provide a prompt!")
