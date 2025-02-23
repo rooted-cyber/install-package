@@ -297,25 +297,15 @@ async def anthropic_ai(event):
         f"**🔍 Prompt:**\n{prompt}\n\n"
         f"**💡 Response:**\n"
     )
+     await msg.edit(formatted_response)
+     response = ""
+     async for chunk in get_ai_response("antr", prompt, api_key, stream=True):
+     response += chunk
+     try:
+       await msg.edit(formatted_response + response)
+     except Exception:
+       pass
     
-    if event.client.me.bot:
-        await msg.edit(formatted_response)
-        response = ""
-        async for chunk in get_ai_response("antr", prompt, api_key, stream=True):
-            response += chunk
-            try:
-                await msg.edit(formatted_response + response)
-            except Exception:
-                pass
-    else:
-        response = ""
-        async for chunk in get_ai_response("antr", prompt, api_key, stream=True):
-            response += chunk
-        try:
-            await msg.edit(formatted_response + response)
-        except Exception:
-            pass
-
 @ultroid_cmd(pattern="gpt( (.*)|$)")
 async def openai_ai(event):
     """Use OpenAI GPT"""
