@@ -1,4 +1,4 @@
-from pyUltroid.startup.loader import load_addons
+afrom pyUltroid.startup.loader import load_addons
 from os import listdir as ls
 from . import ultroid_cmd, get_string
 
