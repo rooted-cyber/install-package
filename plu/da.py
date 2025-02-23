@@ -275,7 +275,7 @@ async def gemini_ai(event):
 
 @ultroid_cmd(pattern="antr( (.*)|$)")
 async def anthropic_ai(event):
-    """Use Anthropic Claude"""
+h    """Use Anthropic Claude"""
     prompt = event.pattern_match.group(1).strip()
     if not prompt:
         return await event.eor("❌ Please provide a prompt!")
