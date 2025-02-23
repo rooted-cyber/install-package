@@ -355,4 +355,4 @@ async def openai_ai(event):
 
 @ultroid_cmd(pattern="dpk( (.*)|$)")
 async def deepseek_ai(event):
-hi
+  hi
