@@ -353,6 +353,43 @@ async def openai_ai(event):
         except Exception:
             pass
 
-@ultroid_cmd(pattern="dpkh (.*)|$)")
+@ultroid_cmd(pattern="dpk( (.*)|$)")
 async def deepseek_ai(event):
-  hi
+    """Use DeepSeek AI"""
+    prompt = event.pattern_match.group(1).strip()
+    if not prompt:
+        return await event.eor("❌ Please provide a prompt!")
+
+    api_key = udB.get_key("DEEPSEEK_API_KEY")
+    if not api_key:
+        return await event.eor("⚠️ Please set DeepSeek API key using `setdb DEEPSEEK_API_KEY your_api_key`")
+
+    msg = await event.eor("🤔 Thinking...")
+    model = get_model("deepseek")
+    
+    formatted_response = (
+        "🤖 **DeepSeek AI**\n"
+        f"**Model:** `{model}`\n"
+        "➖➖➖➖➖➖➖➖➖➖\n\n"
+        f"**🔍 Prompt:**\n{prompt}\n\n"
+        f"**💡 Response:**\n"
+    )
+    
+    if event.client.me.bot:
+        await msg.edit(formatted_response)
+        response = ""
+        async for chunk in get_ai_response("deepseek", prompt, api_key, stream=True):
+            response += chunk
+            try:
+                await msg.edit(formatted_response + response)
+            except Exception:
+                pass
+    else:
+        response = ""
+        async for chunk in get_ai_response("deepseek", prompt, api_key, stream=True):
+            response += chunk
+
+        try:
+            await msg.edit(formatted_response + response)
+        except Exception:
+            pass
