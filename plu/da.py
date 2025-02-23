@@ -300,7 +300,7 @@ async def anthropic_ai(event):
     await msg.edit(formatted_response)
     response = ""
     async for chunk in get_ai_response("antr", prompt, api_key, stream=True):
-    response += chunk
+      response += chunk
     try:
       await msg.edit(formatted_response + response)
     except Exception:
