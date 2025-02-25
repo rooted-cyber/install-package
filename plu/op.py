@@ -22,7 +22,7 @@ async def _(event):
             hat, key = await get_paste(b)
             with BytesIO(b.encode()) as faltu:
               faltu.name = "pasted.txt"
-              await event.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb)
+              await ax.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb,parse_mode="md")
               return rm(abr)
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
