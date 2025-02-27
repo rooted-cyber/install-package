@@ -27,7 +27,7 @@ async def _(event):
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
           bakwaas.name = c
-          ab = thumb=ULTConfig.thumb
+          ab = ULTConfig.thumb
           rp = a.text
           fb = file=bakwaas
           hat, key = await get_paste(rp)
