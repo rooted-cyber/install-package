@@ -31,6 +31,6 @@ async def _(event):
           rp = a.text
           fb = file=bakwaas
           a,key = await get_paste(rp)
-          return await event.reply(file=bakwaas,"Pasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",thumb=ULTConfig.thumb,parse_mode="md")
+          await event.reply(file=bakwaas,"Pasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",thumb=ULTConfig.thumb,parse_mode="md")
           return rm(a)
 
