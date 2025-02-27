@@ -1,4 +1,4 @@
-rom . import asst, ultroid_cmd, get_string, get_paste, ULTConfig
+from . import asst, ultroid_cmd, get_string, get_paste, ULTConfig
 from os import remove as rm
 import os
 from io import BytesIO
