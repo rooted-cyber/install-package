@@ -32,5 +32,3 @@ async def _(event):
           fb = file=bakwaas
           hat, key = await get_paste(rp)
           await event.reply(file=bakwaas,ab)
-          return rm(bakwaas)
-
