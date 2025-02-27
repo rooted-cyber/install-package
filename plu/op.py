@@ -30,4 +30,5 @@ async def _(event):
           rp = a.text
           fb = file=bakwaas
           hat, key = await get_paste(rp)
-          await event.reply(file=bakwaas,thumb=ULTConfig.thumb)
+          pa = f"Pasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)"
+          awaiy event.reply(file=bakwaas,thumb=ULTConfig.thumb)
