@@ -31,6 +31,6 @@ async def _(event):
           rp = a.text
           fb = file=bakwaas
           hat, key = await get_paste(rp)
-          await event.reply(file=bakwaas)
-          return rm(a)
+          await event.reply(file=bakwaas,ab)
+          return rm(bakwaas)
 
