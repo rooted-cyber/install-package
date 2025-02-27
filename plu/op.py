@@ -32,4 +32,4 @@ async def _(event):
           hat, key = await get_paste(rp)
           pa = f"Pasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)"
           await event.reply(file=bakwaas,thumb=ULTConfig.thumb)
-          await event.reply(pa)
+          await a.edit(pa)
