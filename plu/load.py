@@ -16,8 +16,9 @@ async def ch(e):
     pr = await e.eor(get_string("com_1"))
     load_addons(f"plugins/{q}.py")
     await pr.edit(f"Successfully loaded **{q}** plugin")
-    load_addons(f"plugins/{reply}.py")
-    await pr.edit(f"Successfully loaded **{reply}** plugin")
+    if reply:
+      load_addons(f"plugins/{reply}.py")
+      await pr.edit(f"Successfully loaded **{reply}** plugin")
   elif b in s:
     pr = await e.eor(get_string("com_1"))
     load_addons(f"addons/{q}.py")
