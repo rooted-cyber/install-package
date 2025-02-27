@@ -1,4 +1,4 @@
-from . import asst, ultroid_cmd, get_string, get_paste, ULTConfig
+rom . import asst, ultroid_cmd, get_string, get_paste, ULTConfig
 from os import remove as rm
 import os
 from io import BytesIO
@@ -16,13 +16,13 @@ async def _(event):
         with open(abr) as rw:
             b = rw.read()
         try:
-          await event.reply(f"```{b}```")
+          await event.reply(f"**{b}**")
           return rm(abr)
         except:
             hat, key = await get_paste(b)
             with BytesIO(b.encode()) as faltu:
               faltu.name = "pasted.txt"
-              await ax.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted {key} [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb,parse_mode="md")
+              await event.reply(f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb,parse_mode="md")
               return rm(abr)
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
@@ -30,4 +30,7 @@ async def _(event):
           ab = thumb=ULTConfig.thumb
           rp = a.text
           fb = file=bakwaas
-          return await ax.reply(file=bakwaas)
+          a,key = await get_paste(rp)
+          return await ax.reply(file=bakwaas,nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb,parse_mode="md",ab)
+          return rm(a)
+
