@@ -7,7 +7,8 @@ from io import BytesIO
 API_URL = "https://mpzxsmlptc4kfw5qw2h6nat6iu0hvxiw.lambda-url.us-east-2.on.aws/process"
 GPT_CHAT_HISTORY = deque(maxlen=30)
 TELEGRAM_CHAR_LIMIT = 4096
-API_KEY = "sk-proj-hZn6l5KJd6n8kLJzHzyAT3BlbkFJitztuVQn17ElVhezrFyI"
+API_KEY = "sk-78dac3dbe3ee47f38dd5c9f1407bffb3"
+#API_KEY = "sk-proj-hZn6l5KJd6n8kLJzHzyAT3BlbkFJitztuVQn17ElVhezrFyI"
 
 def get_headers():
     return {
