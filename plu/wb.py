@@ -76,7 +76,7 @@ async def ask_bot(e):
         return await moi.edit(f"Error: {exc}")
 
     try:
-      out = f"{pb}  **web**  {pb}\n~ `{question}`\n{pb} `𝘈𝘯𝘴𝘸𝘦𝘳` {pb}\n\n ~ **{response}**"
+      out = f"{pb}  **web**  {pb}\n~ `{question}`\n{pb}*******{pb}\n\n ~ **{response}**"
       await e.edit(f"{out}",parse_mode="md")
     except:
       with BytesIO(out.encode()) as outf:
