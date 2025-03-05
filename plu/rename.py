@@ -45,5 +45,5 @@ async def imak(event):
         force_document=False,
         thumb=ULTConfig.thumb,
     )
-    os.remove(inp)
+    os.remove(file)
     await xx.delete()
