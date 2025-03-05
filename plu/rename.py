@@ -4,9 +4,8 @@ from telegraph import upload_file as uf
 
 from . import bash, con, downloader, get_paste, get_string, udB, ultroid_cmd, uploader
 
-opn = []
 @ultroid_cmd(
-    pattern="r( (.*)|$)",
+    pattern="r (.*)|$)",
 )
 async def imak(event):
     reply = await event.get_reply_message()
@@ -37,14 +36,14 @@ async def imak(event):
     if not os.path.exists(inp) or os.path.exists(inp) and not os.path.getsize(inp):
         os.rename(file, inp)
     k = time.time()
-    xxx = await event.client.fast_uploader(inp, inp, k, xx, get_string("com_6"))
+    n_file, _ = await event.client.fast_uploader(
+        inp, show_progress=True, event=event, message="Uploading...", to_delete=True
+    )
     await event.reply(
-        f"`{xxx.name}`",
-        file=xxx,
+        f"`{n_file.name}`",
+        file=n_file,
         force_document=False,
-        thumb="resources/downloads/a.jpg",
+        thumb=ULTConfig.thumb,
     )
     os.remove(inp)
     await xx.delete()
-
-
