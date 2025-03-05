@@ -2,7 +2,7 @@ import time
 import os
 from telegraph import upload_file as uf
 
-from . import bash, con, downloader, get_paste, get_string, udB, ultroid_cmd, uploader
+from . import bash, ULTConfig, con, downloader, get_paste, get_string, udB, ultroid_cmd, uploader
 
 @ultroid_cmd(
     pattern="r ((.*)|$)",
