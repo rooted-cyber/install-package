@@ -5,7 +5,7 @@ from telegraph import upload_file as uf
 from . import bash, con, downloader, get_paste, get_string, udB, ultroid_cmd, uploader
 
 @ultroid_cmd(
-    pattern="r(.*)|$)",
+    pattern="r ((.*)|$)",
 )
 async def imak(event):
     reply = await event.get_reply_message()
