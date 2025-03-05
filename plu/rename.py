@@ -37,7 +37,7 @@ async def imak(event):
     if not os.path.exists(inp) or os.path.exists(inp) and not os.path.getsize(inp):
         os.rename(file, inp)
     k = time.time()
-    xxx = await uploader(inp, inp, k, xx, get_string("com_6"))
+    xxx = await event.client.fast_uploader(inp, inp, k, xx, get_string("com_6"))
     await event.reply(
         f"`{xxx.name}`",
         file=xxx,
