@@ -1,4 +1,4 @@
-# Ultroid - UserBot
+ # Ultroid - UserBot
 # Copyright (C) 2021-2023 TeamUltroid
 #
 # This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
@@ -95,10 +95,7 @@ async def logo_gen(event):
         caption=f"Logo by [{OWNER_NAME}](tg://user?id={OWNER_ID})",
         force_document=True,
     )
-   await event.client.send_file(event.chat_id,
-        file=name,
-        caption=f"Logo by [{OWNER_NAME}](tg://user?id={OWNER_ID})",
-        force_document=False)
+    await event.client.send_file(event.chat_id,file=name,caption=f"Logo by [{OWNER_NAME}](tg://user?id={OWNER_ID},force_document=False)
     os.remove(name)
     await xx.delete()
     if os.path.exists(bg_):
