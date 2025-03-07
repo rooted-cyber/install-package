@@ -1,7 +1,10 @@
 from . import ultroid_cmd, get_string
 
-@ultroid_cmd(pattern="sm( (.*)|$)",manager=True)
-async def chht(e):
+#@ultroid_cmd(pattern="sm( (.*)|$)",manager=True)
+#async def chht(e):
+from telethon import events
+@bot.on(events.NewMessage(pattern="sm( (.*)|$)",incoming=True,outgoing=True))
+async def hi(event):
   a = e.pattern_match.group(1).strip()
   reply = await e.get_reply_message()
   if not a:
