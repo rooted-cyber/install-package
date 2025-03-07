@@ -1,5 +1,5 @@
 from . import ultroid_cmd, get_string
-
+from pyUltroid._misc._supporter import bot
 #@ultroid_cmd(pattern="sm( (.*)|$)",manager=True)
 #async def chht(e):
 from telethon import events
