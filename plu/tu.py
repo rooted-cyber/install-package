@@ -37,10 +37,5 @@ async def linkrhss(e):
 
 @ultroid_cmd(pattern="cd",manager=True)
 async def chdt(e):
-  cd("/data/data/com.termux/files/home")
-  if not ls("b"):
-    await bash("mkdir b")
-    cd("/data/data/com.termux/files/home/b")
-  else:
-    cd("/data/data/com.termux/files/home/b")
-  await e.reply("success")
+  cd("/data/data/com.termux/files/home/Termux-Ultroid/Ultroid")
+  await e.reply("**Success**")
