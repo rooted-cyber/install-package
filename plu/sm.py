@@ -4,7 +4,7 @@ from pyUltroid._misc._supporter import bot
 #async def chht(e):
 from telethon import events
 @bot.on(events.NewMessage(pattern="sm( (.*)|$)",incoming=True,outgoing=True))
-async def hi(event):
+async def hi(e):
   a = e.pattern_match.group(1).strip()
   reply = await e.get_reply_message()
   if not a:
