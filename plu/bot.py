@@ -246,7 +246,7 @@ async def off(event):
 )
 async def _(event):
     opt = event.pattern_match.group(1).strip()
-    file = f"ultroid{sys.argv[-1]}.log" if len(sys.argv) > 1 else "ultroid.log"
+    file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else "ultroid.log"
     if opt == "heroku":
         await heroku_logs(event)
     elif opt == "carbon" and Carbon:
@@ -269,9 +269,6 @@ async def _(event):
     else:
         await def_logs(event, file)
     await event.try_delete()
-    b = file=file
-    d = await bash(f'mv {file} log.txt')
-    await event.respond(d)
 
 @in_pattern("alive", owner=True)
 async def inline_alive(ult):
