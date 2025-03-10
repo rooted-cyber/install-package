@@ -251,9 +251,9 @@ async def _(event):
     abr = await event.client.download_media(d)
     with open("a","w") as rw:
      c = rw.write(d)
-    a, b = await get_paste(c)
+    abg, yhb = await get_paste(c)
     await event.respond(f"""
-    **ultroid logs**\nPasted in [Raw format]<a href='https://spaceb.in/{b}a/raw'>hi</a>"""
+    **ultroid logs**\nPasted in [Raw format]<a href='https://spaceb.in/{yhb}/raw'>hi</a>"""
     ,parse_mode="html")
     if opt == "heroku":
         await heroku_logs(event)
