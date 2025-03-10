@@ -247,7 +247,7 @@ async def off(event):
 async def _(event):
     opt = event.pattern_match.group(1).strip()
     file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else f"ultroid.log"
-    a, b = await get_paste(file)
+    a, b = await get_paste(file=file)
     await event.respond(f"**ultroid logs**\nPasted in [Raw format](https://spaceb.in/{b}/raw)", parse_mode="md")
     if opt == "heroku":
         await heroku_logs(event)
