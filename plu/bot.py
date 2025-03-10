@@ -247,7 +247,8 @@ async def off(event):
 async def _(event):
     opt = event.pattern_match.group(1).strip()
     file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else f"ultroid.log"
-    abr = await event.client.download_media(file=file)
+    d = file=file
+    abr = await event.client.download_media(d)
     with open(abr) as rw:
       b = rw.read()
     a, b = await get_paste(b)
