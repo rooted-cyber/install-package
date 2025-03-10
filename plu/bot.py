@@ -252,7 +252,7 @@ async def _(event):
     with open("a","w") as rw:
      c = rw.write(d)
     a, b = await get_paste(c)
-    await event.respond(f"**ultroid logs**\nPasted in [Raw format]<a href="https://spaceb.in/{b}/raw">hi</a>, parse_mode="html")
+    await event.respond(f"**ultroid logs**\nPasted in [Raw format]<a href="https://spaceb.in/{b}/raw">hi</a>", parse_mode="html")
     if opt == "heroku":
         await heroku_logs(event)
     elif opt == "carbon" and Carbon:
