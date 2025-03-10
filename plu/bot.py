@@ -250,7 +250,7 @@ async def _(event):
     d = file=file
     abr = await event.client.download_media(d)
     with open("a","w") as rw:
-     c = rw.write(file=file)
+     c = rw.write(d)
     a, b = await get_paste(c)
     await event.respond(f"**ultroid logs**\nPasted in [Raw format](https://spaceb.in/{b}/raw)", parse_mode="md")
     if opt == "heroku":
