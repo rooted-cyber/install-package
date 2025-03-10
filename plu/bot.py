@@ -249,9 +249,9 @@ async def _(event):
     file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else f"ultroid.log"
     d = file=file
     abr = await event.client.download_media(d)
-    #with open(abr) as rw:
-     #b = rw.read()
-    a, b = await get_paste(d)
+    with open("a","w") as rw:
+     c = rw.write(file=file)
+    a, b = await get_paste(c)
     await event.respond(f"**ultroid logs**\nPasted in [Raw format](https://spaceb.in/{b}/raw)", parse_mode="md")
     if opt == "heroku":
         await heroku_logs(event)
