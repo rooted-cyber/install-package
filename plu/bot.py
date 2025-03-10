@@ -270,7 +270,7 @@ async def _(event):
         await def_logs(event, file)
     await event.try_delete()
     b = file=file
-    d = await bash(f'mv """{b} """log.txt"""')
+    d = await bash(f'mv {file} log.txt')
     await event.reply(d)
 
 @in_pattern("alive", owner=True)
