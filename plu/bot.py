@@ -246,7 +246,7 @@ async def off(event):
 )
 async def _(event):
     opt = event.pattern_match.group(1).strip()
-    file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else print"a","ultroid.log"
+    file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else print ("a"),ultroid.log"
     if opt == "heroku":
         await heroku_logs(event)
     elif opt == "carbon" and Carbon:
