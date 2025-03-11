@@ -254,7 +254,7 @@ async def _(event):
     abg, yhb = await get_paste(c)
     await event.respond(f"""
     **ultroid logs**\nPasted in [Raw format]<a href="https://spaceb.in/{yhb}/raw">hihhfjghhggk</a>"""
-    ,parse_mode="html")
+    ,parse_mode="md")
     if opt == "heroku":
         await heroku_logs(event)
     elif opt == "carbon" and Carbon:
