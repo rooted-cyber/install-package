@@ -25,9 +25,7 @@
     If added then all files will be uploaded in this folder.
 """
 #r156
-udB.set_key("GDRIVE_FOLDER_ID","1wGhvUWjslNUZ38bJoHAzIsLZRuRbi4fj")
-udB.set_key("GDRIVE_CLIENT_ID","69689902615-3b0c0tgg7me2pulu9vftvnsf9o9mpf6i.apps.googleusercontent.com")
-udB.set_key("GDRIVE_CLIENT_SECRET","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")
+
 import asyncio
 import os
 import time
@@ -37,13 +35,17 @@ from telethon.tl.types import Message
 from pyUltroid.fns.helper import bash
 from pyUltroid.fns.helper import time_formatter
 
-from . import ULTConfig, asst, eod, eor, get_string, ultroid_cmd
+from . import ULTConfig, asst, eod, eor, get_string, ultroid_cmd, udB
 #from pyUltroid.fns.gDrive import GDriveManager
 try:
   from pyUltroid.fns.gDrive import GDriveManager
 except ImportError:
     s("pp i oauth2client google-api-python-client apiclient")
     from pyUltroid.fns.gDrive import GDriveManager
+
+udB.set_key("GDRIVE_FOLDER_ID","1wGhvUWjslNUZ38bJoHAzIsLZRuRbi4fj")
+udB.set_key("GDRIVE_CLIENT_ID","69689902615-3b0c0tgg7me2pulu9vftvnsf9o9mpf6i.apps.googleusercontent.com")
+udB.set_key("GDRIVE_CLIENT_SECRET","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")
 
 
 @ultroid_cmd(
