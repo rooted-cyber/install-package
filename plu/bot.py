@@ -253,7 +253,7 @@ async def _(event):
      c = rw.write(d)
     abg, yhb = await get_paste(c)
     await event.respond(f"""
-    **ultroid logs**\nPasted in [Raw format]<a href="https://spaceb.in/{yhb}/raw">hihhfjghhggk</a>"""
+    **ultroid logs**\nPasted in {yhb}[Raw format]<a href="https://spaceb.in/{yhb}/raw">hihhfjghhggk</a>"""
     ,parse_mode="md")
     if opt == "heroku":
         await heroku_logs(event)
