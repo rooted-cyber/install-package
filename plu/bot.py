@@ -247,14 +247,7 @@ async def off(event):
 async def _(event):
     opt = event.pattern_match.group(1).strip()
     file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else f"ultroid.log"
-    d = file=file
-    abr = await event.client.download_media(d)
-    with open("a","w") as rw:
-     c = rw.write(d)
-    abg, yhb = await get_paste(c)
-    await event.respond(f"""
-    **ultroid logs**\nPasted in {yhb}[Raw format]<a href="https://spaceb.in/{yhb}/raw">hihhfjghhggk</a>"""
-    ,parse_mode="md")
+    
     if opt == "heroku":
         await heroku_logs(event)
     elif opt == "carbon" and Carbon:
