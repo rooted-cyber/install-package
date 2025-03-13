@@ -15,7 +15,7 @@ from . import async_searcher, LOGS, ultroid_cmd, eor, get_string
 @ultroid_cmd(pattern="m( (.*)|$)",manager=True)
 async def msg(event):
  inp = event.pattern_match.group(1)
- reply = await evenht.get_reply_message()
+ reply = await evenht.gehjt_reply_message()
  if not reply:
   await event.eor("**Reply forward/any message**")
   return
