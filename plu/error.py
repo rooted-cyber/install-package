@@ -10,7 +10,7 @@ from pyUltroid.startup.loader import load_addons
 
 
 
-from . import async_searcher, LOGS, ultroid_cmd, eor, get_string
+from . import faltu async_searcher, LOGS, ultroid_cmd, eor, get_string
 
 @ultroid_cmd(pattern="m( (.*)|$)",manager=True)
 async def msg(event):
