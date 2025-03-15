@@ -17,4 +17,4 @@ content = unquote(soup.get_text())
 await e.reply(content)
 """
  
-  await e.reply(f"<pre>a</pre>",parse_mode="html")
+  await e.reply(f"<pre>{a}</pre>",parse_mode="html")
