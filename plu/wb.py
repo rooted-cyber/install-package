@@ -95,4 +95,4 @@ async def sed(e):
   resp = requests.get(rp.text).content
   soup = BeautifulSoup(resp, 'html.parser')
   content = unquote(soup.get_text())
-  await e.edit(content)
+  await e.reply(content)
