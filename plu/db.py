@@ -20,6 +20,7 @@ def get_headers():
 
 @ultroid_cmd(pattern="db(?: (.+)|$)")
 async def generate_code(event):
+    pb = "•••••••••••••••••••••"
     reply_message = await event.get_reply_message()
     query = event.pattern_match.group(1)
 
@@ -49,7 +50,7 @@ async def generate_code(event):
         generated_response = data["choices"][0]["message"]["content"]
         GPT_CHAT_HISTORY.append({"role": "assistant", "content": generated_response})
 
-        full_message = f"**Buddy**\n\n**Query:**\n~ `{query}`\n\n**Response:**\n~ **{generated_response}**"
+        full_message = f"/t/t**Buddy**\n\n**Query:**\n~ `{query}`\n\n**Response:**\n~ **{generated_response}**"
 
         if len(full_message) > TELEGRAM_CHAR_LIMIT:
             with BytesIO(full_message.encode()) as file:
