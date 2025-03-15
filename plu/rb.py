@@ -13,4 +13,4 @@ async def sed(e):
     content = unquote(soup.get_text())
     await c.reply(content)
   eccept:
-    await v.reply('not")
+    await c.reply("not")
