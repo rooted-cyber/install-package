@@ -83,3 +83,16 @@ async def ask_bot(e):
             outf.name = "answer.txt"
             await e.respond(file=outf, reply_to=e.reply_to_msg_id)
       await e.delete()
+
+from . import ultroid_cmd
+from urllib.parse import unquote
+from bs4 import BeautifulSoup
+import requests
+@ultroid_cmd(pattern="rb")
+async def sed(e):
+  rp = await event.get_reply_message()
+  pb = "•••••••••••••••••••••"
+  resp = requests.get(rp.text).content
+  soup = BeautifulSoup(resp, 'html.parser')
+  content = unquote(soup.get_text())
+  await e.edit(content)
