@@ -9,5 +9,8 @@ async def sed(e):
   pb = "•••••••••••••••••••••"
   resp = requests.get(rp.text).content
   soup = BeautifulSoup(resp, 'html.parser')
-  content = unquote(soup.get_text())
-  await c.reply(content)
+  try:
+    content = unquote(soup.get_text())
+    await c.reply(content)
+  eccept:
+    await v.reply('not")
