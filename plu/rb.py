@@ -14,6 +14,7 @@ rp = await event.get_reply_message()
 resp = requests.get(rp.text).content
 soup = BeautifulSoup(resp, 'html.parser')
 content = unquote(soup.get_text())
-await c.reply(content)
+await e.reply(content)
 """
-  await c.reply(f"<pre>a</pre>",parse_mode="html")
+ 
+  await e.reply(f"<pre>a</pre>",parse_mode="html")
