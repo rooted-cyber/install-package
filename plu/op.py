@@ -8,6 +8,8 @@ from io import BytesIO
 async def _(event):
     ax = await event.eor(get_string("com_1"))
     a = await event.get_reply_message()
+    hat, key = await get_paste(a.text)
+    pa = f"Pasted in [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)"
     if not a:
         return await event.eor("`Reply any msg/flle`")
     c = event.pattern_match.group(1)
@@ -16,7 +18,7 @@ async def _(event):
         with open(abr) as rw:
             b = rw.read()
         try:
-          await event.reply(f"**{b}**")
+          await event.reply(f"**{b}**\n{pa}")
           return rm(abr)
         except:
             hat, key = await get_paste(b)
