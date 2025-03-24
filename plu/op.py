@@ -1,4 +1,4 @@
-from . import asst, ultroid_cmd, get_string, get_paste, ULTConfig
+ from . import asst, ultroid_cmd, get_string, get_paste, ULTConfig
 from os import remove as rm
 import os
 from io import BytesIO
@@ -24,7 +24,7 @@ async def _(event):
             hat, key = await get_paste(b)
             with BytesIO(b.encode()) as faltu:
               faltu.name = "pasted.txt"
-              await event.reply(f"Found len(b) Characters so\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb,parse_mode="md")
+              await event.reply(f"Found {len(b)} Characters so\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb,parse_mode="md")
               return rm(abr)
     if a.text:
         with BytesIO(a.text.encode()) as bakwaas:
