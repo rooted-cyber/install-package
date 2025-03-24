@@ -58,8 +58,6 @@ async def ask_bot(e):
     moi = await e.eor(f"**Fetching the answer**...")
     reply = await e.get_reply_message()
     question = e.pattern_match.group(1)
-    hat, key = await get_paste(a.text)
-    pa = f"Pasted in [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)"
     if not question:
         if reply and reply.text:
             question = reply.message + question
@@ -76,6 +74,9 @@ async def ask_bot(e):
         return await moi.edit(f"Error: {exc}")
 
     try:
+      outm = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**\n\n{pa}"
+      hat, key = await get_paste(outm)
+      pa = f"Pasted in [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)"
       out = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**\n\n{pa}"
       await e.edit(f"{out}",parse_mode="md")
     except:
