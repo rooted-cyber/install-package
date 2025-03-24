@@ -80,6 +80,6 @@ async def ask_bot(e):
       await e.edit(f"{out}",parse_mode="md")
     except:
       with BytesIO(out.encode()) as outf:
-            outf.name = "answer.txt"
-            await e.respond(file=outf, pa,reply_to=e.reply_to_msg_id)
+            outf.name = "response.txt"
+            await e.respond(f"{pa}",file=outf, pa,reply_to=e.reply_to_msg_id)
       await e.delete()
