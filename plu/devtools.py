@@ -294,7 +294,7 @@ async def _(event):
     timef = time_formatter(tmt)
     timeform = timef if not timef == "0s" else f"{tmt:.3f}ms"
     import logging
-    logging.getLogger("Telethon").setLevel(logging.WARNING)
+    lg = logging.getLogger("Telethon").setLevel(logging.WARNING)
     final_output = "💛 **__𝗘𝗩𝗔𝗟__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}: \n```{}``` \n\n**COPY THIS**:\n `{}`\n".format(
         timeform,
         cmd,
@@ -317,7 +317,7 @@ async def _(event):
             )
         return await xx.delete()
     hut = "💛 **__EVAL__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}:".format(timeform,cmd,timeform)
-    await xx.edit(f"{final_output}")
+    await xx.edit(f"{lg}{final_output}")
 
 
 def _stringify(text=None, *args, **kwargs):
