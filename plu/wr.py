@@ -17,7 +17,7 @@ async def writer(e):
     k = await e.eor(get_string("com_1"))
     img = Image.open("resources/downloads/b.jpg")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("resources/fonts/assfont.ttf", 30)
+    font = ImageFont.truetype("resources/fonts/BriemScriptStd-Bold.otf", 30)
     x, y = 1, 4
     lines = text_set(text)
     line_height = font.getbbox("hg")[3] - font.getbbox("hg")[1]
