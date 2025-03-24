@@ -78,12 +78,10 @@ async def ask_bot(e):
       hat, key = await get_paste(outm)
       pa = ""
       pa = f"Pasted in [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)"
-      out = ""
       out = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**\n\n{pa}"
       await e.edit(f"{out}",parse_mode="md")
     except:
-      out = ""
       with BytesIO(out.encode()) as outf:
             outf.name = "response.txt"
-            await e.respond(f"{pa}",file=outf,reply_to=e.reply_to_msg_id)
+            await e.respond(file=outf,reply_to=e.reply_to_msg_id)
       await e.delete()
