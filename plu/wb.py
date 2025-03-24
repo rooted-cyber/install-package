@@ -82,6 +82,7 @@ async def ask_bot(e):
       out = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**\n\n{pa}"
       await e.edit(f"{out}",parse_mode="md")
     except:
+      out = ""
       with BytesIO(out.encode()) as outf:
             outf.name = "response.txt"
             await e.respond(f"{pa}",file=outf,reply_to=e.reply_to_msg_id)
