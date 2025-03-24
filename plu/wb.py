@@ -25,7 +25,7 @@ async def shshe_ed(e):
 import aiohttp
 from io import BytesIO
 
-from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string
+from . import ultroid_cmd, check_filename, udB, LOGS, run_async, get_string, get_paste
 
 
 async def fetch_data_from_apig(question):
@@ -58,8 +58,8 @@ async def ask_bot(e):
     moi = await e.eor(f"**Fetching the answer**...")
     reply = await e.get_reply_message()
     question = e.pattern_match.group(1)
-    #uestion += reply.text
-    #question += f"\n {e.text}"
+    hat, key = await get_paste(a.text)
+    pa = f"Pasted in [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)"
     if not question:
         if reply and reply.text:
             question = reply.message + question
@@ -76,10 +76,10 @@ async def ask_bot(e):
         return await moi.edit(f"Error: {exc}")
 
     try:
-      out = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**"
+      out = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**\n\n{pa}"
       await e.edit(f"{out}",parse_mode="md")
     except:
       with BytesIO(out.encode()) as outf:
             outf.name = "answer.txt"
-            await e.respond(file=outf, reply_to=e.reply_to_msg_id)
+            await e.respond(file=outf, pa,reply_to=e.reply_to_msg_id)
       await e.delete()
