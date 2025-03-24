@@ -76,6 +76,7 @@ async def ask_bot(e):
     try:
       outm = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**\n\n{pa}"
       hat, key = await get_paste(outm)
+      pa = ""
       pa = f"Pasted in [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)"
       out = ""
       out = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**\n\n{pa}"
