@@ -294,8 +294,8 @@ async def _(event):
     timef = time_formatter(tmt)
     timeform = timef if not timef == "0s" else f"{tmt:.3f}ms"
     import logging
-logging.getLogger("Telethon").setLevel(logging.WARNING)
-final_output = "💛 **__𝗘𝗩𝗔𝗟__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}: \n```{}``` \n\n**COPY THIS**:\n `{}`\n".format(
+    logging.getLogger("Telethon").setLevel(logging.WARNING)
+    final_output = "💛 **__𝗘𝗩𝗔𝗟__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}: \n```{}``` \n\n**COPY THIS**:\n `{}`\n".format(
         timeform,
         cmd,
         timeform,
