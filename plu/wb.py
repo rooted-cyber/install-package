@@ -77,7 +77,7 @@ async def ask_bot(e):
       outm = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**\n\n{pa}"
       hat, key = await get_paste(outm)
       pa = f"Pasted in [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)"
-      out = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**\n\n{pa}"
+      out = f"{pb}  **𝘄𝗲𝗯** {pb}\n\n~ `{question}`\n\n{pb}•••••••{pb}\n\n ~ **{response}**\n\n"
       await e.edit(f"{out}",parse_mode="md")
     except:
       with BytesIO(out.encode()) as outf:
