@@ -334,6 +334,7 @@ async def aexec(code, event):
             + "\n u.r = r = reply = await event.get_reply_message()"
             + "\n chat = event.chat_id"
             + "\n u.lr = locals()"
+            + "\n ta = await tag(e)"5
       )
         + "".join(f"\n {l}" for l in code.split("\n"))
     )
