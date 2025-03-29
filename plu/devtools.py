@@ -328,12 +328,12 @@ def _stringify(text=None, *args, **kwargs):
 async def aexec(code, event):
     exec(
         (
-            "asynca def __aexec(e, client): "
+            "async def __aexec(e, client): "
             + "\n print = p = _stringify"
             + "\n message = event = e"
             + "\n u.r = r = reply = await event.get_reply_message()"
             + "\n chat = event.chat_id"
-            + "\n u.lr = locals()"
+            + "\n u.lr = locals()
       )
         + "".join(f"\n {l}" for l in code.split("\n"))
     )
