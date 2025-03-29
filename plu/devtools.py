@@ -338,4 +338,4 @@ async def aexec(code, event):
         + "".join(f"\n {l}" for l in code.split("\n"))
     )
 
-    return await locals()["__aexec"](event, event.client)
+    await locals()["__aexec"](event, event.client)
