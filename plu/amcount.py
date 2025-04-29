@@ -3,17 +3,26 @@ from telethon import events
 
 @ultroid_cmd(pattern="amcount$")
 async def group_msg_counter(event):
-    await event.edit("📊 Counting messages in all groups... (this may take a while)")
+    await event.edit("📊 Starting count...")
+
+    dialogs = [d async for d in event.client.iter_dialogs() if d.is_group]
+    total_groups = len(dialogs)
+    done = 0
     result = "*📊 Message Count in Groups*\n\n"
-    total = 0
+    total_msgs = 0
 
-    async for dialog in event.client.iter_dialogs():
-        if dialog.is_group:
-            count = 0
-            async for msg in event.client.iter_messages(dialog.id, from_user='me'):
-                count += 1
-            total += count
-            result += f"• {dialog.name}: {count}\n"
+    for dialog in dialogs:
+        count = 0
+        async for msg in event.client.iter_messages(dialog.id, from_user='me'):
+            count += 1
+        total_msgs += count
+        result += f"• {dialog.name}: {count}\n"
+        done += 1
 
-    result += f"\n🧮 *Total Messages in All Groups:* {total}"
+        # Progress bar text
+        percent = int((done / total_groups) * 100)
+        bar = "▓" * (percent // 10) + "░" * (10 - (percent // 10))
+        await event.edit(f"🔄 Counting...\n[{bar}] {percent}%\n\nCompleted: {done}/{total_groups} groups")
+
+    result += f"\n🧮 *Total Messages in All Groups:* {total_msgs}"
     await event.edit(result or "No messages found.")
