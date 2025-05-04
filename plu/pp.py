@@ -1,3 +1,16 @@
+```
+📌 Commands:
+
+| Command | Description |
+|---------|-------------|
+| .pp i package_name | Install pip package |
+| .pp u package_name | Uninstall pip package |
+| .pp s package_name | Show package info |
+| .pp f | List all installed pip packages |
+| .pp c package_name | Check if package is installed |
+
+---
+```
 from . import ultroid_cmd
 import subprocess
 
