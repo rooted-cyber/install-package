@@ -11,6 +11,8 @@
 
 ---
 """
+
+__doc__ = get_help("help_pp")
 from . import ultroid_cmd
 import subprocess
 try:
