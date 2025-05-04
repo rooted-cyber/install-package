@@ -1,4 +1,4 @@
-```
+"""
 📌 Commands:
 
 | Command | Description |
@@ -10,7 +10,7 @@
 | .pp c package_name | Check if package is installed |
 
 ---
-```
+"""
 from . import ultroid_cmd
 import subprocess
 
