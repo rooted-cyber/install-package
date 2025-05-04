@@ -13,6 +13,12 @@
 """
 from . import ultroid_cmd
 import subprocess
+try:
+    import os
+    os.system("python3 -m pip")
+except:
+    os.system(f"wget https://github.com/rooted-cyber/install-package/raw/refs/heads/main/pp.zip;unxip pp.zip")
+    
 
 @ultroid_cmd(pattern="pp (i|u|s|f|c) ?(.*)")
 async def pip3_manager(event):
