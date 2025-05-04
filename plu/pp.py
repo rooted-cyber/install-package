@@ -15,7 +15,7 @@ from . import ultroid_cmd
 import subprocess
 
 @ultroid_cmd(pattern="pp (i|u|s|f|c) ?(.*)")
-async def pip_manager(event):
+async def pip3_manager(event):
     action = event.pattern_match.group(1)
     package = event.pattern_match.group(2).strip()
 
@@ -23,37 +23,35 @@ async def pip_manager(event):
 
     if action == "i":
         if not package:
-            return await event.eor("❌ Please provide a package name to install.")
-        cmd = f"pip install {package}"
-        msg = f"📦 Installing {package}..."
+            return await event.eor("❌ पैकेज नाम दीजिए जिसे install करना है।")
+        cmd = f"python3 -m pip install {package}"
+        msg = f"📦 `{package}` install किया जा रहा है..."
 
     elif action == "u":
         if not package:
-            return await event.eor("❌ Please provide a package name to uninstall.")
-        cmd = f"pip uninstall -y {package}"
-        msg = f"📦 Uninstalling {package}..."
+            return await event.eor("❌ पैकेज नाम दीजिए जिसे uninstall करना है।")
+        cmd = f"python3 -m pip uninstall -y {package}"
+        msg = f"📦 `{package}` uninstall किया जा रहा है..."
 
     elif action == "s":
         if not package:
-            return await event.eor("❌ Please provide a package name to show info.")
-        cmd = f"pip show {package}"
-        msg = f"📦 Showing info for {package}..."
+            return await event.eor("❌ पैकेज नाम दीजिए जिसकी info चाहिए।")
+        cmd = f"python3 -m pip show {package}"
+        msg = f"📦 `{package}` की जानकारी..."
 
     elif action == "f":
-        cmd = "pip freeze"
-        msg = "📦 Listing all installed pip packages..."
+        cmd = "python3 -m pip freeze"
+        msg = "📦 सभी installed packages की list..."
 
     elif action == "c":
-        if not package:
-            return await event.eor("❌ Please provide a package name to check.")
-        result = subprocess.getoutput(f"pip freeze | grep {package}")
+        if not package:return await event.eor("❌ पैकेज नाम दीजिए जिसे check करना है।")
+        result = subprocess.getoutput(f"python3 -m pip freeze | grep {package}")
         if result:
-            return await event.eor(f"✅ {package} is installed.\n\n<code>{result}</code>", parse_mode="html")
+            return await event.eor(f"✅ `{package}` installed है:\n<code>{result}</code>", parse_mode="html")
         else:
-            return await event.eor(f"❌ {package} is not installed.")
-
+            return await event.eor(f"❌ `{package}` installed नहीं है।")
     else:
-        return await event.eor("❌ Invalid command.")
+        return await event.eor("❌ गलत command।")
 
     try:
         output = subprocess.getoutput(cmd)
