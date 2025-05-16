@@ -301,7 +301,7 @@ async def _(event):
         cmd,
     )
     if len(final_output) > 4096:
-        final_output = evaluation
+        #final_output = evaluation
         with BytesIO(str.encode(final_output)) as out_file:
             out_file.name = "eval.txt"
             await event.client.send_file(
