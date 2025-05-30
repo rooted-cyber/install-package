@@ -247,9 +247,10 @@ async def off(event):
 async def _(event):
     opt = event.pattern_match.group(1).strip()
     file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else f"ultroid.log"
-    await event.reply("**Ultroid Logs.p**",file=file)
-    if Carbon:
-      with open(file, "r") as f:
+    from pathlib import Path
+    ps , af = await get_paste(Path("ultroid.log").read_text()))
+    await event.reply(f"**Ultroid Logs. [pasted here](https://spaceb.in/{af}**",file=file,parse_mode="md")
+    with open(file, "r") as f:
         code = f.read()[-2500:]
         file = await Carbon(
             file_name="ultroid-logs",
