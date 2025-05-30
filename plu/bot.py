@@ -248,7 +248,7 @@ async def _(event):
     opt = event.pattern_match.group(1).strip()
     file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else f"ultroid.log"
     await event.reply("**Ultroid Logs.p**",file=file)
-    if carbon:
+    if Carbon:
       with open(file, "r") as f:
         side = f.read()[-2500:]
         file = await Carbon(
