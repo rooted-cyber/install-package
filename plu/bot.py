@@ -258,18 +258,7 @@ async def _(event):
             backgroundColor=choice(ATRA_COL),
         )
         if isinstance(file, dict):
-            await event.eor(f"`{file}`")
-            return
-      """
-     #await event.reply("**Ultroid Logs.p**",file=file)
-    elifopt == open":
-        with open("ultroid.log", "r") as f:
-            file = f.read()[-4000:]
-        return await event.eor(f"`{file}`")
-    else:
-        await def_logs(event, file)
-    await event.try_delete()
-"""
+            return await event.eor(f"`{file}")
 @in_pattern("alive", owner=True)
 async def inline_alive(ult):
     pic = udB.get_key("ALIVE_PIC")
