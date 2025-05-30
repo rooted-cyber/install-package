@@ -36,8 +36,7 @@ from telethon.errors.rpcerrorlist import (
 
 from pyUltroid.version import __version__ as UltVer
 
-from . import HOSTED_ON, LOGS, ULTConfig‎
-
+from . import HOSTED_ON, LOGS,ULTConfig
 try:
     from git import Repo
 except ImportError:
