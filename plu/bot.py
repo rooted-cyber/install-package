@@ -250,7 +250,7 @@ async def _(event):
     await event.reply("**Ultroid Logs.p**",file=file)
     if Carbon:
       with open(file, "r") as f:
-        side = f.read()[-2500:]
+        code = f.read()[-2500:]
         file = await Carbon(
             file_name="ultroid-logs",
             code=code,
