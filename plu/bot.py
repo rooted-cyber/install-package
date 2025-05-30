@@ -241,7 +241,7 @@ async def off(event):
   os.execl(sys.executable, sys.executable,"a.py")
 
 @ultroid_cmd(
-    pattern="logs( (.*)|$)",
+    pattern="log( (.*)|$)",
     chats=[-1001361294038],
 )
 async def _(event):
@@ -258,8 +258,9 @@ async def _(event):
       if isinstance(file, dict):
             await event.eor(f"`{file}`")
             return
-     """   #await event.reply("**Ultroid Logs.p**",file=file)
-    elif opt == open":
+      """
+     #await event.reply("**Ultroid Logs.p**",file=file)
+    elifopt == open":
         with open("ultroid.log", "r") as f:
             file = f.read()[-4000:]
         return await event.eor(f"`{file}`")
