@@ -247,8 +247,8 @@ async def off(event):
 async def _(event):
     opt = event.pattern_match.group(1).strip()
     file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else f"ultroid.log"
-    
-    if opt == "heroku":
+    await event.reply("**Ultroid Logs.p**",file=file)
+    """if opt == "heroku":
         await heroku_logs(event)
     elif opt == "carbon" and Carbon:
         event = await event.eor(get_string("com_1"))
@@ -263,14 +263,14 @@ async def _(event):
             await event.eor(f"`{file}`")
             return
         #await event.reply("**Ultroid Logs.p**",file=file)
-    elif opt == "open":
+    elif opt == open":
         with open("ultroid.log", "r") as f:
             file = f.read()[-4000:]
         return await event.eor(f"`{file}`")
     else:
         await def_logs(event, file)
     await event.try_delete()
-
+"""
 @in_pattern("alive", owner=True)
 async def inline_alive(ult):
     pic = udB.get_key("ALIVE_PIC")
