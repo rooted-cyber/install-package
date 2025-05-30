@@ -36,7 +36,7 @@ from telethon.errors.rpcerrorlist import (
 
 from pyUltroid.version import __version__ as UltVer
 
-from . import HOSTED_ON, LOGS
+from . import HOSTED_ON, LOGS, ULTConfig‎
 
 try:
     from git import Repo
@@ -249,7 +249,7 @@ async def _(event):
     file = f"ultroid{sys.argv[-1]}.txt" if len(sys.argv) > 1 else f"ultroid.log"
     from pathlib import Path
     ps , af = await get_paste(Path("ultroid.log").read_text())
-    await event.reply(f"**Ultroid Logs. [pasted here](https://spaceb.in/{af}**",file=file,parse_mode="md")
+    await event.eor(f"**Ultroid Logs. [pasted here](https://spaceb.in/{af}**",file=file,thumb=ULTConfig‎.thumb,parse_mode="md")
     with open(file, "r") as f:
         code = f.read()[-2500:]
         file = await Carbon(
