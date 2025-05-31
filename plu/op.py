@@ -17,8 +17,10 @@ async def _(event):
         abr = await event.client.download_media(a)
         with open(abr) as rw:
             b = rw.read()
+            hat, key = await get_paste(b)
+            pa = f"Pasted in [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)"
         try:
-          await event.reply(f"**{b}**\n{pa}")
+          await event.reply(f"```{b}```{pa}")
           return rm(abr)
         except:
             hat, key = await get_paste(b)
