@@ -71,5 +71,6 @@ My <code>SUDO_HNDLR : {SUDO_HNDLR}</code>
 15. open = op
 16. speedtest = sp
 17. del = d 
+18. logs = log
 </pre>
 """,parse_mode="html")
