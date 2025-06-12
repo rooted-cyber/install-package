@@ -66,6 +66,7 @@ async def _(e):
         elif isinstance(x, rec):
             rece += 1
             if "rec" in okk and not bb.bot and not bb.deleted:
+                xx += "Recently user\n"
                 xx += f"\n{inline_mention(bb)}"
         if isinstance(y, owner):
             xx += f"\n꧁{inline_mention(bb)}꧂"
