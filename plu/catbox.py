@@ -2,8 +2,9 @@ from pyUltroid import udB
 from . import udB, bash, ultroid_cmd
 import requests
 
-@ultroid_cmd(pattern="catbox$")
+@ultroid_cmd(pattern="cat$")
 async def catbox_uploader(e):
+    ax = await event.eor(get_string("com_1"))
     reply = await e.get_reply_message()
     if not reply or not reply.media:
         return await e.reply("कृपया किसी इमेज पर रिप्लाई करें।")
@@ -11,6 +12,6 @@ async def catbox_uploader(e):
     file = {'fileToUpload': open(d, 'rb')}
     res = requests.post('https://catbox.moe/user/api.php', data={'reqtype': 'fileupload'}, files=file)
     if res.status_code == 200 and "catbox" in res.text:
-        await e.reply(f"✅ Upload Successful:\n🔗 {res.text}")
+        await ax.reply(f"✅ Upload Successful:\n🔗 {res.text}")
     else:
         await e.reply("❌ Upload Failed, try mandal at https://catbox.moe")
