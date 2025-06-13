@@ -1,4 +1,3 @@
-from pyUltroid import udB
 from . import udB, bash, ultroid_cmd, get_string
 import requests
 
