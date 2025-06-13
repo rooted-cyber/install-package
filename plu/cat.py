@@ -1,4 +1,4 @@
-#from . import udB, bash, ultroid_cmd, get_string
+from . import udB, bash, ultroid_cmd, get_string
 import requests
 
 @ultroid_cmd(pattern="cat$")
