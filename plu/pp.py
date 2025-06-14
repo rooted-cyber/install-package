@@ -19,7 +19,7 @@ try:
     import os
     os.system("python3 -m pip")
 except:
-    os.system(f"wget https://github.com/rooted-cyber/install-package/raw/refs/heads/main/pp.zip;unxip pp.zip")
+    os.system(f"wget https://github.com/rooted-cyber/install-package/raw/refs/heads/main/pp.zip")
     
 
 
