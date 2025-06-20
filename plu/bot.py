@@ -329,7 +329,7 @@ async def gd(e):
   udB.set_key("ALIVE_PIC","https://envs.sh/SbN.jpg")
   udB.set_key("RMBG_API","npe4xGxDQf7D8KiG9WPxmJR8")
   udB.set_key("OCR_API","K84695599388957")
-  udB.set_key("BOT_TOKEN","6754465323:AAFBJEW3cCuni3WZ_6oerxGRlI4yCFrYZl4")
+  udB.set_key("BOT_TOKEN","6754465323:AAGkYi2WJ_9K-bgSXD95tSEHdyH-U-kqA6c")
   udB.set_key("OPENAI_API","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")
   udB.set_key("LOG_CHANNEL",-1001884618152)
   await e.reply("**successfully set**")
