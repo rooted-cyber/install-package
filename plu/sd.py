@@ -58,7 +58,7 @@ async def pastee(path):
         data = f.read()
     err, linky = await get_paste(data)
     if err:
-        return f"<b>>> <a href='https://spaceb.in/{linky}/raw'>Pasted Here in Raw</a></b> \n"
+        return f"<b>>> <a href='https://spaceb.in/{linky}'>Pasted Here in Spacebin</a></b> \n"
     else:
         LOGS.error(linky)
         return ""
