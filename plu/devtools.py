@@ -153,6 +153,8 @@ async def _(event):
         out = "**• OUTPUT:**\n`Success`"
     cpyc = f"**All Output :**\n{err}{out}"
     OUT += f"{cpyc}"
+    a,key = await get_paste(cpyc)
+    sp = f"Found {len(cpyc)} Characters so\nPasted [SPACEBIN](https://spaceb.in/{key})
     if len(OUT) > 4096:
         ultd = f"{cpyc}"
         with BytesIO(str.encode(ultd)) as out_file:
@@ -163,7 +165,7 @@ async def _(event):
                 force_document=True,
                 thumb=mythumb,
                 allow_cache=False,
-                caption=f"`{cmd}`" if len(cmd) < 998 else None,
+                caption=f"`{cmd}`\n{sp}" if len(cmd) < 998 else None,
                 reply_to=reply_to_id,
             )
 
