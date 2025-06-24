@@ -28,7 +28,7 @@ async def count_messages(e):
     if reply:
       rp = await e.respond(inline_mention(reply.sender))
       rc = await e.client.get_messages(e.chat_id, limit=0, from_user=reply).total
-      await e.eor("rp msgs = rc)
+      await e.eor("rp msgs = rc")
     async for m in e.client.iter_participants(e.chat_id):
         b = m.id
         name = f"[*{m.first_name}*](tg://user?id={b})"
