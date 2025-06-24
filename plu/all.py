@@ -6,7 +6,7 @@ async def count_messages(e):
     n = ""
     async for m in e.client.iter_participants(e.chat_id):
         b = m.id
-        c = f"[**{m.first_name}**](tg://user?id={b}"
+        c = f"[**{m.first_name}**](tg://user?id={b})"
         d = f"**{m.first_name}**"
         try:
             a = await e.client.get_messages(e.chat_id, limit=0, from_user=b)
