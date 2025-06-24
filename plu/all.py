@@ -1,0 +1,12 @@
+@ultroid_cmd(pattern="all$")
+async def count_messages(e):
+    await e.eor("Processing...")
+    n = ""
+    async for m in e.client.iter_participants(e.chat_id):
+        b = m.id
+        try:
+            a = await e.client.get_messages(e.chat_id, limit=0, from_user=b)
+            n += f"*{m.first_name}*: {a.total} msgs\n"
+        except Exception as ex:
+            print(f"Error fetching messages for {m.first_name}: {ex}")
+    await e.eor(n or "No data found.")
