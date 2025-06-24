@@ -1,3 +1,5 @@
+from . import ultroid_cmd
+
 @ultroid_cmd(pattern="all$")
 async def count_messages(e):
     await e.eor("Processing...")
