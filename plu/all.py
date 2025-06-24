@@ -10,7 +10,8 @@ async def count_messages(e):
         d = f"**{m.first_name}**"
         try:
             a = await e.client.get_messages(e.chat_id, limit=0, from_user=b)
-            n += f"*{m.first_name}*{c} : {a.total} msgs\n"
+            n += f"{c} : {a.total} msgs\n"
         except Exception as ex:
             print(f"Error fetching messages for {m.first_name}: {ex}")
-    await e.eor(n or "No data found.")
+    await e.eor(n or "No data found.",parse_mode="md")
+    
