@@ -16,7 +16,7 @@ async def count_messages(e):
     await e.eor(n or "No data found.",parse_mode="md")
     
 
-from . import ultroid_cmd
+from . import ultroid_cmd, inline_mention
 
 @ultroid_cmd(pattern="total$")
 async def count_messages(e):
@@ -26,7 +26,7 @@ async def count_messages(e):
     user_count = 0
     reply = await e.get_reply_message()
     if reply:
-      rp = await e.respond(inline_mention(reply.sender))
+      rp = inline_mention(reply.sender)
       rc = await e.client.get_messages(e.chat_id, limit=0, from_user=reply).total
       await e.eor("rp msgs = rc")
     async for m in e.client.iter_participants(e.chat_id):
