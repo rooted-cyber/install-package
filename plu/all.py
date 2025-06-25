@@ -1,24 +1,6 @@
-from . import ultroid_cmd
-
-@ultroid_cmd(pattern="all$")
-async def count_messages(e):
-    await e.eor("Processing...")
-    n = ""
-    async for m in e.client.iter_participants(e.chat_id):
-        b = m.id
-        c = f"[**{m.first_name}**](tg://user?id={b})"
-        d = f"**{m.first_name}**"
-        try:
-            a = await e.client.get_messages(e.chat_id, limit=0, from_user=b)
-            n += f"{c} : {a.total} msgs\n"
-        except Exception as ex:
-            print(f"Error fetching messages for {m.first_name}: {ex}")
-    await e.eor(n or "No data found.",parse_mode="md")
-    
-
 from . import ultroid_cmd, inline_mention
 
-@ultroid_cmd(pattern="rc$")
+@ultroid_cmd("rc$")
 async def count_messages(e):
     await e.eor("Processing...")
     n = ""
@@ -28,7 +10,7 @@ async def count_messages(e):
     if reply:
       rp = inline_mention(reply.sender)
       rc = await e.client.get_messages(e.chat_id, limit=0, from_user=reply.sender_id)
-      await e.eor("rp msgs = rc.total msgs")
+      return await e.eor(f"{rp} msgs = {rc.total} msgs")
     async for m in e.client.iter_participants(e.chat_id):
         b = m.id
         name = f"[*{m.first_name}*](tg://user?id={b})"
