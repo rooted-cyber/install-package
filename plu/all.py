@@ -6,8 +6,6 @@ async def count_messages(e):
     n = ""
     total_msgs = 0
     user_count = 0
-    if e.text:
-       return await e.reply(f"hi {e.text}")
     reply = await e.get_reply_message()
     if reply:
       rp = inline_mention(reply.sender)
