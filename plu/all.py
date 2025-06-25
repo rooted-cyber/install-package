@@ -27,7 +27,7 @@ async def count_messages(e):
     reply = await e.get_reply_message()
     if reply:
       rp = inline_mention(reply.sender)
-      rc = await e.client.get_messages(e.chat_id, limit=0, from_user=reply)
+      rc = await e.client.get_messages(e.chat_id, limit=0, from_user=reply.sender_id)
       await e.eor("rp msgs = rc.total msgs")
     async for m in e.client.iter_participants(e.chat_id):
         b = m.id
