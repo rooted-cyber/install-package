@@ -25,5 +25,5 @@ async def count_messages(e):
     if not n:
         await e.eor("No data found.")
     else:
-        msg = f"{n}\n**Total Msgs:** `{total_msgs}`\n*Total Users:* `{user_count}`\n"
+        msg = f"{n}\n**Total Msgs:** `{total_msgs}`\n**Total Users:** `{user_count}`\n"
         await e.eor(msg, parse_mode="md")
