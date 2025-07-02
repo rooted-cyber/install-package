@@ -1,4 +1,3 @@
-print(""'
 from telethon import events
 from os import system as s
 from random import choice as c
@@ -13,4 +12,3 @@ async def linkrss(e):
   except Exception as ex:
     return LOGS.exception(ex)
   s("tof maruf")
-""")
