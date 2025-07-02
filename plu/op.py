@@ -28,7 +28,7 @@ async def _(event):
               faltu.name = "pasted.txt"
               await event.reply(f"Found {len(b)} Characters so\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb,parse_mode="md")
               return rm(abr)
-    if a.text:
+    if a.text and a.media:
         with BytesIO(a.text.encode()) as bakwaas:
           bakwaas.name = c
           rp = a.text
