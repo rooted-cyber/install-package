@@ -18,6 +18,7 @@ from . import LOGS, async_searcher, eod, get_string, safeinstall, ultroid_cmd, u
 async def speed(e):
   a = await e.edit("`Checking your ultroid userbot speed....`")
   await sp(e)
+  await a.delete()
 
 @ultroid_cmd(pattern="ins", fullsudo=True)
 async def install(event):
