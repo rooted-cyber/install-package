@@ -13,7 +13,7 @@ async def count_messages(e):
       return await e.eor(f"{rp} msgs = {rc.total} msgs")
     async for m in e.client.iter_participants(e.chat_id):
         b = m.id
-        name = f"[{m.first_name}](tg://user?id={b})"
+        name = f"{m.first_name}"
         try:
             a = await e.client.get_messages(e.chat_id, limit=0, from_user=b)
             n += f"**{name}** : {a.total} msgs\n"
