@@ -16,7 +16,7 @@ async def count_messages(e):
         name = f"{m.first_name}"
         try:
             a = await e.client.get_messages(e.chat_id, limit=0, from_user=b)
-            n += f"**{name}** : {a.total} msgs\n"
+            n += f"**{name}** : {a.total} msgs\n\n"
             total_msgs += a.total
             user_count += 1
         except Exception as ex:
