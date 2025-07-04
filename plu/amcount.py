@@ -8,7 +8,7 @@ async def group_msg_counter(event):
     dialogs = [d async for d in event.client.iter_dialogs() if d.is_group]
     total_groups = len(dialogs)
     done = 0
-    result = "*📊 Message Count in Groups*\n\n"
+    resulta = "*📊 Message Count in Groups*\n\n"
     total_msgs = 0
 
     await event.edit("🔄 Counting...\n[░░░░░░░░░░] 0%")  # Initial progress bar
@@ -18,8 +18,8 @@ async def group_msg_counter(event):
         try:
             async for msg in event.client.iter_messages(dialog.id, from_user='me'):
                 count += 1
-            total_msgs += count
-            result += f"• {dialog.name}: {count}\n"
+            total_msgs += msg
+            result = f"• {dialog.name}: {count}\n"
         except Exception as e:
             result += f"• {dialog.name}: Error accessing messages\n"
 
