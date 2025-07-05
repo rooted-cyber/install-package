@@ -56,7 +56,7 @@ async def make_autobot(e):
 
 import asyncio
 
-@ultroid_cmd(pattern="delbot ?(.*)")
+@ultroid_cmd(pattern="dlbot ?(.*)")
 async def delbot_by_username(e):
     username = e.pattern_match.group(1)
     if not username:
@@ -71,6 +71,6 @@ async def delbot_by_username(e):
         await asyncio.sleep(1)
         await e.client.send_message(bf, f"{username}")
         await asyncio.sleep(1)
-        await e.clent.send_message(bf,"""Yes, I am totally sure.""")
+        await e.client.send_message(bf,"""Yes, I am totally sure.""")
     except Exception as ex:
         await e.eor(f"⚠️ Error: {ex}")
