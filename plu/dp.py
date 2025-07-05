@@ -24,15 +24,16 @@ async def actress_pfp(e):
 
                 img_url = data["photos"][0]["src"]["large"]
                 
-                async with session.get(img_url) as img:
-                    if img.status == 200:
+                while True:
+                    async with session.get(img_url) as img:
+                      if img.status == 200:
                         with open("actress.jpg", "wb") as f:
-                            f.write(await img.read())
-                        file = await e.client.upload_file("actress.jpg")
-                        await e.client(UploadProfilePhotoRequest(file=file))
-                        await e.eor("✅ Profile pic set successfully.")
-                    else:
-                        await e.eor("❌ Failed to download image.")
+                          f.write(await img.read())
+                          file = await e.client.upload_file("actress.jpg")
+                          await e.client(UploadProfilePhotoRequest(file=file))
+                          await e.eor("✅ Profile pic set successfully.")
+                      else:
+                          await e.eor("❌ Failed to download image.")
     except Exception as ex:
         await e.eor(f"❗Error: {ex}")
     finally:
