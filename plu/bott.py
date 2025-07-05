@@ -10,7 +10,7 @@ async def make_autobot(e):
     await e.eor("Creating bot... Please wait.")
     
     # Check if a bot token already exists
-    if udB.get_key("BOT_TOKEN"):
+    if udB.get_key("BOT"):
         return await e.eor("Bot already exists or BOT_TOKEN is set.")
 
     try:
