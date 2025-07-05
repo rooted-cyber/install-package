@@ -2,7 +2,7 @@ from . import ultroid_bot, udB
 import asyncio
 from telethon.tl.functions.contacts import UnblockRequest
 from random import randint
-from pyUltroid.fns.helper import enable_inline
+#from pyUltroid.fns.helper import enable_inline
 
 @ultroid_cmd(pattern="autobot$")
 async def make_autobot(e):
