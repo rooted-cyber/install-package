@@ -1,9 +1,9 @@
-import aiohttp
+import aiohttp, asyncio
 import os
 from telethon.tl.functions.photos import UploadProfilePhotoRequest
 from . import ultroid_cmd
 
-@ultroid_cmd(pattern="pfp$")
+@ultroid_cmd(pattern="dp$")
 async def actress_pfp(e):
     await e.eor("📸 Getting random actress image...")
     url = "https://api.pexels.com/v1/search?query=indian%20actress&per_page=1&page=1"
