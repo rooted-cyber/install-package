@@ -1,10 +1,10 @@
-from . import ultroid_bot, udB
+from . import ultroid_cmd, ultroid_bot, udB
 import asyncio
 from telethon.tl.functions.contacts import UnblockRequest
 from random import randint
 #from pyUltroid.fns.helper import enable_inline
 
-@ultroid_cmd(pattern="autobot$")
+@ultroid_cmd("atb")
 async def make_autobot(e):
 
     await e.eor("Creating bot... Please wait.")
