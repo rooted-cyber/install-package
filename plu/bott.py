@@ -32,7 +32,7 @@ async def make_autobot(e):
     await asyncio.sleep(1)
     resp = (await ultroid_bot.get_messages(bf, limit=1))[0].text
     if not resp.startswith("Good."):
-        await ultroid_bot.send_message(bf, "Ultroid Assistant Bot")
+        await ultroid_bot.send_message(bf,"rootedcyber bot")
         await asyncio.sleep(1)
 
     await ultroid_bot.send_message(bf, username)
