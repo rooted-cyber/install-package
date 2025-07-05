@@ -71,6 +71,9 @@ async def delbot_by_username(e):
         await asyncio.sleep(1)
         await e.client.send_message(bf, f"{username}")
         await asyncio.sleep(1)
+        isdone = (await ultroid_bot.get_messages("@botFather", limit=1))[0].text
+        if isdone.startswith("Invalid"):
+            return await e.eor(f"Not Found @{username}")
         await e.client.send_message(bf,"""Yes, I am totally sure.""")
         await e.respond(f"✅Successfully delete @{username}")
     except Exception as ex:
