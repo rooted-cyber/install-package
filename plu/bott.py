@@ -4,7 +4,7 @@ from telethon.tl.functions.contacts import UnblockRequest
 from random import randint
 #from pyUltroid.core.helpers import enable_inline
 
-@ultroid_cmd(pattern="autobot$")
+@ultroid_cmd(pattern="mkbot$")
 async def make_autobot(e):
     from . import udB, ultroid_bot, LOGS
 
@@ -52,3 +52,25 @@ async def make_autobot(e):
         await e.eor(f"✅ Successfully created @{username} \n Token : `{token}`")
     else:
         await e.eor("❌ Failed to create bot. Delete old bots or set BOT_TOKEN manually.")
+
+
+import asyncio
+
+@ultroid_cmd(pattern="delbot ?(.*)")
+async def delbot_by_username(e):
+    username = e.pattern_match.group(1)
+    if not username:
+        return await e.eor("🔤 Bot username do: `.delbot <username>`")
+
+    bf = "@BotFather"
+    #await e.eor("🗑 Bot delete request sent. BotFather me jaake confirm karo.")
+    try:
+        await e.client.send_message(bf, "/cancel")
+        await asyncio.sleep(1)
+        await e.client.send_message(bf, "/deletebot")
+        await asyncio.sleep(1)
+        await e.client.send_message(bf, f"{username}")
+        await asyncio.sleep(1)
+        await e.clent.send_message(bf,"""Yes, I am totally sure.""")
+    except Exception as ex:
+        await e.eor(f"⚠️ Error: {ex}")
