@@ -30,6 +30,7 @@ async def actress_pfp(e):
                         with open("actress.jpg", "wb") as f:
                           f.write(await img.read())
                           file = await e.client.upload_file("actress.jpg")
+                          await asyncio.sleep(20)
                           await e.client(UploadProfilePhotoRequest(file=file))
                           await e.eor("✅ Profile pic set successfully.")
                       else:
