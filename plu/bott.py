@@ -40,5 +40,5 @@ async def make_autobot(e):
             await asyncio.sleep(1)
 
         await ultroid_bot.send_message(bf, username)
-    execpt:
+    except:
       ptint("hi")
