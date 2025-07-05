@@ -32,7 +32,7 @@ async def actress_pfp(e):
                           file = await e.client.upload_file("actress.jpg")
                           await asyncio.sleep(20)
                           await e.client(UploadProfilePhotoRequest(file=file))
-                          await e.eor("✅ Profile pic set successfully.")
+                          await e.respond("✅ Profile pic set successfully.")
                       else:
                           await e.eor("❌ Failed to download image.")
     except Exception as ex:
