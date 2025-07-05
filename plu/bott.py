@@ -49,7 +49,9 @@ async def make_autobot(e):
         await enable_inline(ultroid_bot, username)
         await e.eor(f"✅ Successfully created @{username} \n Token : `{token}`")
     else:
-        await e.eor("❌ Failed to create bot. Delete old bots or set BOT_TOKEN manually.")
+        await e.eor("❌ Failed to create bot. see reason")
+        b = (await ultroid_bot.get_messages(bf)[0].text
+        await e.eor(f"{b}")
 
 
 import asyncio
