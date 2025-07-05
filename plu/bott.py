@@ -75,6 +75,6 @@ async def delbot_by_username(e):
         if isdone.startswith("Invalid"):
             return await e.eor(f"Not Found @{username}")
         await e.client.send_message(bf,"""Yes, I am totally sure.""")
-        await e.respond(f"✅Successfully delete @{username}")
+        await e.respond(f"✅Successfully delete {username}")
     except Exception as ex:
         await e.eor(f"⚠️ Error: {ex}")
