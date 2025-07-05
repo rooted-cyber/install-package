@@ -9,7 +9,7 @@ async def make_autobot(e):
     from . import udB, ultroid_bot, LOGS
 
     await e.eor("Creating bot... Please wait.")
-    if udB.get_key("BOT_TOKEN"):
+    if udB.get_key("_TOKEN"):
         return await e.eor("Bot already exists or BOT_TOKEN is set.")
 
     await ultroid_bot.start()
@@ -47,7 +47,7 @@ async def make_autobot(e):
 
     if resp.startswith("Done!"):
         token = resp.split("`")[1]
-        udB.set_key("BOT_TOKEN", token)
+        await e.eor(token)
         await enable_inline(ultroid_bot, username)
         await e.eor(f"✅ Successfully created @{username}")
     else:
