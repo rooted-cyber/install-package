@@ -40,7 +40,7 @@ async def make_autobot(e):
     resp = (await ultroid_bot.get_messages(bf, limit=1))[0].text
 
     if resp.startswith("Sorry"):
-        username = f"ultroid_{str(who.id)[6:]}{randint(1, 99)}_bot"
+        username = f"rootedcyber_{str(who.id)[6:]}{randint(1, 99)}_bot"
         await ultroid_bot.send_message(bf, username)
         await asyncio.sleep(2)
         resp = (await ultroid_bot.get_messages(bf, limit=1))[0].text
