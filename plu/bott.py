@@ -9,9 +9,6 @@ async def make_autobot(e):
     from . import udB, ultroid_bot, LOGS
 
     await e.eor("Creating bot... Please wait.")
-    if udB.get_key("_TOKEN"):
-        return await e.eor("Bot already exists or BOT_TOKEN is set.")
-
     await ultroid_bot.start()
     who = ultroid_bot.me
     name = who.first_name + "'s Bot"
