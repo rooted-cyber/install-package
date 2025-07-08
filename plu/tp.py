@@ -3,7 +3,7 @@ import pathlib
 from PIL import Image
 from telegraph import Telegraph
 from . import ultroid_cmd
-from . import mediainfo, bash
+from . import mediainfo, bash, upload_file as uf
 
 telegraph = Telegraph()
 telegraph.create_account(short_name="Ultroid")
