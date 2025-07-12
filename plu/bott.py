@@ -47,7 +47,7 @@ async def make_autobot(e):
         token = resp.split("`")[1]
         await e.eor(token)
         await enable_inline(ultroid_bot, username)
-        await e.eor(f"✅ Successfully created @{username} \n Token : `{token}`")
+        await e.reply(f"✅ Successfully created @{username} \n Token : `{token}`")
     else:
         await e.eor("❌ Failed to create bot. see reason")
         await ultroid_bot.send_message(bf,"/newbot")
