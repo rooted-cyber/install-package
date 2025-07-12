@@ -50,7 +50,7 @@ async def make_autobot(e):
         await e.reply(f"✅ Successfully created @{username} \n Token : `{token}`")
     else:
         await e.eor("❌ Failed to create bot. see reason")
-        #await ultroid_bot.send_message(bf,"/newbot")
+        await ultroid_bot.send_message(bf,"/newbot")
         b = (await ultroid_bot.get_messages(bf))[0].text
         await e.eor(f"{b}")
 
