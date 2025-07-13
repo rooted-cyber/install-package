@@ -104,7 +104,7 @@ async def make_autobot(e):
             await e.eor(f"❌ बॉट बनाने में विफल रहा। कारण देखें: \n`{resp_text}`")
             # BotFather से अंतिम मैसेज भी दिखा सकते हैं
             await ultroid_bot.send_message(bf, "/newbot") # इसे फिर से भेजने की जरूरत नहीं है
-            await asyncio.dleep(2)
+            await asyncio.sleep(2)
             b = (await ultroid_bot.get_messages(bf))[0].text # यह पिछले मैसेज को ही दिखाएगा
             await e.eor(f"BotFather से अंतिम स्थिति:\n`{b}`")
 
