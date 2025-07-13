@@ -22,4 +22,5 @@ async def urltxt(event):
             file.name = "output.txt"
             await event.reply("Text too long, sending as file:", file=file)
     except Exception as e:
-        await event.reply(f"Error: {e}") e.reply(f"<pre>{a}</pre>",parse_mode="html")
+        await event.reply(f"Error: {e}")
+
