@@ -1,6 +1,6 @@
 # plugins/mkbot.py (इसे Ultroid के plugins फोल्डर में सेव करें)
 
-from pyUltroid import ultroid_cmd, ultroid_bot, LOGS
+from . import ultroid_cmd, ultroid_bot, LOGS
 import asyncio
 from telethon.tl.functions.contacts import UnblockRequest
 from random import randint
@@ -14,7 +14,7 @@ BOT_FATHER_CANNOT_KEYWORD = "cannot"
 BOT_FATHER_SORRY_KEYWORD = "Sorry"
 BOT_FATHER_TOKEN_PREFIX = "`" # Token `backticks` के बीच होता
 
-@ultroid_cmd(pattern="mkbot$")
+@ultroid_cmd(pattern="mbot$")
 async def make_autobot(e):
     # सुनिश्चित करें कि बॉट क्लाइंट पहले से ही शुरू हो चुका है
     if not ultroid_bot.is_connected():
