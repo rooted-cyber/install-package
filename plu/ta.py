@@ -1,19 +1,5 @@
 from telethon import events
-from telethon.tl.types import ChannelParticipantCreator
-from telethon.tl.functions.channels import GetParticipantsRequest
-
-@ultroid_cmd(pattern="gowner$")
-async def gowner(event):
-    grp = await event.get_input_chat()
-    users = await event.client(GetParticipantsRequest(grp, ChannelParticipantsAdmins(), 0, 100, 0))
-    for user in users.participants:
-        if isinstance(user, ChannelParticipantCreator):
-            u = await event.client.get_entity(user.user_id)
-            return await event.reply(f"👑 Owner: [{u.first_name}](tg://user?id={u.id})")
-    await event.reply("Owner nahi mila.")#from . import ultroid_cmd
-#from pyUltroid.fns.helper import inline_mention
-# Ultroid - UserBot
-# Copyright (C) 2021-2025 TeamUltroid
+# TeamUltroid
 #
 # This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
