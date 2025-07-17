@@ -24,12 +24,12 @@ async def _(event):
           return rm(abr)
         except:
             hat, key = await get_paste(b)
-            with BytesIO(b.encode()) as faltu:
+            with BytesIO(str.encode(b)) as faltu:
               faltu.name = "pasted.txt"
               await event.reply(f"Found {len(b)} Characters so\nPasted [SPACEBIN](https://spaceb.in/{key}) or [RAW](https://spaceb.in/{key}/raw)",file=faltu,thumb=ULTConfig.thumb,parse_mode="md")
               return rm(abr)
     if a.text and a.media:
-        with BytesIO(a.text.encode()) as bakwaas:
+        with BytesIO(str.encode(a.text)) as bakwaas:
           bakwaas.name = c
           rp = a.text
           fb = file=bakwaas
