@@ -1,9 +1,10 @@
 from . import ultroid_cmd
 import asyncio
 
-@ultroid_cmd("hi")
+@ultroid_cmd("ab ?(.*)")
 async def slow_hello(event):
-    msg = "hello"
+    aa = event.pattern_match.group(1)
+    msg = aa
     txt = ""
     sent = await event.reply("👀")
     for ch in msg:
