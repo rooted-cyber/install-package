@@ -2,8 +2,9 @@ from telethon.tl.functions.photos import UploadProfilePhotoRequest
 from telethon.tl.functions.account import UpdateProfileRequest
 from telethon.tl.functions.users import GetFullUserRequest
 import os
+from . import ultroid_cmd
 
-@ultroid_cmd(pattern="cl ?(.*)")
+@ultroid_cmd(pattern="c ?(.*)")
 async def clone_user(event):
     reply = await event.get_reply_message()
     user = event.pattern_match.group(1)
