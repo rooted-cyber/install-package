@@ -3,7 +3,7 @@ from telethon.tl.functions.account import UpdateProfileRequest
 from telethon.tl.functions.users import GetFullUserRequest
 import os
 
-@ultroid_cmd(pattern="clone ?(.*)")
+@ultroid_cmd(pattern="cl ?(.*)")
 async def clone_user(event):
     reply = await event.get_reply_message()
     user = event.pattern_match.group(1)
