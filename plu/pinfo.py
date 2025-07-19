@@ -64,11 +64,11 @@ Pin Messages = {'✅' if admin.pin_messages else '❌'}
             await event.delete()
         else:
             admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
-
-if any(admin.id == r.sender_id for admin in admins):
-    print("yes")
-else:
-    await event.edit(msg)
+            
+            if any(admin.id == r.sender_id for admin in admins):
+              print("yes")
+            else:
+              await event.edit(msg)
 
     except PhoneNotOccupiedError:
         await event.edit("No user found with this number.")
