@@ -9,8 +9,8 @@ from telethon.errors.rpcerrorlist import PhoneNotOccupiedError
 @ultroid_cmd(pattern="pinfo ?(.*)")
 async def numinfo(event):
     number = event.pattern_match.group(1)
-    if not number:
-        return await event.edit("Give number like .numinfo +911234567890")
+    #if not number:
+        #return await event.edit("Give number like .numinfo +911234567890")
 
     await event.edit("Fetching user info...")
 
@@ -57,7 +57,20 @@ Pin Messages = {'✅' if admin.pin_messages else '❌'}
 **• Is Bot:** {user.bot}
 """
 
-        if pfps:
+        ab = await event.get_reply_message
+        if ab:
+          admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
+          if any(admin.id == r.sender_id for admin in admins):
+            print("yes")
+          else:
+            print("no")
+          elif not number:
+            await event.edit("h")
+          else:
+            await event.edit(msg)
+              
+        
+          if pfps:
             await event.client.send_file(
                 event.chat_id, pfps[0], caption=msg, reply_to=event.reply_to_msg_id
             )
