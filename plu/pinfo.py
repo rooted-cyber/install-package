@@ -64,8 +64,8 @@ Pin Messages = {'✅' if admin.pin_messages else '❌'}
             print("yes")
           else:
             print("no")
-          elif not number:
-            await event.edit("h")
+        elif not number:
+          await event.edit("h")
           else:
             await event.edit(msg)
               
