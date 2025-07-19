@@ -44,17 +44,17 @@ Pin Messages = {'✅' if admin.pin_messages else '❌'}
             admin_info = ""  # No admin info if an error occurs
 
         msg = f"""
-*• FIRST NAME:* {user.first_name or 'None'}
-*• SECOND NAME:* {user.last_name or 'None'}
-*• Bio:* {bio}
-*• User ID:* {user.id}
-*• Username:* @{user.username or 'None'}
-*• DC ID:* {user.id % 64}
-*• No. Of PFPs:* {len(pfps)}
-*• Restricted:* {user.restricted}
-*• Verified:* {user.verified}
-*• Premium:* {getattr(user, 'premium', False)}
-*• Is Bot:* {user.bot}
+**• FIRST NAME:** {user.first_name or 'None'}
+**• SECOND NAME:** {user.last_name or 'None'}
+**• Bio:** {bio}
+**• User ID:** {user.id}
+**• Username:** @{user.username or 'None'}
+**• DC ID:** {user.id % 64}
+**• No. Of PFPs:** {len(pfps)}
+**• Restricted:** {user.restricted}
+**• Verified:** {user.verified}
+**• Premium:** {getattr(user, 'premium', False)}
+**• Is Bot:** {user.bot}
 {admin_info}
 """
 
