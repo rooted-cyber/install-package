@@ -3,13 +3,13 @@ from telethon import events
 from telethon.tl.functions.contacts import ResolvePhoneRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.functions.channels import GetParticipantRequest
-from telethon.tl.types import ChannelParticipantAdmin
+from telethon.tl.types import ChannelParticipantsAdmins
 from telethon.errors.rpcerrorlist import PhoneNotOccupiedError
 
 @ultroid_cmd(pattern="pinfo ?(.*)")
 async def numinfo(event):
     reply = await event.get_reply_message()
-    admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantAdmin)
+    admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
     admin_ids = [admin.id for admin in admins]
     number = event.pattern_match.group(1)
     if not number:
