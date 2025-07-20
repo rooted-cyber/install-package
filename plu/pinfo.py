@@ -9,7 +9,7 @@ from telethon.errors.rpcerrorlist import PhoneNotOccupiedError
 @ultroid_cmd(pattern="pinfo ?(.*)")
 async def numinfo(event):
     reply = await event.get_reply_message()
-    admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
+    admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmin)
     admin_ids = [admin.id for admin in admins]
     number = event.pattern_match.group(1)
     if not number:
