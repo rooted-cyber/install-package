@@ -13,7 +13,7 @@ async def numinfo(event):
     admin_ids = [admin.id for admin in admins]
     number = event.pattern_match.group(1)
     if not number:
-        return await event.edit("give umber pinfo +918210268264")
+        await event.edit("give number pinfo +918210268264")
     await event.edit("Fetching user info...")
 
     try:
