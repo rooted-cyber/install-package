@@ -22,12 +22,6 @@ async def clone_user(event):
             last_name=user.last_name or ""
         ))
 
-        # Profile photo clone
-        if user.photo:
-            photo = await event.client.download_profile_photo(user, file="clone.jpg")
-            await event.client(UploadProfilePhotoRequest(file=await event.client.upload_file(photo)))
-            os.remove(photo)
-
         await event.edit(f"Cloned {user.first_name} successfully.")
 
     except Exception as e:
