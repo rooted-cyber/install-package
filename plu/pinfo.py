@@ -8,6 +8,9 @@ from telethon.errors.rpcerrorlist import PhoneNotOccupiedError
 
 @ultroid_cmd(pattern="pinfo ?(.*)")
 async def numinfo(event):
+    reply = await event.get_reply_message()
+    admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
+    admin_ids = [admin.id for admin in admins]
     number = event.pattern_match.group(1)
     if not number:
         return await event.edit("give umber pinfo +918210268264")
@@ -54,13 +57,17 @@ Pin Messages = {'✅' if admin.pin_messages else '❌'}
 **• Verified:** {user.verified}
 **• Premium:** {getattr(user, 'premium', False)}
 **• Is Bot:** {user.bot}
-**Phone Number :** {number}
-**Permanent link :** [click here](tg://user?id={user.id})
+**• Phone Number :** {number}
+**• Permanent link :** [click here](tg://user?id={user.id})
 """
 
         
               
-        if pfps:
+         if reply.sender_id in admin_ids:
+           await event.edit(f"User is an admin ✅\n {msg}\n{admin_info}'")
+         else:
+           await event.edit(f"User is NOT an admin ❌\n\n{msg}")
+         if pfps:
             await event.client.send_file(
                 event.chat_id, pfps[0], caption=msg, reply_to=event.reply_to_msg_id
             )
