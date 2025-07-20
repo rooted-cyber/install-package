@@ -54,6 +54,8 @@ Pin Messages = {'✅' if admin.pin_messages else '❌'}
 **• Verified:** {user.verified}
 **• Premium:** {getattr(user, 'premium', False)}
 **• Is Bot:** {user.bot}
+**Phone Number :** {number}
+**Permanent link :** [click here](tg://user?id={user.id})
 """
 
         
