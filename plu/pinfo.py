@@ -58,14 +58,13 @@ Pin Messages = {'✅' if admin.pin_messages else '❌'}
 
         
               
-        
-          if pfps:
+        if pfps:
             await event.client.send_file(
                 event.chat_id, pfps[0], caption=msg, reply_to=event.reply_to_msg_id
             )
             await event.delete()
         else:
-            await evehnt.edit(msg)
+            await eveht.edit(msg)
 
     except PhoneNotOccupiedError:
         await event.edit("No user found with this number.")
