@@ -10,8 +10,7 @@ from telethon.errors.rpcerrorlist import PhoneNotOccupiedError
 async def numinfo(event):
     number = event.pattern_match.group(1)
     if not number:
-        return await event.edit("Give number like .numinfo +911234567890")
-
+        return await event.edit("give umber pinfo +918210268264")
     await event.edit("Fetching user info...")
 
     try:
