@@ -63,11 +63,11 @@ Pin Messages = {'✅' if admin.pin_messages else '❌'}
 
         
               
-         if reply.sender_id in admin_ids:
-           await event.edit(f"User is an admin ✅\n {msg}\n{admin_info}'")
-         else:
-           await event.edit(f"User is NOT an admin ❌\n\n{msg}")
-         if pfps:
+        if reply.sender_id in admin_ids:
+          await event.edit(f"User is an admin ✅\n {msg}\n{admin_info}'")
+        else:
+          await event.edit(f"User is NOT an admin ❌\n\n{msg}")
+        if pfps:
             await event.client.send_file(
                 event.chat_id, pfps[0], caption=msg, reply_to=event.reply_to_msg_id
             )
