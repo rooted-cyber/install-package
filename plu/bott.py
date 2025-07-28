@@ -98,7 +98,7 @@ async def make_autobot(e):
                 await e.eor(f"❌ BotFather से बॉट टोकन निकालने में विफल रहा। पूरी प्रतिक्रिया देखें:\n`{resp_text}`")
             except Exception as ex:
                 LOGS.exception(f"बॉट बनाने के बाद की प्रक्रिया में त्रुटि: {ex}")
-                await e.reply(f"✅ सफलतापूर्वक @{username} बनाया गया, लेकिन कुछ अतिरिक्त सेटअप में समस्या आई।\n**टोकन**: BotFather चैट में देखें।")
+                await e.eor(f"✅ सफलतापूर्वक @{username} बनाया गया, लेकिन कुछ अतिरिक्त सेटअप में समस्या आई।\n**टोकन**: BotFather चैट में देखें।")
 
         else:
             await e.eor(f"❌ बॉट बनाने में विफल रहा। कारण देखें: \n`{resp_text}`")
@@ -106,7 +106,7 @@ async def make_autobot(e):
             await ultroid_bot.send_message(bf, "/newbot") # इसे फिर से भेजने की जरूरत नहीं है
             await asyncio.sleep(3)
             b = (await ultroid_bot.get_messages(bf))[0].text # यह पिछले मैसेज को ही दिखाएगा
-            await e.reply(f"BotFather से अंतिम स्थिति:\n`{b}`")
+            await e.eor(f"BotFather से अंतिम स्थिति:\n`{b}`")
 
     except errors.FloodWaitError as ex:
         # यदि Telegram Floodwait त्रुटि भेजता है
