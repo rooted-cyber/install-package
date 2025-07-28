@@ -92,13 +92,13 @@ async def make_autobot(e):
                 # else:
                 #    LOGS.warning("enable_inline फ़ंक्शन उपलब्ध नहीं है। कृपया इसे मैन्युअल रूप से चलाएं।")
 
-                await e.eor(f"✅ सफलतापूर्वक @{username} बनाया गया। \n**टोकन**: `{token}`\n")
+                await e.reply(f"✅ सफलतापूर्वक @{username} बनाया गया। \n**टोकन**: `{token}`\n")
                 # आप चाहें तो इसे किसी लॉग चैनल या अन्य स्थान पर भी भेज सकते हैं
             except IndexError:
                 await e.eor(f"❌ BotFather से बॉट टोकन निकालने में विफल रहा। पूरी प्रतिक्रिया देखें:\n`{resp_text}`")
             except Exception as ex:
                 LOGS.exception(f"बॉट बनाने के बाद की प्रक्रिया में त्रुटि: {ex}")
-                await e.eor(f"✅ सफलतापूर्वक @{username} बनाया गया, लेकिन कुछ अतिरिक्त सेटअप में समस्या आई।\n**टोकन**: BotFather चैट में देखें।")
+                await e.reply(f"✅ सफलतापूर्वक @{username} बनाया गया, लेकिन कुछ अतिरिक्त सेटअप में समस्या आई।\n**टोकन**: BotFather चैट में देखें।")
 
         else:
             await e.eor(f"❌ बॉट बनाने में विफल रहा। कारण देखें: \n`{resp_text}`")
