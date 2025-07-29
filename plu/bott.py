@@ -161,7 +161,7 @@ async def token_by_username(e):
     if rp.startswith("You"):
       try:
           token = rp.split("`")[1]
-          await e.client.send_message(f"""Bot : {username}
+          await e.client.send_message(e.chat_id,f"""Bot : {username}
         token : {token}""")
       except Exception as e:
           await e.eor(e)
