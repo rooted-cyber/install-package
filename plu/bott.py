@@ -176,10 +176,10 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.errors import UsernameInvalidError
 
 
-@ultroid_cmd(pattern="binfo ?(.*)")
+@ultroid_cmd(pattern="infob ?(.*)")
 async def token_by_username(e):
     username = e.pattern_match.group(1)
-    
+    await e.eor(get_string("com_1"))
     if not username:
         return await e.eor("🔤 Bot username do: `.token <username>`")
 
