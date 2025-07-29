@@ -216,9 +216,9 @@ async def token_by_username(e):
 
             # Prepare the message with bot info and token
             caption = (f"🤖 **Bot Info**\n\n"
-                       f"👤 Name: `{entity.first_name}`\n"
-                       f"🔗 Username: @{entity.username}\n"
-                       f"🪙 *Token:* `{token}`")
+                       f"👤 **Name**: `{entity.first_name}`\n"
+                       f"🔗 **Username**: @{entity.username}\n"
+                       f"🪙 **Token:** `{token}`")
             
             # Send the profile photo if it exists, otherwise just send the caption
             if file:
