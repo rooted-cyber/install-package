@@ -215,9 +215,9 @@ async def token_by_username(e):
                 file = await e.client.download_profile_photo(entity)
 
             # Prepare the message with bot info and token
-            caption = (f"🤖 *Bot Info*\\n\\n"
-                       f"👤 Name: `{entity.first_name}`\\n"
-                       f"🔗 Username: @{entity.username}\\n"
+            caption = (f"🤖 **Bot Info**\n\n"
+                       f"👤 Name: `{entity.first_name}`\n"
+                       f"🔗 Username: @{entity.username}\n"
                        f"🪙 *Token:* `{token}`")
             
             # Send the profile photo if it exists, otherwise just send the caption
