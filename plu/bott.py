@@ -1,6 +1,6 @@
 # plugins/mkbot.py (इसे Ultroid के plugins फोल्डर में सेव करें)
 
-from . import ultroid_cmd, ultroid_bot, LOGS
+from . import ultroid_cmd, ultroid_bot, LOGS, get_string
 import asyncio
 from telethon.tl.functions.contacts import UnblockRequest
 from random import randint
@@ -148,6 +148,7 @@ async def delbot_by_username(e):
 
 @ultroid_cmd(pattern="token ?(.*)")
 async def token_by_username(e):
+    await e.eor(get_string("com_1"))
     username = e.pattern_match.group(1)
     if not username:
         return await e.eor("🔤 Bot username do: `.token <username>`")
