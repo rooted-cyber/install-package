@@ -17,7 +17,7 @@ async def shshe_ed(e):
   a = r.text
   b = f"`{list(a)}`"
   try:
-    await e.eor(f"a - `{b}`")
+    await e.eor(f"{a} - `{b}`")
   except:
     with BytesIO(b.encode()) as faltu:
       faltu.name = "faltu.txt"
