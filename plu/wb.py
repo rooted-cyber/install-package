@@ -11,17 +11,6 @@ commands
 
 $wb -- reply or type
 """
-@ultroid_cmd(pattern="lst")
-async def shshe_ed(e):
-  r = await e.get_reply_message()
-  a = r.text
-  b = f"`{list(a)}`"
-  try:
-    await e.eor(f"{a} - `{b}`")
-  except:
-    with BytesIO(b.encode()) as faltu:
-      faltu.name = "faltu.txt"
-      await e.reply(file=faltu)
 import aiohttp
 from io import BytesIO
 
@@ -84,3 +73,26 @@ async def ask_bot(e):
             outf.name = "response.txt"
             await e.respond(file=outf,reply_to=e.reply_to_msg_id)
       await e.delete()
+
+from telethon import events
+from io import BytesIO
+import aiohttp
+
+@ultroid_cmd(pattern="lst")
+async def list_command(e):
+    r = await e.get_reply_message()
+    
+    if not r or not r.text:
+        return await e.eor("⚠️ Please reply to a message containing text.")
+
+    a = r.text
+    b = list(a)  # Convert the string to a list of characters
+    b_str = f"{b}"  # Convert the list to a string for display
+
+    try:
+        await e.eor(f"**Original Text:** {a}\n**List Representation:** {b_str}")
+    except Exception as ex:
+        # If sending the message fails, create a file and send it instead
+        with BytesIO(b_str.encode()) as faltu:
+            faltu.name = "list_representation.txt"
+            await e.reply(file=faltu)
