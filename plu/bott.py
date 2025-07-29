@@ -158,7 +158,7 @@ async def token_by_username(e):
     await e.client.send_message(bf, "/token")
     await e.client.send_message(bf, f"{username}")
     rp = (await ultroid_bot.get_messages(bf, limit=1))[0].text
-    if not rp.startswith("You"):
+    if rp.startswith("You"):
       token = rp.split("`")[1]
-      await e.eor(f"""Bot : {username}
+      await e.reply(f"""Bot : {username}
         token : {token}""")
