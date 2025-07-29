@@ -170,3 +170,66 @@ token : `{token}`""")
       except Exception as e:
           await e.eor(e)
    
+
+import asyncio
+from telethon.tl.functions.users import GetFullUserRequest
+from telethon.errors import UsernameInvalidError
+
+
+@ultroid_cmd(pattern="binfo ?(.*)")
+async def token_by_username(e):
+    username = e.pattern_match.group(1)
+    
+    if not username:
+        return await e.eor("🔤 Bot username do: `.token <username>`")
+
+    if not username.startswith("@"):
+        username = "@" + username
+
+    bf = "@BotFather"
+    
+    try:
+        # Cancel any ongoing conversation with BotFather
+        await e.client.send_message(bf, "/cancel")
+        await asyncio.sleep(1)
+        
+        # Request the token for the specified bot username
+        await e.client.send_message(bf, "/token")
+        await asyncio.sleep(1)
+        await e.client.send_message(bf, username)
+        await asyncio.sleep(3)  # Wait for BotFather to respond
+        
+        msg = (await e.client.get_messages(bf, limit=1))[0]
+        text = msg.text
+
+        if "token" in text.lower():
+            token = text.split("`")[1] or "N/A"
+            
+            # Fetch bot information using the username
+            entity = await e.client.get_entity(username)
+            info = await e.client(GetFullUserRequest(entity))
+
+            # Attempt to download the profile photo
+            file = None
+            if entity.photo:
+                file = await e.client.download_profile_photo(entity)
+
+            # Prepare the message with bot info and token
+            caption = (f"🤖 *Bot Info*\\n\\n"
+                       f"👤 Name: `{entity.first_name}`\\n"
+                       f"🔗 Username: @{entity.username}\\n"
+                       f"🪙 *Token:* `{token}`")
+            
+            # Send the profile photo if it exists, otherwise just send the caption
+            if file:
+                await e.client.send_file(e.chat_id, file, caption=caption)
+            else:
+                await e.client.send_message(e.chat_id, caption)
+
+        else:
+            return await e.eor("❌ Token nahi mila. Bot username sahi hai kya?")
+
+    except UsernameInvalidError:
+        return await e.eor("❌ Username invalid hai.")
+    except Exception as ex:
+        return await e.eor(f"⚠️ Error: `{str(ex)}`")
