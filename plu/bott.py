@@ -214,8 +214,9 @@ async def token_by_username(e):
     await e.client.send_message(bf, "/cancel")
     await asyncio.sleep(1)
     await e.client.send_message(bf, "/token")
-    await e.client.send_message(bf, f"{usernme}")
+    await e.client.send_message(bf, f"{username}")
     rp = (await ultroid_bot.get_messages(bf, limit=1))[0].text
     if rp.startswith("Done!"):
       token = rp.split("`")[1]
-      await e.eor(token)
+      await e.eor(f"""Bot : {username}
+        token : {token}""")
