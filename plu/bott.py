@@ -160,7 +160,7 @@ async def token_by_username(e):
     rp = (await ultroid_bot.get_messages(bf, limit=1))[0].text
     if rp.startswith("You"):
       try:
-          token = rp.split("`")[1]
+          token = rp.split("`")
           await e.eor(f"""Bot : {username}
         token : {token}""")
       except Exception as e:
