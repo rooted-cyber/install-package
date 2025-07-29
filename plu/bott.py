@@ -202,3 +202,20 @@ async def delbot_by_username(e):
         await e.respond(f"✅Successfully delete {username}")
     except Exception as ex:
         await e.eor(f"⚠️ Error: {ex}")
+
+
+@ultroid_cmd(pattern="token ?(.*)")
+async def token_by_username(e):
+    username = e.pattern_match.group(1)
+    if not username:
+        return await e.eor("🔤 Bot username do: `.token <username>`")
+
+    bf = "@BotFather"
+    await e.client.send_message(bf, "/cancel")
+    await asyncio.sleep(1)
+    await e.client.send_message(bf, "/token")
+    await e.client.send_message(bf, f"{usernme}")
+    rp = (await ultroid_bot.get_messages(bf, limit=1))[0].text
+    if rp.startswith("Done!"):
+      token = rp.split("`")[1]
+      await e.eor(token)
