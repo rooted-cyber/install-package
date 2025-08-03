@@ -1,14 +1,14 @@
 from . import ultroid_cmd
 from telethon import events
 
-@ultroid_cmd(pattern="amcount$")
+@ultroid_cmd(pattern="amc$")
 async def group_msg_counter(event):
     await event.edit("📊 Starting count...")
 
     dialogs = [d async for d in event.client.iter_dialogs() if d.is_group]
     total_groups = len(dialogs)
     done = 0
-    result = "*📊 Message Count in Groups*\n\n"
+    result = "Your *📊 Message Count in Groups*\n\n"
     total_msgs = 0
 
     await event.edit("🔄 Counting...\n[░░░░░░░░░░] 0%")  # Initial progress bar
