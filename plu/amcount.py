@@ -8,7 +8,7 @@ async def group_msg_counter(event):
     dialogs = [d async for d in event.client.iter_dialogs() if d.is_group]
     total_groups = len(dialogs)
     done = 0
-    result = "Your *📊 Message Count in Groups*\n\n"
+    result = "Your **📊 Message Count in Groups**\n\n"
     total_msgs = 0
 
     await event.edit("🔄 Counting...\n[░░░░░░░░░░] 0%")  # Initial progress bar
@@ -29,5 +29,5 @@ async def group_msg_counter(event):
         bar = "▓" * (percent // 10) + "░" * (10 - (percent // 10))
         await event.edit(f"🔄 Counting...\n[{bar}] {percent}%\n\nCompleted: {done}/{total_groups} groups")
 
-    result += f"\n🧮 *Total Messages in All Groups:* {total_msgs}"
-    await event.edit(result or "No messages found.")
+    result += f"\n🧮 **Your total Messages in All Groups:** {total_msgs}"
+    await event.edit(reAnonymous groupsult or "No messages found.")
