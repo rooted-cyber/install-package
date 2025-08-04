@@ -369,7 +369,7 @@ async def openai_ai(event):
     prompt = event.pattern_match.group(1).strip()
 
     if not prompt:
-    reply = await event.get_reply_message()
+        reply = await event.get_reply_message()
     if reply:
         prompt = reply.text or reply.raw_text
     else:
