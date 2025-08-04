@@ -369,9 +369,9 @@ async def openai_ai(event):
     if not prompt:
         return await event.eor("❌ Please provide a prompt!")
 
-    api_key = "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"
+    api_key = udB.get_key("OPENAI_API_KEY")
     if not api_key:
-        return await event.eor("⚠️ Please set GPT API key using `setdb OPENAI_API_KEY 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`")
+        return await event.eor("⚠️ Please set GPT API key using `setdb OPENAI_API_KEY your_api_key`")
 
     msg = await event.eor("🤔 Thinking...")
     model = get_model("gpt")
