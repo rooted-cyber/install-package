@@ -366,9 +366,10 @@ async def anthropic_ai(event):
 async def openai_ai(event):
     """Use OpenAI GPT"""
     prompt = event.pattern_match.group(1).strip()
-    prompt += await event.get_reply_message().message
     if not prompt:
         return await event.eor("❌ Please provide a prompt!")
+    else:
+        prompt = await event.get_reply_message().message
 
     api_key = udB.get_key("OPENAI_API_KEY")
     if not api_key:
