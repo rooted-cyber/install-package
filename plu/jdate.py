@@ -1,4 +1,4 @@
-jrom . import ultroid_cmd
+from . import ultroid_cmd
 from datetime import datetime
 
 @ultroid_cmd(pattern="jdate$")
