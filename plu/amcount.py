@@ -30,4 +30,4 @@ async def group_msg_counter(event):
         await event.edit(f"🔄 Counting...\n[{bar}] {percent}%\n\nCompleted: {done}/{total_groups} groups")
 
     result += f"\n🧮 **Your total Messages in All Groups:** {total_msgs}"
-    await event.edit(reAnonymous groupsult or "No messages found.")
+    await event.edit(result or "No messages found.")
