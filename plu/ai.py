@@ -367,7 +367,7 @@ async def openai_ai(event):
     """Use OpenAI GPT"""
     #prompt = event.pattern_match.group(1).strip
     prompt = event.pattern_match.group(1).strip()
-
+    reply = ""
     if not prompt:
         reply = await event.get_reply_message()
     if reply:
@@ -395,7 +395,7 @@ async def openai_ai(event):
         async for chunk in get_ai_response("gpt", prompt, api_key, stream=True):
             response += chunk
             try:
-                await msg.edit(header + response)
+                await msg.edit(header + **response**)
             except Exception:
                 pass
     else:
@@ -403,7 +403,7 @@ async def openai_ai(event):
         async for chunk in get_ai_response("gpt", prompt, api_key, stream=True):
             response += chunk
         try:
-            await msg.edit(header + response)
+            await msg.edit(header + **response**)
         except Exception:
             pass
 
