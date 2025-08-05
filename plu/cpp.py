@@ -4,8 +4,16 @@ import os, sys
 async def cppb(e):
   c = await e.eor(get_string("com_1"))
   a,d = await bash(f"curl -Ls https://gist.githubusercontent.com/rooted-cyber/1bd2b7d3eb4d66ab06ab5e83098395e3/raw/cpp | bash")
-  #b,h = await bash("curl -Ls https://gist.githubusercontent.com/rooted-cyber/26821c3a50cd870c17b38c99f03a10ac/raw/sh | bash")
   await c.edit(f"{a}\n\n")
+  ok = await ult.eor(get_string("bot_5"))
+  call_back()
+  who = "bot" if ult.client._bot else "user"
+  udB.set_key("_RESTART", f"{who}_{ult.chat_id}_{ok.id}")
+  await bash("cd ~/T*d/U*")
+  if len(sys.argv) > 1:
+        os.execl(sys.executable, sys.executable, "main.py")
+    else:
+        os.execl(sys.executable, sys.executable, "-m", "pyUltroid")
 
 
 @ultroid_cmd(pattern="py$",manager=True)
