@@ -11,9 +11,9 @@ async def cppb(e):
   udB.set_key("_RESTART", f"{who}_{ult.chat_id}_{ok.id}")
   await bash("cd ~/T*d/U*")
   if len(sys.argv) > 1:
-        os.execl(sys.executable, sys.executable, "main.py")
-    else:
-        os.execl(sys.executable, sys.executable, "-m", "pyUltroid")
+    os.execl(sys.executable, sys.executable, "main.py")
+  else:
+    os.execl(sys.executable, sys.executable, "-m", "pyUltroid")
 
 
 @ultroid_cmd(pattern="py$",manager=True)
