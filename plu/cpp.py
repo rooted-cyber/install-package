@@ -1,4 +1,4 @@
-from . import ultroid_cmd, get_string, bash, callback
+from . import ultroid_cmd, get_string, bash, call_back
 import os, sys
 @ultroid_cmd(pattern="cpp",manager=True)
 async def cppb(ult):
