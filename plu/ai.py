@@ -395,7 +395,7 @@ async def openai_ai(event):
         async for chunk in get_ai_response("gpt", prompt, api_key, stream=True):
             response += chunk
             try:
-                await msg.edit(header + **response**)
+                await msg.edit(f"{header}**{response}**)
             except Exception:
                 pass
     else:
@@ -403,7 +403,7 @@ async def openai_ai(event):
         async for chunk in get_ai_response("gpt", prompt, api_key, stream=True):
             response += chunk
         try:
-            await msg.edit(header + **response**)
+            await msg.edit(f"{header}**{response}**)
         except Exception:
             pass
 
