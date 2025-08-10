@@ -7,13 +7,13 @@ async def int(event):
     if re:
         rp = inline_mention(re.sender)
         rc = await event.client.get_messages(event.chat_id, limit=0, from_user=re.sender_id)
-        to = f"{rp} msgs = {rc.total} msgs"
+        to = f"Total msgs = {rc.total} msgs"
     else:
         await event.edit("Reply to a user first.")
         return
 
     bot = event.client
-    pp = f"phone number : {re.sender.phone}÷ or ""
+    pp = f"phone number : {re.sender.phone}" or ""
     try:
         an = await bot.get_permissions(event.chat_id, re.sender_id)
     except Exception as e:
