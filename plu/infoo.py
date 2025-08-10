@@ -1,9 +1,12 @@
-from . import get_string, eor, ultroid_cmd
+from . import get_string, eor, ultroid_cmd, inline_mention
 
 @ultroid_cmd(pattern="inf$", manager=True)
 async def int(event):
     await event.eor(get_string("com_1"))
     re = await event.get_reply_message()
+    rp = inline_mention(reply.sender)
+    rc = await event.client.get_messages(e.chat_id, limit=0, from_user=re.sender_id)
+    to = f"{rp} msgs = {rc.total} msgs"
     if not re:
         await event.edit("Reply to a user first.")
         return
@@ -54,4 +57,4 @@ async def int(event):
         ma = "**User is not an admin**"
         perms = ""
 
-    await event.client.send_message(event.chat_id, f"{st}\n{fm}{ma}\n{perms}", file=photo)
+    await event.client.send_message(event.chat_id, f"{st}\n{to}\n{fm}{ma}\n{perms}", file=photo)
