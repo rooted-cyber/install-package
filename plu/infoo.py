@@ -13,6 +13,7 @@ async def int(event):
         return
 
     bot = event.client
+    pp = re.sender.phone or ""
     try:
         an = await bot.get_permissions(event.chat_id, re.sender_id)
     except Exception as e:
@@ -58,6 +59,6 @@ async def int(event):
         ma = "**User is not an admin**"
         perms = ""
 
-    await event.client.send_message(event.chat_id, f"{st}\n{to}\n{fm}{ma}\n{perms}", file=photo)
+    await event.client.send_message(event.chat_id, f"{st}\n{fm}\n{to}\n{pp}\n{ma}\n{perms}", file=photo)
 
 
