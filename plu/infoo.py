@@ -58,3 +58,5 @@ async def int(event):
         perms = ""
 
     await event.client.send_message(event.chat_id, f"{st}\n{to}\n{fm}{ma}\n{perms}", file=photo)
+
+
