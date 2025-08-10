@@ -3,7 +3,7 @@ from . import get_string, eor, ultroid_cmd, inline_mention
 @ultroid_cmd(pattern="inf$", manager=True)
 async def int(event):
     await event.eor(get_string("com_1"))
-    re = await event.get_reply_message()
+    re = await event.get_reply_message() or event.text
     #re += event.pattern_match.group(1)
     if re:
         rp = inline_mention(re.sender)
