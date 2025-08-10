@@ -4,7 +4,7 @@ from . import get_string, eor, ultroid_cmd, inline_mention
 async def int(event):
     await event.eor(get_string("com_1"))
     re = await event.get_reply_message()
-    re += event.pattern_match.group(1)
+    #re += event.pattern_match.group(1)
     if re:
         rp = inline_mention(re.sender)
         rc = await event.client.get_messages(event.chat_id, limit=0, from_user=re.sender_id)
