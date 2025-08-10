@@ -13,7 +13,7 @@ async def int(event):
         return
 
     bot = event.client
-    pp = re.sender.phone or ""
+    pp = f"phone number : {re.sender.phone}÷ or ""
     try:
         an = await bot.get_permissions(event.chat_id, re.sender_id)
     except Exception as e:
