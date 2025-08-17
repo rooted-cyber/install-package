@@ -181,7 +181,7 @@ async def token_by_username(e):
     username = e.pattern_match.group(1)
     await e.eor(get_string("com_1"))
     if not username:
-        return await e.eor("🔤 Bot username do: `.token <username>`")
+        return await e.eor("🔤 Bot username do: `infob <username>`")
 
     if not username.startswith("@"):
         username = "@" + username
