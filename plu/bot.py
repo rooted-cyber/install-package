@@ -207,7 +207,7 @@ async def _(event):
     dy = g.ctime()
     a = s("%d %B %G ")
     b = s("""%r (%Z)""")
-    parse="html"
+    parse="md"
     #await pi(event)
     await event.delete()
     c = inline_mention(event.sender)
