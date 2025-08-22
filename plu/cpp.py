@@ -1,10 +1,11 @@
 from . import udB, ultroid_cmd, get_string, bash, call_back
-import os, sys
+import os, sys, asyncio
 @ultroid_cmd(pattern="cpp",manager=True)
 async def cppb(ult):
   c = await ult.eor(get_string("com_1"))
   a,d = await bash(f"curl -Ls https://gist.githubusercontent.com/rooted-cyber/1bd2b7d3eb4d66ab06ab5e83098395e3/raw/cpp | bash")
   await c.edit(f"{a}\n\n")
+  await asyncio.slezep(2)
   ok = await ult.eor(get_string("bot_5"))
   call_back()
   who = "bot" if ult.client._bot else "user"
