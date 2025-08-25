@@ -73,7 +73,7 @@ Pin Messages = {'✅' if admin.pin_messages else '❌'}
             )
             await event.delete()
         else:
-            await eveht.edit(msg)
+            await event.edit(msg)
 
     except PhoneNotOccupiedError:
         await event.edit("No user found with this number.")
