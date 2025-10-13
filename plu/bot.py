@@ -313,6 +313,7 @@ from . import ultroid_cmd, get_string, udB
 
 @ultroid_cmd(pattern="set$",manager=True)
 async def gd(e):
+  a = "https://files.catbox.moe/8zyuef.jpg"
   udB.set_key("GDRIVE_FOLDER_ID","1wGhvUWjslNUZ38bJoHAzIsLZRuRbi4fj")
   udB.set_key("GDRIVE_CLIENT_ID","69689902615-3b0c0tgg7me2pulu9vftvnsf9o9mpf6i.apps.googleusercontent.com")
   udB.set_key("GDRIVE_CLIENT_SECRET","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")
@@ -324,9 +325,9 @@ async def gd(e):
   udB.set_key("PMLOGGROUP",-1001884618152)
   udB.set_key("PLUGIN_CHANNEL",-4194506928)
   udB.set_key("TAG_LOG",-1001884618152)
-  udB.set_key("PMPIC","https://envs.sh/C3L.jpg")
-  udB.set_key("INLINE_PIC","https://envs.sh/C3L.jpg")
-  udB.set_key("ALIVE_PIC","https://envs.sh/C3L.jpg")
+  udB.set_key("PMPIC",a)
+  udB.set_key("INLINE_PIC",a)
+  udB.set_key("ALIVE_PIC",a)
   udB.set_key("RMBG_API","npe4xGxDQf7D8KiG9WPxmJR8")
   udB.set_key("OCR_API","K84695599388957")
   udB.set_key("BOT_TOKEN","6754465323:AAGkYi2WJ_9K-bgSXD95tSEHdyH-U-kqA6c")
