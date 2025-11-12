@@ -1,3 +1,4 @@
+from . import *
 import os
 from telethon.tl.types import MessageMediaDocument
 from telethon import events
