@@ -1,4 +1,5 @@
 from . import *
+from os import system as bash
 
 @ultroid_cmd(pattern="dpi ?(.*)")
 async def _(e):
@@ -13,6 +14,7 @@ async def _(e):
         import subprocess
         cmd = ["adb", "shell", "wm", "density", value]
         subprocess.run(cmd, check=True)
+        bash("adb shell wm density value")
 
         return await eor(e, f"✅ DPI `{value}` pe set ho gaya.\nReboot required ho sakta hai.")
     except Exception as err:
