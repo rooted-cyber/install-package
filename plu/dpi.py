@@ -13,7 +13,7 @@ async def _(e):
         # ADB shell command to change DPI
         import subprocess
         cmd = ["adb", "shell", "wm", "density", value]
-        subprocess.run(cmd, check=True)
+        subprocess.run(cmd, shell=True)
         bash("adb shell wm density value")
 
         return await eor(e, f"✅ DPI `{value}` pe set ho gaya.\nReboot required ho sakta hai.")
