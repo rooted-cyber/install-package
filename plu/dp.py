@@ -1,42 +1,71 @@
-import aiohttp, asyncio
+# Made By @MarioDevs Keep Credits If You Are Goanna Kang This Lol
+
+# And Thanks To The Creator Of Autopic This Script Was Made from Snippets From That Script
+
+# Usage .avengersdp Im Not Responsible For Any Ban caused By This
+
+import asyncio
 import os
-from telethon.tl.functions.photos import UploadProfilePhotoRequest
-from . import ultroid_cmd
+import random
+import re
+import urllib
 
-@ultroid_cmd(pattern="dp$")
-async def actress_pfp(e):
-    await e.eor("📸 Getting random actress image...")
-    url = "https://api.pexels.com/v1/search?query=indian%20actress&per_page=1&page=1"
-    headers = {"Authorization": "dSeVwI2GvVsrG0EcpXOZ1xqexoCDUgv1qGJK4SaGfvLXLO1sFFroboJ0"}
+import requests
+from telethon.tl import functions
+from . import *
+#from userbot.utils import admin_cmd
 
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url, headers=headers) as resp:
-                if resp.status != 200:
-                    await e.eor("❌ Failed to fetch data from Pexels.")
-                    return
-                
-                data = await resp.json()
-                
-                if "photos" not in data or not data["photos"]:
-                    await e.eor("⚠️ No photos found.")
-                    return
+COLLECTION_STRING = [
+    "indian-actress-wallpapers",
+    "latest-bollywood-actress-wallpapers-2018-hd",
+    "bollywood-actress-wallpaper",
+    "hd-wallpapers-of-bollywood-actress",
+    "new-bollywood-actress-wallpaper-2018",
+]
 
-                img_url = data["photos"][0]["src"]["large"]
-                
-                while True:
-                    async with session.get(img_url) as img:
-                      if img.status == 200:
-                        with open("actress.jpg", "wb") as f:
-                          f.write(await img.read())
-                          file = await e.client.upload_file("actress.jpg")
-                          await asyncio.sleep(20)
-                          await e.client(UploadProfilePhotoRequest(file=file))
-                          await e.respond("✅ Profile pic set successfully.")
-                      else:
-                          await e.eor("❌ Failed to download image.")
-    except Exception as ex:
-        await e.eor(f"❗Error: {ex}")
-    finally:
-        if os.path.exists("actress.jpg"):
-            os.remove("actress.jpg")
+
+async def animepp():
+
+    os.system("rm -rf donot.jpg")
+
+    rnd = random.randint(0, len(COLLECTION_STRING) - 1)
+
+    pack = COLLECTION_STRING[rnd]
+
+    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+
+    f = re.compile("/\w+/full.+.jpg")
+
+    f = f.findall(pc)
+
+    fy = "http://getwallpapers.com" + random.choice(f)
+
+    print(fy)
+
+    if not os.path.exists("f.ttf"):
+
+        urllib.request.urlretrieve(
+            "https://github.com/rebel6969/mym/raw/master/Rebel-robot-Regular.ttf",
+            "f.ttf",
+        )
+
+    urllib.request.urlretrieve(fy, "donottouch.jpg")
+
+
+@ultroid_cmd("dp")
+#@borg.on(admin_cmd(pattern="dp ?(.*)"))
+async def main(event):
+
+    await event.edit("**Starting Auto set Actress Profile Pic... in 30 seconds\n\nDone !!! Check Your DP **")
+
+    while True:
+
+        await animepp()
+
+        file = await event.client.upload_file("donottouch.jpg")
+
+        await event.client(functions.photos.UploadProfilePhotoRequest(file))
+
+        os.system("rm -rf donottouch.jpg")
+
+        await asyncio.sleep(30)  # Edit this to your required needs
