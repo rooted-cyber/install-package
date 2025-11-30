@@ -64,6 +64,6 @@ async def main(event):
           file = await event.client.upload_file("donottouch.jpg")
           await event.client(functions.photos.UploadProfilePhotoRequest(file))
           os.system("rm -rf donottouch.jpg")
-          await asyncio.sleep(30)  # Edit this to your required needs
+          await asyncio.sleep(60)  # Edit this to your required needs
         except Exception as e:
           await event.eor(str(e))
