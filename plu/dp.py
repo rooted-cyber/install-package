@@ -59,13 +59,11 @@ async def main(event):
     await event.edit("**Starting Auto set Actress Profile Pic... in 30 seconds\n\nDone !!! Check Your DP **")
 
     while True:
-
-        await animepp()
-
-        file = await event.client.upload_file("donottouch.jpg")
-
-        await event.client(functions.photos.UploadProfilePhotoRequest(file))
-
-        os.system("rm -rf donottouch.jpg")
-
-        await asyncio.sleep(30)  # Edit this to your required needs
+        try:
+          await animepp()
+          file = await event.client.upload_file("donottouch.jpg")
+          await event.client(functions.photos.UploadProfilePhotoRequest(file))
+          os.system("rm -rf donottouch.jpg")
+          await asyncio.sleep(30)  # Edit this to your required needs
+        except Exception as e:
+          await event.eor(e)
