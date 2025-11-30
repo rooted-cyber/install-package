@@ -67,3 +67,8 @@ async def main(event):
           await asyncio.sleep(110)  # Edit this to your required needs
         except Exception as e:
           await event.eor(str(e))
+  try:
+    pc = requests.get(fy, headers=headers, timeout=10).text
+except requests.exceptions.RequestException as e:
+    await event.eor(f"❌ Request failed:e")
+    return
