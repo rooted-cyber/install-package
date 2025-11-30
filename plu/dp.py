@@ -66,4 +66,4 @@ async def main(event):
           os.system("rm -rf donottouch.jpg")
           await asyncio.sleep(30)  # Edit this to your required needs
         except Exception as e:
-          await event.eor(e)
+          await event.eor(str(e))
