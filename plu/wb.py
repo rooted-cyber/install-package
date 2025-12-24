@@ -31,7 +31,7 @@ async def fetch_data_from_apig(question):
 async def fetch_data_from_api(question):
     url = "https://app-paal-chat-1003522928061.us-east1.run.app/api/chat/web"
     headers = {"Content-Type": "application/json", "Accept": "application/json"}
-    payload = {"prompt": question, "bid" : "edwo6pg1"}
+    payload = {"prompt": question, "bid" : "d2e3d1df"}
 
     async with aiohttp.ClientSession() as session:
         async with session.post(url, headers=headers, json=payload) as response:
