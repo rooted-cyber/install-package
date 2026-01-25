@@ -201,21 +201,29 @@ async def lol(ult):
     )
 
 
+from time import time, strftime
+
 @ultroid_cmd(pattern="p$", chats=[], type=["official", "assistant"])
 async def _(event):
-    import time as g
-    dy = g.ctime()
-    a = s("%d %B %G ")
-    b = s("""%r (%Z)""")
-    parse="md"
-    #await pi(event)
+
     await event.delete()
-    c = inline_mention(event.sender)
-    command_received_time = time.time()
-    end = round((time.time() - command_received_time) * 1000)
-    #reply_to_id = event.reply_to_msg_id or event.id
-    uptime = time_formatter((time.time() - start_time) * 1000)
-    x = await event.reply(f"<pre>{end}\nBot start time</b> : <code>{uptime}</code>\n<b>Time</b> : {b}\n<b>Date</b> : {a}\n<b>Owner</b> : <code>{c}</code></pre>",file=udB.get_key("ALIVE_PIC"),parse_mode=parse)
+
+    current_time = strftime("%I:%M:%S %p (%Z)")
+    current_date = strftime("%d %B %Y")
+
+    uptime = time_formatter((time() - start_time) * 1000)
+    owner = inline_mention(event.sender)
+
+    await event.reply(
+        f"""<pre>
+Bot start time : <code>{uptime}</code>
+Time           : {current_time}
+Date           : {current_date}
+Owner          : <code>{owner}</code>
+</pre>""",
+        file=udB.get_key("ALIVE_PIC"),
+        parse_mode="html"
+    )
 @ultroid_cmd(
     pattern="rs$",
     fullsudo=True,
