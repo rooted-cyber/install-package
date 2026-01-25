@@ -197,6 +197,7 @@ from time import time, strftime
 @ultroid_cmd(pattern="p$")
 async def _(event):
     await event.delete()
+    pic = udB.get_key("ALIVE_PIC") or None
 
     current_time = strftime("%I:%M:%S %p (%Z)")
     current_date = strftime("%d %B %Y")
@@ -220,9 +221,9 @@ Owner          : <code>{owner}</code>
 """
 
     try:
-        await event.reply(msg_html, parse_mode="html")
+        await event.reply(msg_html, file=pic,parse_mode="html")
     except:
-        await event.reply(msg_md, parse_mode="md")
+        await event.reply(msg_md, file=pic,parse_mode="md")
 @ultroid_cmd(
     pattern="rs$",
     fullsudo=True,
