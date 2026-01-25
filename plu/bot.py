@@ -12,14 +12,6 @@ import asyncio
 import os
 import sys
 import time
-
-async def pi(event):
-    start = time.time()
-    x = await event.eor("Pong !")
-    end = round((time.time() - start) * 1000)
-    uptime = time_formatter((time.time() - start_time) * 1000)
-    await x.reply(get_string("ping").format(end, uptime))
-
 import os
 import sys
 import time
@@ -200,30 +192,37 @@ async def lol(ult):
         buttons=buttons if inline else None,
     )
 
-
 from time import time, strftime
 
-@ultroid_cmd(pattern="p$", chats=[], type=["official", "assistant"])
+@ultroid_cmd(pattern="p$")
 async def _(event):
-
     await event.delete()
 
     current_time = strftime("%I:%M:%S %p (%Z)")
     current_date = strftime("%d %B %Y")
-
     uptime = time_formatter((time() - start_time) * 1000)
     owner = inline_mention(event.sender)
 
-    await event.reply(
-        f"""<pre>
+    msg_html = f"""
+<pre>
 Bot start time : <code>{uptime}</code>
 Time           : {current_time}
 Date           : {current_date}
 Owner          : <code>{owner}</code>
-</pre>""",
-        file=udB.get_key("ALIVE_PIC"),
-        parse_mode="html"
-    )
+</pre>
+"""
+
+    msg_md = f"""
+`Bot start time : {uptime}`
+`Time           : {current_time}`
+`Date           : {current_date}`
+`Owner          : {owner}`
+"""
+
+    try:
+        await event.reply(msg_html, parse_mode="html")
+    except:
+        await event.reply(msg_md, parse_mode="md")
 @ultroid_cmd(
     pattern="rs$",
     fullsudo=True,
