@@ -365,19 +365,23 @@ async def anthropic_ai(event):
 @ultroid_cmd(pattern="gpt( (.*)|$)")
 async def openai_ai(event):
     """Use OpenAI GPT"""
-    #prompt = event.pattern_match.group(1).strip
-    prompt = event.pattern_match.group(1).strip()
-    reply = ""
+
+    prompt = event.pattern_match.group(2)
+
+    # agar type nahi kiya, to reply se uthao
     if not prompt:
         reply = await event.get_reply_message()
-    if reply:
-        prompt = reply.text or reply.raw_text
-    else:
-        return await event.eor("❌ Please reply to a message or give a prompt!")
+        if reply:
+            prompt = reply.text or reply.raw_text
+        else:
+            return await event.eor("❌ Prompt likho ya kisi message par reply karo")
+
     api_key = udB.get_key("OPENAI_API_KEY")
     if not api_key:
-        return await event.eor("⚠️ Please set GPT API key using `setdb OPENAI_API_KEY your_api_key`")
+        return await event.eor("❌ OPENAI_API_KEY set nahi hai")
 
+    # yahan se aage GPT call logic
+    await event.eor(f"🧠 Prompt mila:\n\n{prompt}")
     msg = await event.eor("🤔 Thinking...")
     model = get_model("gpt")
     
