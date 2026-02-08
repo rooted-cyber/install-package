@@ -282,85 +282,8 @@ async def get_ai_response(provider, prompt, api_key, stream=False):
         yield f"Error: {str(e)}"
 
 
-@ultroid_cmd(pattern="gemini( (.*)|$)")
-async def gemini_ai(event):
-    """Use Google Gemini"""
-    prompt = event.pattern_match.group(1).strip()
-    if not prompt:
-        return await event.eor("❌ Please provide a prompt!")
 
-    api_key = udB.get_key("GEMINI_API_KEY")
-    if not api_key:
-        return await event.eor("⚠️ Please set Gemini API key using `setdb GEMINI_API_KEY your_api_key`")
 
-    msg = await event.eor("🤔 Thinking...")
-    model = get_model("gemini")
-    
-    header = (
-        "🤖 **Google Gemini**\n"
-        f"**Model:** `{model}`\n"
-        "➖➖➖➖➖➖➖➖➖➖\n\n"
-        f"**🔍 Prompt:**\n{prompt}\n\n"
-        "**💡 Response:**\n"
-    )
-    
-    if event.client.me.bot:
-        await msg.edit(header)
-        response = ""
-        async for chunk in get_ai_response("gemini", prompt, api_key, stream=True):
-            response += chunk
-            try:
-                await msg.edit(header + response)
-            except Exception:
-                pass
-    else:
-        response = ""
-        async for chunk in get_ai_response("gemini", prompt, api_key, stream=True):
-            response += chunk
-        try:
-                await msg.edit(header + response)
-        except Exception:
-                pass
-
-@ultroid_cmd(pattern="antr( (.*)|$)")
-async def anthropic_ai(event):
-    """Use Anthropic Claude"""
-    prompt = event.pattern_match.group(1).strip()
-    if not prompt:
-        return await event.eor("❌ Please provide a prompt!")
-
-    api_key = udB.get_key("ANTHROPIC_KEY")
-    if not api_key:
-        return await event.eor("⚠️ Please set Anthropic API key using `setdb ANTHROPIC_KEY your_api_key`")
-
-    msg = await event.eor("🤔 Thinking...")
-    model = get_model("antr")
-    
-    formatted_response = (
-        "🧠 **Anthropic Claude**\n"
-        f"**Model:** `{model}`\n"
-        "➖➖➖➖➖➖➖➖➖➖\n\n"
-        f"**🔍 Prompt:**\n{prompt}\n\n"
-        f"**💡 Response:**\n"
-    )
-    
-    if event.client.me.bot:
-        await msg.edit(formatted_response)
-        response = ""
-        async for chunk in get_ai_response("antr", prompt, api_key, stream=True):
-            response += chunk
-            try:
-                await msg.edit(formatted_response + response)
-            except Exception:
-                pass
-    else:
-        response = ""
-        async for chunk in get_ai_response("antr", prompt, api_key, stream=True):
-            response += chunk
-        try:
-            await msg.edit(formatted_response + response)
-        except Exception:
-            pass
 
 @ultroid_cmd(pattern="gpt( (.*)|$)")
 async def openai_ai(event):
@@ -399,7 +322,7 @@ async def openai_ai(event):
         async for chunk in get_ai_response("gpt", prompt, api_key, stream=True):
             response += chunk
             try:
-                await msg.edit(f"{header}**{response}**")
+                await msg.edit(header + response)
             except Exception:
                 pass
     else:
@@ -407,7 +330,7 @@ async def openai_ai(event):
         async for chunk in get_ai_response("gpt", prompt, api_key, stream=True):
             response += chunk
         try:
-            await msg.edit(f"{header}**{response}**")
+            await msg.edit(header + response)
         except Exception:
             pass
 
