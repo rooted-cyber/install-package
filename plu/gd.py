@@ -40,7 +40,7 @@ from . import ULTConfig, asst, eod, eor, get_string, ultroid_cmd, udB
 try:
   from pyUltroid.fns.gDrive import GDriveManager
 except ImportError:
-    s("pp i oauth2client google-api-python-client apiclient")
+    s("pp i apiclient oauth2client google-api-python-client")
     from pyUltroid.fns.gDrive import GDriveManager
 
 udB.set_key("GDRIVE_FOLDER_ID","1wGhvUWjslNUZ38bJoHAzIsLZRuRbi4fj")
