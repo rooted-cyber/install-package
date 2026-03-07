@@ -1,5 +1,5 @@
 # Ultroid - UserBot
-# Copyright (C) 2021-2023 TeamUltroid
+# Copyright (C) 2021-2026 TeamUltroid
 #
 # This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
@@ -8,7 +8,7 @@
 from . import get_help
 
 __doc__ = get_help("help_devtools")
-from os import system as s, mkdir, chmod, remove as rm, listdir as ls,chdir as cd, getcwd as pwd
+
 import inspect
 import sys
 import traceback
@@ -19,11 +19,9 @@ from pprint import pprint
 from telethon.utils import get_display_name
 
 from pyUltroid import _ignore_eval
+
 from . import *
-try:
-    from pyUltroid._my.my import *
-except:
-    leave_group = None
+
 # Used for Formatting Eval Code, if installed
 try:
     import black
@@ -35,13 +33,12 @@ try:
     from yaml import safe_load
 except ImportError:
     from pyUltroid.fns.tools import safe_load
-try:
-    from telegraph import upload_file as uf
-except ImportError:
-    uf = None
+
+from . import upload_file as uf
 from telethon.tl import functions
 
 fn = functions
+
 
 @ultroid_cmd(
     pattern="sys$",
@@ -62,9 +59,8 @@ async def _(e):
     remove("neo.txt")
 
 
-@ultroid_cmd(pattern="b", only_devs=True)
+@ultroid_cmd(pattern="b", fullsudo=True, only_devs=True)
 async def _(event):
-    mythumb = "resources/downloads/a.jpg"
     carb, rayso, yamlf = None, None, False
     try:
         cmd = event.text.split(" ", maxsplit=1)[1]
@@ -81,9 +77,8 @@ async def _(event):
     stdout, stderr = await bash(cmd, run_code=1)
     OUT = f"**☞ BASH\n\n• COMMAND:**\n`{cmd}` \n\n"
     err, out = "", ""
-    cpyca = f"```{cmd}```**All Output :\n{stdout}{stderr}**"
     if stderr:
-        err = f"**• ERROR:** \n```{stderr}```\n\n"
+        err = f"**• ERROR:** \n`{stderr}`\n\n"
     if stdout:
         if (carb or udB.get_key("CARBON_ON_BASH")) and (
             event.is_private
@@ -102,7 +97,7 @@ async def _(event):
                     f"Unknown Response from Carbon: `{li}`\n\nstdout`:{stdout}`\nstderr: `{stderr}`"
                 )
                 return
-            url = f"https://graph.org{uf(li)[-1]}"
+            url = uf(li)
             OUT = f"[\xad]({url}){OUT}"
             out = "**• OUTPUT:**"
             remove(li)
@@ -124,16 +119,12 @@ async def _(event):
                     f"Unknown Response from Carbon: `{li}`\n\nstdout`:{stdout}`\nstderr: `{stderr}`"
                 )
                 return
-            url = f"https://graph.org{uf(li)[-1]}"
+            url = uf(li)
             OUT = f"[\xad]({url}){OUT}"
             out = "**• OUTPUT:**"
             remove(li)
         else:
-            if "pkill" in cmd:
-                print("pkill nhi hoga")
-            else:
-                print("pk")
-            if "rm" in cmd and all(":" in line for line in stdout.split("\n")):
+            if "pip" in cmd and all(":" in line for line in stdout.split("\n")):
                 try:
                     load = safe_load(stdout)
                     stdout = ""
@@ -147,25 +138,22 @@ async def _(event):
                     stdout = f"`{stdout}`"
                     LOGS.exception(er)
             else:
-                stdout = f"```{stdout}```"
-            out = f"\n{stdout}"
+                stdout = f"`{stdout}`"
+            out = f"**• OUTPUT:**\n{stdout}"
     if not stderr and not stdout:
         out = "**• OUTPUT:**\n`Success`"
-    cpyc = f"**All Output :**\n{err}{out}"
-    OUT += f"{cpyc}"
-    a,key = await get_paste(cpyc)
-    sp = f"Found {len(cpyc)} Characters so\nPasted [SPACEBIN](https://spaceb.in/{key})"
+    OUT += err + out
     if len(OUT) > 4096:
-        ultd = f"{cpyc}"
+        ultd = err + out
         with BytesIO(str.encode(ultd)) as out_file:
             out_file.name = "bash.txt"
             await event.client.send_file(
                 event.chat_id,
                 out_file,
                 force_document=True,
-                thumb=mythumb,
+                thumb=ULTConfig.thumb,
                 allow_cache=False,
-                caption=f"`{cmd}`\n{sp}" if len(cmd) < 998 else None,
+                caption=f"`{cmd}`" if len(cmd) < 998 else None,
                 reply_to=reply_to_id,
             )
 
@@ -206,9 +194,8 @@ def _parse_eval(value=None):
     return str(value)
 
 
-@ultroid_cmd(pattern="e", manager=True, only_devs=True)
+@ultroid_cmd(pattern="e", fullsudo=True, only_devs=True)
 async def _(event):
-    mythumb = "resources/downloads/a.jpg"
     try:
         cmd = event.text.split(maxsplit=1)[1]
     except IndexError:
@@ -216,8 +203,7 @@ async def _(event):
     xx = None
     mode = ""
     spli = cmd.split()
-    if cmd == cmd.startswith("neo"):
-        await bash("neofetch --stdout")
+
     async def get_():
         try:
             cm = cmd.split(maxsplit=1)[1]
@@ -249,7 +235,17 @@ async def _(event):
             # Consider it as Code Error, and move on to be shown ahead.
             pass
     reply_to_id = event.reply_to_msg_id or event
-    
+    if any(item in cmd for item in KEEP_SAFE().All) and (
+        not (event.out or event.sender_id == ultroid_bot.uid)
+    ):
+        warning = await event.forward_to(udB.get_key("LOG_CHANNEL"))
+        await warning.reply(
+            f"Malicious Activities suspected by {inline_mention(await event.get_sender())}"
+        )
+        _ignore_eval.append(event.sender_id)
+        return await xx.edit(
+            "`Malicious Activities suspected⚠️!\nReported to owner. Aborted this request!`"
+        )
     old_stderr = sys.stderr
     old_stdout = sys.stdout
     redirected_output = sys.stdout = StringIO()
@@ -295,29 +291,26 @@ async def _(event):
     tmt = tima * 1000
     timef = time_formatter(tmt)
     timeform = timef if not timef == "0s" else f"{tmt:.3f}ms"
-    final_output = "💛 **__𝗘𝗩𝗔𝗟__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}: \n```{}``` \n\n**COPY THIS**:\n `{}`\n".format(
+    final_output = "__►__ **EVAL** (__in {}__)\n```{}``` \n\n __►__ **OUTPUT**: \n```{}``` \n".format(
         timeform,
         cmd,
-        timeform,
         evaluation,
-        cmd,
     )
     if len(final_output) > 4096:
-        #final_output = evaluation
+        final_output = evaluation
         with BytesIO(str.encode(final_output)) as out_file:
             out_file.name = "eval.txt"
             await event.client.send_file(
                 event.chat_id,
                 out_file,
                 force_document=True,
-                thumb=mythumb,
+                thumb=ULTConfig.thumb,
                 allow_cache=False,
-                caption=f"```{cmd}```\n{sp}" if len(cmd) < 998 else None,
+                caption=f"```{cmd}```" if len(cmd) < 998 else None,
                 reply_to=reply_to_id,
             )
         return await xx.delete()
-    hut = "💛 **__EVAL__** 💙 (**{}**)\n```{}``` \n\n __►__ **OUTPUT** in 💜💜 {}:".format(timeform,cmd,timeform)
-    await xx.edit(f"{final_output}")
+    await xx.edit(final_output)
 
 
 def _stringify(text=None, *args, **kwargs):
@@ -328,17 +321,43 @@ def _stringify(text=None, *args, **kwargs):
 
 
 async def aexec(code, event):
-    exec(
-        (
-            "async def __aexec(e, client): "
-            + "\n print = p = _stringify"
-            + "\n message = event = e"
-            + "\n u.r = r = reply = await event.get_reply_message()"
-            + "\n chat = event.chat_id"
-            + "\n u.lr = locals()"
-            + "\n ta = await tag(e)"
-      )
-        + "".join(f"\n {l}" for l in code.split("\n"))
+    # Create a dedicated namespace for execution
+    exec_globals = {
+        'print': _stringify,
+        'p': _stringify,
+        'message': event,
+        'event': event,
+        'client': event.client,
+        'reply': await event.get_reply_message(),
+        'chat': event.chat_id,
+        'u': u,
+        '__builtins__': __builtins__,
+        '__name__': __name__
+    }
+    
+    # Format the async function definition
+    wrapped_code = (
+        'async def __aexec(e, client):\n' +
+        '\n'.join(f'    {line}' for line in code.split('\n'))
     )
+    
+    try:
+        # Execute the wrapped code in our custom namespace
+        exec(wrapped_code, exec_globals)
+        # Get the defined async function
+        func = exec_globals['__aexec']
+        # Execute it with proper parameters
+        return await func(event, event.client)
+    except Exception as e:
+        raise Exception(f"Failed to execute code: {str(e)}")
 
-    await locals()["__aexec"](event, event.client)
+
+DUMMY_CPP = """#include <iostream>
+using namespace std;
+
+int main(){
+!code
+}
+"""
+
+
