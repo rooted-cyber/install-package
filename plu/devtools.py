@@ -344,6 +344,6 @@ async def aexec(code, event):
     try:
         exec(wrapped_code, exec_globals)
         func = exec_globals.get('__aexec')
-        return await func(event, client)
+        return await func(event, event.client)
     except Exception as e:
         raise Exception(f"Failed to execute code: {str(e)}")
