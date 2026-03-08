@@ -337,27 +337,13 @@ async def aexec(code, event):
     
     # Format the async function definition
     wrapped_code = (
-        'async def __aexec(e, client):\n' +
-        '\n'.join(f'    {line}' for line in code.split('\n'))
+    'async def __aexec(event, client):\n' +
+    '\n'.join(f'    {line}' for line in code.split('\n'))
     )
-    
+
     try:
-        # Execute the wrapped code in our custom namespace
         exec(wrapped_code, exec_globals)
-        # Get the defined async function
-        func = exec_globals['__aexec']
-        # Execute it with proper parameters
-        return await func(event, event.client)
+        func = exec_globals.get('__aexec')
+        return await func(event, client)
     except Exception as e:
         raise Exception(f"Failed to execute code: {str(e)}")
-
-
-DUMMY_CPP = """#include <iostream>
-using namespace std;
-
-int main(){
-!code
-}
-"""
-
-
