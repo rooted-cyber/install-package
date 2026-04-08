@@ -1,12 +1,31 @@
-# Ultroid - GDrive Size Plugin
+# Ultroid - GDrive Size (Auto Refresh)
 
 from . import ultroid_cmd, udB, eor
 import requests
 
+# 🔁 Get new access token automatically
+def get_access_token():
+    REFRESH_TOKEN = udB.get_key("GDRIVE_REFRESH")
+
+    if not REFRESH_TOKEN:
+        return None
+
+    url = "https://oauth2.googleapis.com/token"
+    data = {
+        "client_id": "407408718192.apps.googleusercontent.com",
+        "client_secret": "secret",
+        "refresh_token": REFRESH_TOKEN,
+        "grant_type": "refresh_token"
+    }
+
+    res = requests.post(url, data=data).json()
+    return res.get("access_token")
+
+
 def get_files(folder_id, token):
     url = "https://www.googleapis.com/drive/v3/files"
     headers = {"Authorization": f"Bearer {token}"}
-    
+
     files = []
     page_token = None
 
@@ -23,7 +42,6 @@ def get_files(folder_id, token):
         res = requests.get(url, params=params, headers=headers)
         data = res.json()
 
-        # ❗ API Error
         if "error" in data:
             return None, data
 
@@ -58,25 +76,27 @@ def get_size(folder_id, token, level=0):
     return total, output, None
 
 
-# 🔐 Set Token Command
-# 🔐 Set Token Command (short = st)
+# 🔐 Save Refresh Token
 @ultroid_cmd(pattern="sett( (.*)|$)", fullsudo=True)
-async def set_token(ult):
+async def set_refresh(ult):
     token = ult.pattern_match.group(1).strip()
-    if not token:
-        return await eor(ult, "Give me access token!")
 
-    udB.set_key("GDRIVE_TOKEN", token)
-    await eor(ult, "GDrive Token Saved!")
-# 📦 Size Command
-@ultroid_cmd(pattern="gs$", fullsudo=True)
+    if not token:
+        return await eor(ult, "❌ Give refresh token!")
+
+    udB.set_key("GDRIVE_REFRESH", token)
+    await eor(ult, "✅ Refresh Token Saved!")
+
+
+# 📦 Check Drive Size
+@ultroid_cmd(pattern="gsize$", fullsudo=True)
 async def gsize_cmd(ult):
-    msg = await eor(ult, "📦 Calculating Google Drive size...")
+    msg = await eor(ult, "📦 Calculating Drive Size...")
 
-    token = udB.get_key("GDRIVE_TOKEN")
+    token = get_access_token()
 
     if not token:
-        return await msg.edit("❌ No token found!\nUse  `.setgdt <token>`")
+        return await msg.edit("❌ No refresh token!\nUse `.st <refresh_token>`")
 
     total, details, error = get_size("root", token)
 
