@@ -59,16 +59,15 @@ def get_size(folder_id, token, level=0):
 
 
 # 🔐 Set Token Command
-@ultroid_cmd(pattern="st(.*)|$)", fullsudo=True)
+# 🔐 Set Token Command (short = st)
+@ultroid_cmd(pattern="set( (.*)|$)", fullsudo=True)
 async def set_token(ult):
     token = ult.pattern_match.group(1).strip()
     if not token:
         return await eor(ult, "Give me access token!")
 
     udB.set_key("GDRIVE_TOKEN", token)
-    await eor(ult, "✅ GDrive Token Saved!")
-
-
+    await eor(ult, "GDrive Token Saved!")
 # 📦 Size Command
 @ultroid_cmd(pattern="gs$", fullsudo=True)
 async def gsize_cmd(ult):
@@ -77,7 +76,7 @@ async def gsize_cmd(ult):
     token = udB.get_key("GDRIVE_TOKEN")
 
     if not token:
-        return await msg.edit("❌ No token found!\nUse `.setgdt <token>`")
+        return await msg.edit("❌ No token found!\nUse  `.setgdt <token>`")
 
     total, details, error = get_size("root", token)
 
