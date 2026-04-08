@@ -84,12 +84,12 @@ async def set_refresh(ult):
     if not token:
         return await eor(ult, "❌ Give refresh token!")
 
-    udB.set_key("GDRIVE_REFRESH", token)
+    udB.set_key("REFRESH_TOKEN", token)
     await eor(ult, "✅ Refresh Token Saved!")
 
 
 # 📦 Check Drive Size
-@ultroid_cmd(pattern="gsize$", fullsudo=True)
+@ultroid_cmd(pattern="gs$", fullsudo=True)
 async def gsize_cmd(ult):
     msg = await eor(ult, "📦 Calculating Drive Size...")
 
