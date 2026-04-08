@@ -60,7 +60,7 @@ def get_size(folder_id, token, level=0):
 
 # 🔐 Set Token Command
 # 🔐 Set Token Command (short = st)
-@ultroid_cmd(pattern="set( (.*)|$)", fullsudo=True)
+@ultroid_cmd(pattern="sett( (.*)|$)", fullsudo=True)
 async def set_token(ult):
     token = ult.pattern_match.group(1).strip()
     if not token:
