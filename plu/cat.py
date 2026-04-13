@@ -4,7 +4,7 @@ import requests
 @ultroid_cmd(pattern="cat$")
 async def catbox_uploader(e):
     ax = await e.eor(get_string("com_1"))
-    #reply = await e.get_reply_message()
+    reply = await e.get_reply_message()
 
     if not reply or not reply.media:
         return await e.reply("कृपया किसी इमेज पर रिप्लाई करें।")
