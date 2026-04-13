@@ -89,6 +89,7 @@ async def sfupload(e):
 
     cmd = [
         "scp",
+        "-C"
         "-i", private_key_path,
         file_path,
         f"{sf_user}@frs.sourceforge.net:{remote_dir}"
