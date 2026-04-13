@@ -4,7 +4,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 import os
 from . import ultroid_cmd
 
-@ultroid_cmd(pattern="c ?(.*)")
+@ultroid_cmd(pattern="cl ?(.*)")
 async def clone_user(event):
     reply = await event.get_reply_message()
     user = event.pattern_match.group(1)
