@@ -104,7 +104,7 @@ async def sfupload(e):
             await msg.edit(
                 f"✅ Upload Done!\n\n"
                 f"📁 <code>{file_name}</code>\n"
-                f"📎 <a href='{safe_link}'>Download</a>",
+                f"📎 <a href='{link}'>Download</a>",
                 parse_mode="html"
             )
         else:
