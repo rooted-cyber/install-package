@@ -1,71 +1,86 @@
 from . import *
 import os
 import subprocess
-import math
-from multiprocessing.pool import ThreadPool
+import time
+import requests
 
 @ultroid_cmd(pattern="sf( (.*)|$)")
 async def sfupload(e):
     reply = await e.get_reply_message()
+
     if not reply or not reply.media:
         return await e.eor("⚠️ Reply to media")
 
     new_name = e.pattern_match.group(2)
-    msg = await e.eor("⚡ Ultra Fast Upload Starting...")
+    msg = await e.eor("📥 Downloading...")
 
-    file_path = await reply.download_media(progress_callback=None)
+    file_path = await reply.download_media()
 
     if not file_path:
         return await msg.edit("❌ Download fail")
-
-    sf_user = "rootedcyber"
-    sf_project = "rnx1941"
-    private_key = os.path.expanduser("~/.ssh/id_rsa")
-    remote_dir = f"/home/frs/project/{sf_project}/"
 
     # rename
     if new_name:
         if "." not in new_name:
             new_name += os.path.splitext(file_path)[1]
-        new_file = os.path.join(os.path.dirname(file_path), new_name)
-        os.rename(file_path, new_file)
-        file_path = new_file
+        new_path = os.path.join(os.path.dirname(file_path), new_name)
+        os.rename(file_path, new_path)
+        file_path = new_path
 
-    # split file
-    chunk_size = 5 * 1024 * 1024  # 5MB chunks
-    chunks = []
+    sf_user = "rootedcyber"
+    sf_project = "rnx1941"
+    private_key = os.path.expanduser("~/.ssh/id_ed25519")
+    remote_dir = f"/home/frs/project/{sf_project}/"
 
-    with open(file_path, "rb") as f:
-        i = 0
-        while True:
-            data = f.read(chunk_size)
-            if not data:
-                break
-            chunk_file = f"{file_path}.part{i}"
-            with open(chunk_file, "wb") as cf:
-                cf.write(data)
-            chunks.append(chunk_file)
-            i += 1
+    file_name = os.path.basename(file_path)
+    link = f"https://downloads.sourceforge.net/project/{sf_project}/{file_name}"
 
-    def upload(chunk):
+    await msg.edit("📤 Uploading... (auto retry enabled)")
+
+    # 🔁 RETRY SYSTEM
+    success = False
+    max_retry = 3
+
+    for i in range(max_retry):
         cmd = [
-            "rsync",
-            "-az",
-            "-e", f"ssh -i {private_key}",
-            chunk,
-            f"{sf_user}@frs.sourceforge.net:{remote_dir}"
+            "sftp",
+            "-i", private_key,
+            f"{sf_user}@frs.sourceforge.net"
         ]
-        subprocess.run(cmd)
-        return chunk
 
-    # ⚡ PARALLEL UPLOAD (3 threads)
-    pool = ThreadPool(3)
-    pool.map(upload, chunks)
+        sftp_cmd = f"put {file_path} {remote_dir}\nquit\n"
 
-    # cleanup
-    for c in chunks:
-        os.remove(c)
+        result = subprocess.run(cmd, input=sftp_cmd, text=True)
 
-    os.remove(file_path)
+        if result.returncode == 0:
+            success = True
+            break
 
-    await msg.edit("✅ Ultra Fast Upload Done!")
+        await msg.edit(f"⚠️ Retry {i+1}/{max_retry}...")
+
+        time.sleep(2)
+
+    if not success:
+        return await msg.edit("❌ Upload failed after retries")
+
+    # 🌐 LINK CHECK (instant verify)
+    try:
+        r = requests.head(link, timeout=5)
+        if r.status_code != 200:
+            return await msg.edit(
+                f"⚠️ Upload done but link not active yet\n\n{link}"
+            )
+    except:
+        pass
+
+    await msg.edit(
+        f"✅ Upload Successful!\n\n"
+        f"📁 <code>{file_name}</code>\n"
+        f"📎 <a href='{link}'>Download Link</a>",
+        parse_mode="html"
+    )
+
+    try:
+        os.remove(file_path)
+    except:
+        pass
