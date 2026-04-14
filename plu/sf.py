@@ -35,7 +35,7 @@ async def sfupload(e):
     remote_dir = f"/home/frs/project/{sf_project}/"
 
     # SFTP upload
-    sftp_cmd = f"put {file_path} {remote_dir}\nquit\n"
+    sftp_cmd = f"put {file_path} {remote_dir}/tg_upload\nquit\n"
 
     cmd = [
         "sftp",
