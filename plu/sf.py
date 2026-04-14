@@ -1,10 +1,8 @@
 from . import *
 import os
 import subprocess
-import time
-import requests
 
-@ultroid_cmd(pattern="sf( (.*)|$)")
+@ultroid_cmd(pattern="sfup( (.*)|$)")
 async def sfupload(e):
     reply = await e.get_reply_message()
 
@@ -14,7 +12,7 @@ async def sfupload(e):
     new_name = e.pattern_match.group(2)
     msg = await e.eor("📥 Downloading...")
 
-    file_path = await reply.download_media()
+    file_path = await reply.download_media(progress_callback=None)
 
     if not file_path:
         return await msg.edit("❌ Download fail")
@@ -27,58 +25,38 @@ async def sfupload(e):
         os.rename(file_path, new_path)
         file_path = new_path
 
+    file_name = os.path.basename(file_path)
+
+    await msg.edit("📤 Uploading via SFTP...")
+
     sf_user = "rootedcyber"
     sf_project = "rnx1941"
     private_key = os.path.expanduser("~/.ssh/id_ed25519")
     remote_dir = f"/home/frs/project/{sf_project}/"
 
-    file_name = os.path.basename(file_path)
-    link = f"https://downloads.sourceforge.net/project/{sf_project}/{file_name}"
+    # SFTP upload
+    sftp_cmd = f"put {file_path} {remote_dir}\nquit\n"
 
-    await msg.edit("📤 Uploading... (auto retry enabled)")
+    cmd = [
+        "sftp",
+        "-i", private_key,
+        "-o", "StrictHostKeyChecking=no",
+        f"{sf_user}@frs.sourceforge.net"
+    ]
 
-    # 🔁 RETRY SYSTEM
-    success = False
-    max_retry = 3
+    result = subprocess.run(cmd, input=sftp_cmd, text=True)
 
-    for i in range(max_retry):
-        cmd = [
-            "sftp",
-            "-i", private_key,
-            f"{sf_user}@frs.sourceforge.net"
-        ]
+    if result.returncode == 0:
+        link = f"https://downloads.sourceforge.net/project/{sf_project}/{file_name}"
 
-        sftp_cmd = f"put {file_path} {remote_dir}\nquit\n"
-
-        result = subprocess.run(cmd, input=sftp_cmd, text=True)
-
-        if result.returncode == 0:
-            success = True
-            break
-
-        await msg.edit(f"⚠️ Retry {i+1}/{max_retry}...")
-
-        time.sleep(2)
-
-    if not success:
-        return await msg.edit("❌ Upload failed after retries")
-
-    # 🌐 LINK CHECK (instant verify)
-    try:
-        r = requests.head(link, timeout=5)
-        if r.status_code != 200:
-            return await msg.edit(
-                f"⚠️ Upload done but link not active yet\n\n{link}"
-            )
-    except:
-        pass
-
-    await msg.edit(
-        f"✅ Upload Successful!\n\n"
-        f"📁 <code>{file_name}</code>\n"
-        f"📎 <a href='{link}'>Download Link</a>",
-        parse_mode="html"
-    )
+        await msg.edit(
+            f"✅ Upload Done!\n\n"
+            f"📁 <code>{file_name}</code>\n"
+            f"📎 <a href='{link}'>Download</a>",
+            parse_mode="html"
+        )
+    else:
+        await msg.edit("❌ Upload failed")
 
     try:
         os.remove(file_path)
