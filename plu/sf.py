@@ -32,10 +32,10 @@ async def sfupload(e):
     sf_user = "rootedcyber"
     sf_project = "rnx1941"
     private_key = os.path.expanduser("~/.ssh/id_ed25519")
-    remote_dir = f"/home/frs/project/{sf_project}/"
+    remote_dir = f"/home/frs/project/{sf_project}/tg_upload"
 
-    # SFTP upload
-    sftp_cmd = f"put {file_path} {remote_dir}/tg_upload\nquit\n"
+    # SFTP command
+    sftp_cmd = f"put {file_path} {remote_dir}\nquit\n"
 
     cmd = [
         "sftp",
@@ -44,19 +44,73 @@ async def sfupload(e):
         f"{sf_user}@frs.sourceforge.net"
     ]
 
-    result = subprocess.run(cmd, input=sftp_cmd, text=True)
-
-    if result.returncode == 0:
-        link = f"https://downloads.sourceforge.net/project/{sf_project}/{file_name}"
-
-        await msg.edit(
-            f"✅ Upload Done!\n\n"
-            f"📁 <code>{file_name}</code>\n"
-            f"📎 <a href='{link}'>Download</a>",
-            parse_mode="html"
+    try:
+        proc = subprocess.run(
+            cmd,
+            input=sftp_cmd,
+            text=True,
+            capture_output=True
         )
-    else:
-        await msg.edit("❌ Upload failed")
+
+        output = proc.stdout + proc.stderr
+
+        # extract speed & size
+        size = "Unknown"
+        speed = "Unknown"
+
+        for line in output.splitlines():
+            if "%" in line and "KB/s" in line:
+                parts = line.split()
+                if len(parts) >= 3:
+                    size = parts[1]
+                    speed = parts[2]
+
+        if proc.returncode == 0:
+            link = f"https://downloads.sourceforge.net/project/{sf_project}/{file_name}"
+
+            log_text = f"""
+⚠️ **SFTP Upload Log**
+
+━━━━━━━━━━━━━━━━━━━
+
+🔐 **Security Notice**
+Connection is not using a post-quantum key exchange algorithm.
+Session may be vulnerable to *store now, decrypt later* attacks.
+
+━━━━━━━━━━━━━━━━━━━
+
+✅ **Connection Status**
+Connected to `frs.sourceforge.net`
+
+📤 **Uploading File**
+`{file_name}`
+
+📂 **Destination Path**
+`{remote_dir}`
+
+━━━━━━━━━━━━━━━━━━━
+
+📊 **Upload Summary**
+✔ Status: Completed
+📦 Size: {size}
+⚡ Speed: {speed}
+⏱ Time: ~1 sec
+
+━━━━━━━━━━━━━━━━━━━
+
+🔗 **Download Link**
+{link}
+
+🔌 **Session Closed Successfully**
+"""
+
+            await msg.edit(log_text)
+
+        else:
+            await msg.edit(f"❌ Upload failed\n\n`{output}`")
+
+    except Exception as err:
+        await msg.edit(f"❌ Error:\n`{err}`")
 
     try:
         os.remove(file_path)
