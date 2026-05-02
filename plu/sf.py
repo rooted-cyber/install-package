@@ -125,4 +125,19 @@ Connected to `frs.sourceforge.net`
 ✔ Status: Completed
 📦 Size: {size_kb} KB
 ⚡ Avg Speed: {speed}
-⏱
+⏱ Time: {round(time.time() - start_time)} sec
+
+━━━━━━━━━━━━━━━━━━━
+
+🔗 **Download Link**
+{link}
+
+🔌 **Session Closed Successfully**
+"""
+
+    await msg.edit(final_text)
+
+    try:
+        os.remove(file_path)
+    except:
+        pass
